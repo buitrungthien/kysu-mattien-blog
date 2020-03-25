@@ -9,7 +9,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <div>I have written {data.allMarkdownRemark.totalCount} blog posts</div>
+      <div>Tổng số bài viết: {data.allMarkdownRemark.totalCount} bài</div>
       {edges.map(({node}) => (
         <article key={node.id}>
           <h2>
