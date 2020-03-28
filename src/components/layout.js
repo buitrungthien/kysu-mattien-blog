@@ -26,12 +26,18 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
+      <aside className='social'>
+        <ul className="social-links-wrap">
+          <li className="social-link"></li>
+          <li className="social-link"></li>
+        </ul>
+      </aside>
       <main className='main'>{children}</main>
       <footer className='footer'>
         <nav>
           <ul>
             <li><Link to='about'>Về tôi</Link></li>
-            <li><Link to='contact'>Liên hệ / Thuê</Link></li>
+            <li><Link to='contact'>Liên hệ</Link></li>
           </ul>
         </nav>
         <span>© {new Date().getFullYear()}, Built with
