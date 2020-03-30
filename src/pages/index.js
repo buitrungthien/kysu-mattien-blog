@@ -11,29 +11,45 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <di className="main__content">
-        <di className="articles-wrap">
+      <div className="register-bar">
+        <span>
+          Bạn muốn nhận những bài viết mới nhất, những khóa học bổ ích?
+        </span>
+        <form>
+          <input placeholder="Email của bạn" />
+          <button>Gửi tôi</button>
+        </form>
+      </div>
+      <div className="main__content">
+        <div className="articles-wrap">
           {edges.map(({ node }) => (
             <article key={node.id} className="article-card">
               <div className="article-card__image-wrap">
                 <img src={defaultImage} alt="abc" />
               </div>
-              <di className="article-card__content">
+              <div className="article-card__content">
                 <h2 className="article-card__header">
-                  {node.frontmatter.title} -{' '}
-                  <time>{node.frontmatter.date}</time>
+                  {node.frontmatter.title}
                 </h2>
                 <div className="article-card__excerpt">{node.excerpt}</div>
-                <div className="author-info">
-                  <div className="author-image-wrap">
-                    <img src={myAvatar} alt="Bùi Kiệm" />
+                <div className="article-card__footer">
+                  <div className="author-info">
+                    <div className="author-image-wrap">
+                      <img src={myAvatar} alt="Bùi Kiệm" />
+                    </div>
+                    <span className="author-name">
+                      {node.frontmatter.author.name || 'Thiên Bùi'}
+                    </span>
                   </div>
-                  <span className="author-name">Tony Bùi</span>
+                  <div>
+                    <time>{node.frontmatter.date}</time>
+                    <span className="tag">{node.frontmatter.tag}</span>
+                  </div>
                 </div>
-              </di>
+              </div>
             </article>
           ))}
-        </di>
+        </div>
         <aside className="side-bar">
           <span className="side-bar__filter-title">Lọc bài viết</span>
           <ul className="tags-option">
@@ -46,7 +62,7 @@ const IndexPage = ({ data }) => {
             placeholder="Tìm bài viết bằng tên"
           />
         </aside>
-      </di>
+      </div>
     </Layout>
   );
 };
@@ -62,6 +78,10 @@ export const query = graphql`
           frontmatter {
             date
             title
+            author {
+              name
+            }
+            tag
           }
           excerpt
         }

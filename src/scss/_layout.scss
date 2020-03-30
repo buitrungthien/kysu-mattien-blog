@@ -21,6 +21,12 @@
   align-content: center;
   justify-content: space-between;
   font-family: 'Dancing Script', cursive;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: white;
+  margin-bottom: 5rem;
 
   .logo,
   .perspective {
@@ -88,15 +94,16 @@
   grid-area: social;
   margin-right: 3rem;
   display: flex;
-  position: sticky;
-  top: 0;
-  left: 0;
 
   .social-links-wrap {
     display: flex;
     flex-direction: column;
     justify-content: center;
     list-style: none;
+    height: fit-content;
+    position: sticky;
+    top: 30rem;
+    left: 0;
   }
 
   .facebook {
