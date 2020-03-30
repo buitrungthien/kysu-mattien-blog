@@ -17,17 +17,17 @@
   min-height: 8rem;
   grid-area: head;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-content: center;
   justify-content: space-between;
   font-family: 'Dancing Script', cursive;
 
-  .my-name,
+  .logo,
   .perspective {
     font-size: 2.7rem;
   }
 
-  .my-name {
+  .logo {
     justify-self: start;
   }
 
@@ -45,38 +45,6 @@
     align-items: center;
     position: relative;
     line-height: 1.7;
-
-    &::before,
-    &::after {
-      content: '';
-      position: absolute;
-      background: transparent;
-      bottom: 0;
-      width: 90%;
-      height: 3px;
-      margin: auto;
-      transform: scaleX(0);
-      transition: all ease 0.4s;
-      border-radius: 100%;
-    }
-
-    &:hover {
-      &::before {
-        width: 90%;
-        height: 3px;
-        bottom: 4px;
-        transform: scaleX(1);
-        background: red;
-      }
-
-      &::after {
-        width: 75%;
-        height: 2px;
-        bottom: 0;
-        transform: scaleX(1);
-        background: red;
-      }
-    }
   }
 }
 
@@ -124,11 +92,25 @@
   top: 0;
   left: 0;
 
-  
   .social-links-wrap {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     list-style: none;
+  }
+
+  .facebook {
+    border: solid 3px #3b5998;
+    svg {
+      fill: #3b5998;
+    }
+  }
+
+  .youtube {
+    border: solid 3px #c4302b;
+    svg {
+      fill: #c4302b;
+    }
   }
 
   .social-link {
@@ -136,17 +118,38 @@
     height: 4rem;
     border-radius: 5px;
     margin-bottom: 2rem;
-    background: white;
     border-radius: 15px;
     cursor: pointer;
-    box-shadow: -3px -3px 3px rgba(0,0,0,0.2),
-                3px 3px 3px rgba(0,0,0,0.1);
+    transition: all ease 0.3s;
+    position: relative;
+
+    svg {
+      width: 80%;
+      height: 80%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all ease 0.3s;
+    }
 
     &:hover {
-      box-shadow: -3px -3px 3px rgba(0,0,0,0.2),
-                  3px 3px 3px rgba(0,0,0,0.1),
-				          inset -3px -3px -3px rgba(255,255,255,0.2),
-				          inset 3px 3px 3px rgba(0,0,0,0.1);
+      transform: scale(1.2);
+      border-radius: 50%;
+
+      &.facebook {
+        background-color: #3b5998;
+        svg {
+          fill: white;
+        }
+      }
+
+      &.youtube {
+        background-color: #c4302b;
+        svg {
+          fill: white;
+        }
+      }
     }
   }
 }

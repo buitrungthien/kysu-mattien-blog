@@ -4,11 +4,10 @@ import React from 'react';
 
 const Header = ({ siteTitle }) => (
   <header className='header'>
-    <p className='my-name'>Tony</p>
-    <h1>
+    <h1 className='logo'>
       <Link to="/">{siteTitle}</Link>
     </h1>
-    <p className='perspective'>Chia sẻ kiến thức</p>
+    <p className='perspective'>Từ Zero đến Hero</p>
   </header>
 );
 
