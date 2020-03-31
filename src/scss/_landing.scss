@@ -88,10 +88,28 @@
   flex-direction: column;
   align-items: flex-start;
 
+  input[type='checkbox'] {
+    display: none;
+  }
+
+  input[type='checkbox']:checked + label.tag {
+    &::after {
+      content: '';
+      background-color: red;
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      top: 3px;
+      left: 3px;
+    }
+  }
+
   & > *:not(:last-child) {
     margin-bottom: 2rem;
   }
 }
+
 .tag {
   padding: 1rem 0.5rem;
   background: rgb(245, 245, 211);
@@ -120,17 +138,6 @@
 
   &:first-child::before {
     transform: skewY(10deg);
-  }
-
-  &::after {
-    content: '';
-    background-color: red;
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    top: 3px;
-    left: 3px;
   }
 }
 
@@ -209,7 +216,7 @@
 .author-info {
   display: flex;
   align-items: center;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 
   & > *:not(:last-child) {
     margin-right: 1rem;

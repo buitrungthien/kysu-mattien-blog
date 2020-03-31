@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
@@ -7,7 +7,42 @@ import defaultImage from '../images/images.jpg';
 import myAvatar from '../images/my-avatar.jpg';
 
 const IndexPage = ({ data }) => {
-  const { edges } = data.allMarkdownRemark;
+  const allPosts = data.allMarkdownRemark.edges;
+  const [filteredData, setFilteredData] = useState([...allPosts]);
+  const [filterValue, setFilterValue] = useState({ tech: true, exp: true });
+  const [searchValue, setSearchValue] = useState('');
+
+  useEffect(() => {
+    const filteredPosts = allPosts.filter(post => {
+      if (!searchValue) {
+        if (filterValue[post.node.frontmatter.tag]) return post;
+      } else {
+        if (filterValue[post.node.frontmatter.tag] && post.node.frontmatter.title.toLowerCase().includes(searchValue)) return post;
+      }
+    });
+    setFilteredData(filteredPosts);
+  }, [filterValue, searchValue]);
+
+  const handleFilterChange = event => {
+    const { name } = event.target;
+    const { checked } = event.target;
+    const filterKeyNeedTOBEChecked = name === 'tech' ? 'exp' : 'tech';
+    if (!filterValue[filterKeyNeedTOBEChecked]) {
+      return; //At least one filter value is choosed
+    } else {
+      setFilterValue({
+        ...filterValue,
+        [name]: checked,
+      });
+    }
+  };
+
+  const handleSearch = event => {
+    const { value } = event.target;
+    const searchValue = value.trim().toLowerCase();
+    setSearchValue(searchValue);
+  };
+
   return (
     <Layout>
       <SEO title="Home" />
@@ -22,7 +57,7 @@ const IndexPage = ({ data }) => {
       </div>
       <div className="main__content">
         <div className="articles-wrap">
-          {edges.map(({ node }) => (
+          {filteredData.map(({ node }) => (
             <article key={node.id} className="article-card">
               <div className="article-card__image-wrap">
                 <img src={defaultImage} alt="abc" />
@@ -43,7 +78,11 @@ const IndexPage = ({ data }) => {
                   </div>
                   <div>
                     <time>{node.frontmatter.date}</time>
-                    <span className="tag">{node.frontmatter.tag}</span>
+                    <span className="tag">
+                      {node.frontmatter.tag === 'tech'
+                        ? 'technical'
+                        : 'kinh nghiệm đi làm, tự học'}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -52,14 +91,34 @@ const IndexPage = ({ data }) => {
         </div>
         <aside className="side-bar">
           <span className="side-bar__filter-title">Lọc bài viết</span>
-          <ul className="tags-option">
-            <li className="tag">Technical</li>
-            <li className="tag">Kinh nghiệm đi làm, tự học</li>
-          </ul>
+          <div className="tags-option">
+            <input
+              id="tech"
+              name="tech"
+              type="checkbox"
+              checked={filterValue.tech}
+              onChange={handleFilterChange}
+            />
+            <label className="tag" htmlFor="tech">
+              Technical
+            </label>
+            <input
+              id="exp"
+              name="exp"
+              type="checkbox"
+              checked={filterValue.exp}
+              onChange={handleFilterChange}
+            />
+            <label className="tag" htmlFor="exp">
+              Kinh nghiệm đi làm, tự học
+            </label>
+          </div>
           <input
             type="search"
             className="search"
-            placeholder="Tìm bài viết bằng tên"
+            placeholder="Tìm kiếm bài viết"
+            value={searchValue}
+            onChange={handleSearch}
           />
         </aside>
       </div>
@@ -86,7 +145,6 @@ export const query = graphql`
           excerpt
         }
       }
-      totalCount
     }
   }
 `;

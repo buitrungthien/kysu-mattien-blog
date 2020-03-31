@@ -7,7 +7,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
 import '../scss/main.scss';
@@ -53,13 +53,13 @@ const Layout = ({ children }) => {
         <nav>
           <ul>
             <li>
-              <Link to="about">Về tôi</Link>
+              <a href="about">Về tôi</a>
             </li>
             <li>
-              <Link to="contact">Dự án tôi đã làm</Link>
+              <a href="portfolio">Dự án tôi đã làm</a>
             </li>
             <li>
-              <Link to="contact">Liên hệ / Thuê</Link>
+              <a href="contact">Liên hệ / Thuê</a>
             </li>
           </ul>
         </nav>
