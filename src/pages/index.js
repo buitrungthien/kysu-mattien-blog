@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -17,7 +17,11 @@ const IndexPage = ({ data }) => {
       if (!searchValue) {
         if (filterValue[post.node.frontmatter.tag]) return post;
       } else {
-        if (filterValue[post.node.frontmatter.tag] && post.node.frontmatter.title.toLowerCase().includes(searchValue)) return post;
+        if (
+          filterValue[post.node.frontmatter.tag] &&
+          post.node.frontmatter.title.toLowerCase().includes(searchValue.trim())
+        )
+          return post;
       }
     });
     setFilteredData(filteredPosts);
@@ -39,7 +43,7 @@ const IndexPage = ({ data }) => {
 
   const handleSearch = event => {
     const { value } = event.target;
-    const searchValue = value.trim().toLowerCase();
+    const searchValue = value.toLowerCase();
     setSearchValue(searchValue);
   };
 
@@ -59,13 +63,15 @@ const IndexPage = ({ data }) => {
         <div className="articles-wrap">
           {filteredData.map(({ node }) => (
             <article key={node.id} className="article-card">
-              <div className="article-card__image-wrap">
+              <Link to={node.fields.slug} className="article-card__image-wrap">
                 <img src={defaultImage} alt="abc" />
-              </div>
+              </Link>
               <div className="article-card__content">
-                <h2 className="article-card__header">
-                  {node.frontmatter.title}
-                </h2>
+                <Link to={node.fields.slug}>
+                  <h2 className="article-card__header">
+                    {node.frontmatter.title}
+                  </h2>
+                </Link>
                 <div className="article-card__excerpt">{node.excerpt}</div>
                 <div className="article-card__footer">
                   <div className="author-info">
@@ -143,6 +149,9 @@ export const query = graphql`
             tag
           }
           excerpt
+          fields {
+            slug
+          }
         }
       }
     }

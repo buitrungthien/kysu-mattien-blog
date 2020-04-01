@@ -184,6 +184,13 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
+    a,
+    a:active,
+    a:visited {
+      text-decoration: none;
+      color: black;
+    }
   }
 
   &__header {
