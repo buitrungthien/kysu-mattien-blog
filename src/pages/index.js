@@ -5,6 +5,7 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import defaultImage from '../images/images.jpg';
 import myAvatar from '../images/my-avatar.jpg';
+import Author from '../components/Author';
 
 const IndexPage = ({ data }) => {
   const allPosts = data.allMarkdownRemark.edges;
@@ -74,14 +75,7 @@ const IndexPage = ({ data }) => {
                 </Link>
                 <div className="article-card__excerpt">{node.excerpt}</div>
                 <div className="article-card__footer">
-                  <div className="author-info">
-                    <div className="author-image-wrap">
-                      <img src={myAvatar} alt="Bùi Kiệm" />
-                    </div>
-                    <span className="author-name">
-                      {node.frontmatter.author.name || 'Thiên Bùi'}
-                    </span>
-                  </div>
+                  <Author name="Thiên Bùi" avatar={myAvatar} />
                   <div>
                     <time>{node.frontmatter.date}</time>
                     <span className="tag">

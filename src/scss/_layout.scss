@@ -4,7 +4,7 @@
 #gatsby-focus-wrapper {
   display: grid;
   grid-template:
-    '. head head .' min-content
+    'head head head head' min-content
     '. social main side' 1fr
     'foot foot foot foot' min-content /
     1fr min-content minmax(min-content, 998px) 1fr;
@@ -14,19 +14,25 @@
 }
 
 .header {
-  min-height: 8rem;
   grid-area: head;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-content: center;
-  justify-content: space-between;
-  font-family: 'Dancing Script', cursive;
+  box-shadow: rgba(19, 15, 235, 0.1) 1px 2px 20px;
+  margin-bottom: 5rem;
   position: sticky;
+  font-family: 'Roboto Condensed', sans-serif;
   top: 0;
   left: 0;
   z-index: 100;
   background-color: white;
-  margin-bottom: 5rem;
+}
+
+.header-inner-wrap {
+  min-height: 8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  justify-content: space-between;
+  max-width: calc(998px + 7rem);
+  margin: 0 auto;
 
   .logo,
   .perspective {

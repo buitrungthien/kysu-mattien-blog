@@ -1,14 +1,36 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
+import Author from '../components/Author';
+import myAvatar from '../images/my-avatar.jpg';
+import './styles.scss';
 
-export default ({ data }) => {
+export default ({ data, pageContext }) => {
   const post = data.markdownRemark;
+  const { previous, next } = pageContext;
+  const { author } = post.frontmatter;
   return (
     <Layout>
-      <article>
-        <h1>{post.frontmatter.title}</h1>
+      <article className="post">
+        <div className="post-header">
+          <h1 className="post-title">{post.frontmatter.title}</h1>
+          <div className="post-info">
+            <Author name={author.name} avatar={myAvatar} />
+            <time>{post.frontmatter.date}</time>
+          </div>
+          <div className="image-wrap">
+            {post.frontmatter.image && (
+              <img src={post.frontmatter.image} alt="" />
+            )}
+          </div>
+        </div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className="pre-next-navigator">
+          {previous && (
+            <Link to={previous.fields.slug}>{previous.frontmatter.title}</Link>
+          )}
+          {next && <Link to={next.fields.slug}>{next.frontmatter.title}</Link>}
+        </div>
       </article>
     </Layout>
   );
@@ -20,6 +42,11 @@ export const query = graphql`
       html
       frontmatter {
         title
+        image
+        author {
+          name
+        }
+        date
       }
     }
   }

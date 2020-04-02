@@ -20,23 +20,41 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(sort: {order: ASC, fields: frontmatter___date}) {
         edges {
+          next {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
           node {
             fields {
               slug
+            }
+          }
+          previous {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
             }
           }
         }
       }
     }
   `).then(result => {
-    result.data.allMarkdownRemark.edges.forEach(({node}) => {
+    result.data.allMarkdownRemark.edges.forEach(({node, previous, next}, index) => {
       createPage({
         path: node.fields.slug,
         component: path.resolve('./src/templates/default-blog-post.js'),
         context: {
           slug: node.fields.slug,
+          previous,
+          next,
         }
       });
     });

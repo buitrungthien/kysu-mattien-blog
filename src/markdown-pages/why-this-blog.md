@@ -1,5 +1,5 @@
 ---
-title: 'Why this blog'
+title: 'Test post'
 date: '24/03/2020'
 author: {name: 'Thiên Bùi'}
 tag: 'tech'

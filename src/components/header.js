@@ -4,10 +4,12 @@ import React from 'react';
 
 const Header = ({ siteTitle }) => (
   <header className='header'>
-    <h1 className='logo'>
-      <Link to="/">{siteTitle}</Link>
-    </h1>
-    <p className='perspective'>Từ Zero đến Hero</p>
+    <div className="header-inner-wrap">
+      <h1 className="logo">
+        <Link to="/">{siteTitle}</Link>
+      </h1>
+      <p className="perspective">Từ Zero đến Hero</p>
+    </div>
   </header>
 );
 
