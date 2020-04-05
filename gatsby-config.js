@@ -1,7 +1,10 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 module.exports = {
   siteMetadata: {
     title: `Front end - ReactJS - Kỹ sư "mặt tiền"`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: 'Từ Zero đến Hero',
     author: `Tony`,
   },
   plugins: [
@@ -18,6 +21,12 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/markdown-pages`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+        endpoint: `${process.env.MAIL_CHIMP_SECRET}`,
       },
     },
     `gatsby-transformer-remark`,
@@ -40,4 +49,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

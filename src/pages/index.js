@@ -5,7 +5,9 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import defaultImage from '../images/images.jpg';
 import myAvatar from '../images/my-avatar.jpg';
+import myAvatarSecond from '../images/my-avatar-2.jpg';
 import Author from '../components/Author';
+import EmailRegisterForm from '../components/EmailRegister';
 
 const IndexPage = ({ data }) => {
   const allPosts = data.allMarkdownRemark.edges;
@@ -55,10 +57,7 @@ const IndexPage = ({ data }) => {
         <span>
           Bạn muốn nhận những bài viết mới nhất, những khóa học bổ ích?
         </span>
-        <form>
-          <input placeholder="Email của bạn" />
-          <button>Gửi tôi</button>
-        </form>
+        <EmailRegisterForm />
       </div>
       <div className="main__content">
         <div className="articles-wrap">
@@ -89,37 +88,65 @@ const IndexPage = ({ data }) => {
             </article>
           ))}
         </div>
-        <aside className="side-bar">
-          <span className="side-bar__filter-title">Lọc bài viết</span>
-          <div className="tags-option">
+        <aside className="sidebar">
+          <div className="filter">
+            <span className="filter-title">Lọc bài viết</span>
+            <div className="tags-option">
+              <input
+                id="tech"
+                name="tech"
+                type="checkbox"
+                checked={filterValue.tech}
+                onChange={handleFilterChange}
+              />
+              <label className="tag" htmlFor="tech">
+                Technical
+              </label>
+              <input
+                id="exp"
+                name="exp"
+                type="checkbox"
+                checked={filterValue.exp}
+                onChange={handleFilterChange}
+              />
+              <label className="tag" htmlFor="exp">
+                Kinh nghiệm đi làm, tự học
+              </label>
+            </div>
             <input
-              id="tech"
-              name="tech"
-              type="checkbox"
-              checked={filterValue.tech}
-              onChange={handleFilterChange}
+              type="search"
+              className="search"
+              placeholder="Tìm kiếm bài viết"
+              value={searchValue}
+              onChange={handleSearch}
             />
-            <label className="tag" htmlFor="tech">
-              Technical
-            </label>
-            <input
-              id="exp"
-              name="exp"
-              type="checkbox"
-              checked={filterValue.exp}
-              onChange={handleFilterChange}
-            />
-            <label className="tag" htmlFor="exp">
-              Kinh nghiệm đi làm, tự học
-            </label>
           </div>
-          <input
-            type="search"
-            className="search"
-            placeholder="Tìm kiếm bài viết"
-            value={searchValue}
-            onChange={handleSearch}
-          />
+          <section className="profile">
+            <div className="profile__avatar">
+              <img
+                src={myAvatarSecond}
+                alt=""
+                style={{ objectPosition: 'top' }}
+              />
+            </div>
+            <p className="brief-introduction">
+              Bắt đầu học web từ con số 0, sau 9 tháng mình đã được nhận vào làm
+              việc tại công ty thương mại điện tử Sen Đỏ (sendo.vn).
+            </p>
+            <p className="brief-introduction">
+              Thưở mới vào nghề, mình đã trải qua rất nhiều khó khăn, sai lầm,
+              lắm lúc bế tắc và có thật nhiều thắc mắc nhưng không có ai giải
+              đáp.
+            </p>
+            <p className="brief-introduction">
+              Mình lập ra blog này nhằm chia sẻ những kinh nghiệm tích cóp được,
+              và chắc chắn sẽ giúp được các bạn, đặc biệt là Fresher, các bạn
+              sinh viên mới ra trường hay đặc biệt là tay ngang như mình...
+            </p>
+            <Link to="about-me-and-this-blog" className="read-more-link">
+              Đọc thêm &gt;&gt;
+            </Link>
+          </section>
         </aside>
       </div>
     </Layout>

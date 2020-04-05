@@ -5,15 +5,41 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
 import '../scss/main.scss';
 import sprite from '../images/sprite.svg';
-
 const Layout = ({ children }) => {
+  useEffect(() => {
+    function windowPopup(url, width, height) {
+      // Calculate the position of the popup so
+      // it’s centered on the screen.
+      var left = window.screen.width / 2 - width / 2,
+        top = window.screen.height / 2 - height / 2;
+
+      window.open(
+        url,
+        '',
+        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=' +
+          width +
+          ',height=' +
+          height +
+          ',top=' +
+          top +
+          ',left=' +
+          left
+      );
+    }
+
+    var facebookIcon = document.querySelector('.facebook > a');
+    facebookIcon.addEventListener('click', function(e) {
+      e.preventDefault();
+      windowPopup(this.href, 500, 500);
+    });
+  }, []);
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -30,7 +56,11 @@ const Layout = ({ children }) => {
       <aside className="social">
         <ul className="social-links-wrap">
           <li className="social-link facebook">
-            <a href="https://www.facebook.com/bui.t.thien.37" target="_blank" rel="noopener noreferrer">
+            <a
+              href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <svg>
                 <use xlinkHref={`${sprite}#icon-facebook`}></use>
               </svg>
@@ -39,7 +69,8 @@ const Layout = ({ children }) => {
           <li className="social-link youtube">
             <a
               href="https://www.youtube.com/channel/UCp2xF9XfnX1HuCup2B3thcw?view_as=subscriber"
-              target="_blank" rel="noopener noreferrer"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <svg>
                 <use xlinkHref={`${sprite}#icon-youtube`}></use>
@@ -52,9 +83,6 @@ const Layout = ({ children }) => {
       <footer className="footer">
         <nav>
           <ul>
-            <li>
-              <a href="about">Về tôi</a>
-            </li>
             <li>
               <a href="portfolio">Dự án tôi đã làm</a>
             </li>

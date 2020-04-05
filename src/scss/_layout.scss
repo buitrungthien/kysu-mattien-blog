@@ -119,6 +119,22 @@
     }
   }
 
+  .social-link.facebook {
+    position: relative;
+
+    &:hover > a::after {
+      content: 'Chia sẻ bài viết';
+      position: absolute;
+      left: 50%;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      transform: translate(-50%, -120%);
+      border-radius: 5px;
+      white-space: pre;
+      padding: 0.5rem 1rem;
+    }
+  }
+
   .youtube {
     border: solid 3px #c4302b;
     svg {
