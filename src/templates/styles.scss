@@ -1,32 +1,55 @@
+@import '/src/scss/variables';
+
+%ellipsis-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 20rem;
+  padding-bottom: 2rem;
+  font-weight: bold;
+}
+%arrow-button {
+  width: 20px;
+  height: 20px;
+  border-radius: 1000px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border: solid 2px currentColor;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: $primary-purple;
+    border: solid 2px $primary-purple;
+    color: white;
+  }
+}
 .pre-next-navigator {
-  width: 25rem;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 2rem;
+  font-size: 1.3rem;
 
-  & > *:last-child {
+  .pre-link {
     position: relative;
+    margin-left: auto;
+    @extend %ellipsis-text;
     &::after {
       content: '\00bb';
-      margin-bottom: -1.5rem;
-      position: absolute;
-      bottom: 0;
-      right: 50%;
-      transform: translateX(50%);
+      @extend %arrow-button;
     }
   }
 
-  & > *:first-child {
+  .next-link {
     position: relative;
+    margin-right: auto;
+    @extend %ellipsis-text;
     &::after {
       content: '\00ab';
-      margin-bottom: -1.5rem;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      @extend %arrow-button;
     }
   }
 }

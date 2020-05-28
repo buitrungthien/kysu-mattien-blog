@@ -27,9 +27,9 @@ export default ({ data, pageContext }) => {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div className="pre-next-navigator">
           {previous && (
-            <Link to={previous.fields.slug}>{previous.frontmatter.title}</Link>
+            <Link to={previous.fields.slug} className="pre-link">{previous.frontmatter.title}</Link>
           )}
-          {next && <Link to={next.fields.slug}>{next.frontmatter.title}</Link>}
+          {next && <Link to={next.fields.slug} className="next-link">{next.frontmatter.title}</Link>}
         </div>
       </article>
     </Layout>
