@@ -8,9 +8,13 @@
     '. social main side' 1fr
     'foot foot foot foot' min-content /
     1fr min-content minmax(min-content, 998px) 1fr;
-  background-color: white;
   min-height: 100vh;
   row-gap: 3rem;
+  @media screen and (max-width: 1150px) {
+    & > * {
+      padding: 0 1.2rem;
+    }
+  }
 }
 
 .header {
@@ -21,6 +25,8 @@
   font-family: 'Roboto Condensed', sans-serif;
   top: 0;
   left: 0;
+  right: 0;
+  margin-right: 1px;
   z-index: 100;
   background-color: white;
 }
