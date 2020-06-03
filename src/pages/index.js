@@ -133,12 +133,12 @@ const IndexPage = ({ data }) => {
               Bắt đầu học web từ con số 0, sau 9 tháng mình đã được nhận vào làm
               việc tại công ty thương mại điện tử Sen Đỏ (sendo.vn).
             </p>
-            <p className="brief-introduction">
+            <p className="brief-introduction mobile-no-display">
               Thưở mới vào nghề, mình đã trải qua rất nhiều khó khăn, sai lầm,
               lắm lúc bế tắc và có thật nhiều thắc mắc nhưng không có ai giải
               đáp.
             </p>
-            <p className="brief-introduction">
+            <p className="brief-introduction tablet-no-display">
               Mình lập ra blog này nhằm chia sẻ những kinh nghiệm tích cóp được,
               và chắc chắn sẽ giúp được các bạn, đặc biệt là Fresher, các bạn
               sinh viên mới ra trường hay đặc biệt là tay ngang như mình...

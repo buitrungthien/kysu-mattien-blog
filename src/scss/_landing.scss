@@ -2,6 +2,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  @media screen and (max-width: 980px) {
+    flex-direction: column-reverse;
+  }
 
   & > *:first-child {
     flex: 1;
@@ -9,6 +12,9 @@
 
   & > *:not(:last-child) {
     margin-right: 3rem;
+    @media screen and (max-width: 980px) {
+      margin-right: 0;
+    }
   }
 }
 
@@ -24,15 +30,33 @@
     line-height: 1.7;
     font-weight: bold;
   }
+  @media screen and (max-width: 980px) {
+    margin-top: 3rem;
+    margin-bottom: 0;
+    flex-direction: column;
+    & > span {
+      margin-bottom: 1rem;
+    }
+  }
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
   flex-basis: 29%;
+  @media screen and (max-width: 980px) {
+    flex-direction: row;
+    box-shadow: rgba(19, 15, 235, 0.1) 1px 2px 20px;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    width: 100%;
+  }
 
   & > *:not(:last-child) {
     margin-bottom: 3rem;
+    @media screen and (max-width: 980px) {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -47,7 +71,14 @@
   z-index: 0;
   height: 15vw;
   max-height: 25rem;
-  min-height: 21rem;
+  min-height: 23rem;
+  @media screen and (max-width: 980px) {
+    box-shadow: none;
+    margin-bottom: 0;
+    margin-right: 1rem;
+    min-height: unset;
+    height: fit-content;
+  }
 
   & > *:not(:first-child) {
     margin-bottom: 2rem;
@@ -68,12 +99,27 @@
   box-shadow: rgba(19, 15, 235, 0.1) 1px 2px 20px;
   padding: 1rem;
   border-radius: 10px;
+  @media screen and (max-width: 980px) {
+    box-shadow: none;
+    .tablet-no-display {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 760px) {
+    .mobile-no-display {
+      display: none;
+    }
+  }
 
   &__avatar {
     float: left;
     shape-outside: circle(50%);
     width: 12rem;
     height: 12rem;
+    @media screen and (max-width: 980px) {
+      width: 7rem;
+      height: 7rem;
+    }
 
     img {
       width: 95%;
@@ -181,13 +227,19 @@
   border-radius: 10px;
   height: 15vw;
   max-height: 25rem;
-  min-height: 21rem;
+  min-height: 23rem;
+  @media screen and (max-width: 760px) {
+    min-height: 25rem;
+  }
   overflow: hidden;
 
   &__image-wrap {
     height: 100%;
     flex-grow: 1;
     flex-basis: 40%;
+    @media screen and (max-width: 980px) {
+      flex-basis: 35%;
+    }
     & > img {
       display: block;
       width: 100%;

@@ -35,6 +35,9 @@
   min-height: 8rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  @media screen and (max-width: 980px) {
+    grid-template-columns: 1fr;
+  }
   align-content: center;
   justify-content: space-between;
   max-width: calc(998px + 7rem);
@@ -47,10 +50,16 @@
 
   .logo {
     justify-self: start;
+    @media screen and (max-width: 980px) {
+      margin: 0 auto;
+    }
   }
 
   .perspective {
     justify-self: end;
+    @media screen and (max-width: 980px) {
+      display: none
+    }
   }
 
   h1 {
@@ -106,6 +115,9 @@
   grid-area: social;
   margin-right: 3rem;
   display: flex;
+  @media screen and (max-width: 760px) {
+    margin-right: 0;
+  }
 
   .social-links-wrap {
     display: flex;
@@ -191,4 +203,8 @@
 
 .main {
   grid-area: main;
+  @media screen and (max-width: 980px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 }
