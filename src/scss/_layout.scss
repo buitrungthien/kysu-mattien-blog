@@ -8,6 +8,14 @@
     '. social main side' 1fr
     'foot foot foot foot' min-content /
     1fr min-content minmax(min-content, 998px) 1fr;
+  @media screen and (max-width: 760px) {
+    grid-template:
+      'head head head' min-content
+      '. main side' 1fr
+      '. social side' min-content
+      'foot foot foot' min-content /
+      1fr minmax(min-content, 998px);
+  }
   min-height: 100vh;
   row-gap: 3rem;
   @media screen and (max-width: 1150px) {
@@ -58,7 +66,7 @@
   .perspective {
     justify-self: end;
     @media screen and (max-width: 980px) {
-      display: none
+      display: none;
     }
   }
 
@@ -128,6 +136,12 @@
     position: sticky;
     top: 30rem;
     left: 0;
+    @media screen and (max-width: 760px) {
+      flex-direction: row;
+      & > *:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
   }
 
   .facebook {

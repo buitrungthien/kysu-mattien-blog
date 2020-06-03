@@ -29,6 +29,9 @@
     font-size: 1.6rem;
     line-height: 1.7;
     font-weight: bold;
+    @media screen and (max-width: 760px) {
+      text-align: center;
+    }
   }
   @media screen and (max-width: 980px) {
     margin-top: 3rem;
@@ -50,6 +53,9 @@
     border-radius: 10px;
     margin-bottom: 3rem;
     width: 100%;
+  }
+  @media screen and (max-width: 760px) {
+    flex-direction: column;
   }
 
   & > *:not(:last-child) {
@@ -285,9 +291,16 @@
       margin-left: 1.5rem;
       cursor: text;
 
+      @media screen and (max-width: 760px) {
+        margin-left: .5rem;
+      }
+
       &::after {
         display: none;
       }
+    }
+    @media screen and (max-width: 760px) {
+      display: flex;
     }
   }
 }
