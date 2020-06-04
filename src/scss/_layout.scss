@@ -10,11 +10,11 @@
     1fr min-content minmax(min-content, 998px) 1fr;
   @media screen and (max-width: 760px) {
     grid-template:
-      'head head head' min-content
-      '. main side' 1fr
-      '. social side' min-content
-      'foot foot foot' min-content /
-      1fr minmax(min-content, 998px);
+      'head' min-content
+      'main' 1fr
+      'social' min-content
+      'foot' min-content /
+      minmax(min-content, 998px);
   }
   min-height: 100vh;
   row-gap: 3rem;
