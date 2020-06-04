@@ -60,6 +60,9 @@
   max-width: 72rem;
   margin: 0 auto;
   transform: translateX(-3rem);
+  @media screen and (max-width: 760px) {
+    transform: translateX(0);
+  }
 
   em {
     font-weight: bold;

@@ -75,7 +75,7 @@ const IndexPage = ({ data }) => {
                 <div className="article-card__excerpt">{node.excerpt}</div>
                 <div className="article-card__footer">
                   <Author name="Thiên Bùi" avatar={myAvatar} />
-                  <div>
+                  <div className="time-tag-wrapper">
                     <time>{node.frontmatter.date}</time>
                     <span className="tag">
                       {node.frontmatter.tag === 'tech'

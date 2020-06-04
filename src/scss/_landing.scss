@@ -179,6 +179,16 @@
   }
 }
 
+.time-tag-wrapper {
+  @media screen and (max-width: 370px) {
+    display: flex;
+    flex-direction: column;
+    .tag {
+      margin-top: .5rem;
+    }
+  }
+}
+
 .tag {
   padding: 1rem 0.5rem;
   background: rgb(245, 245, 211);
@@ -293,6 +303,9 @@
 
       @media screen and (max-width: 760px) {
         margin-left: .5rem;
+        @media screen and (max-width: 370px) {
+          margin-left: 0;
+        }
       }
 
       &::after {

@@ -1,5 +1,5 @@
 ---
-title: 'HTML, CSS, JS. Thế túm lại học gì để có việc, kiếm ra tiền?'
+title: 'HTML, CSS, JS. Thế túm lại học gì?'
 date: '02/04/2020'
 author: {name: 'Thiên Bùi'}
 tag: 'exp'
