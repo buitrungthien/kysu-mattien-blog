@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
         <ul className="social-links-wrap">
           <li className="social-link facebook">
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${typeof window !== 'undefined' ? window.location.href : 'kysumattien.netlify.app'}`}
               target="_blank"
               rel="noopener noreferrer"
             >

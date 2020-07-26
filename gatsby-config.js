@@ -26,7 +26,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
-        endpoint: `${process.env.MAIL_CHIMP_SECRET}`,
+        endpoint: "https://gmail.us19.list-manage.com/subscribe/post?u=8bdbc36dfe461a06ba82a900b&amp;id=203a0a8f28",
+        timeout: 3500,
       },
     },
     `gatsby-transformer-remark`,
