@@ -9,16 +9,16 @@ const SecondPage = () => (
   <Layout>
     <SEO title="About me and this blog" />
     <article className="post">
-      <h1>Tôi bắt đầu từ con số 0. Bạn có vậy không?</h1>
+      <h1>Tại sao mình viêt blog này</h1>
       <main>
         <section>
-          <h2>Tôi là Tony</h2>
+          <h2>Mình bắt đầu từ con số 0</h2>
           <div className="avatar-wrap">
             <img src={avatar} alt="" />
           </div>
           <p>
             Xuất phát là kỹ sư phần cứng, chuyên ngành thiết kế vi mạch, sau một
-            năm đi làm tôi đã quyết định chuyển ngành. Tôi đã bắt đầu học lập
+            năm đi làm mình đã quyết định chuyển ngành. mình đã bắt đầu học lập
             trình web từ con số 0.
           </p>
           <p>
@@ -38,8 +38,8 @@ const SecondPage = () => (
         <section>
           <h2>Sống là cho đi</h2>
           <p>
-            Đã trải qua giai đoạn khó khăn nhất. Tôi thực sự hiểu rõ những trăn
-            trở, khó khăn mà các bạn mới mắc phải. Để tôi đoán xem:
+            Đã trải qua giai đoạn khó khăn nhất. mình thực sự hiểu rõ những trăn
+            trở, khó khăn mà các bạn mới mắc phải. Để mình đoán xem:
             <ul>
               <li>
                 HTML, CSS, JS nhiều và rộng lớn quá, không biết học gì, bắt đầu
@@ -62,15 +62,15 @@ const SecondPage = () => (
             </ul>
           </p>
           <p>
-            Tôi muốn giúp bạn, để con đường đến với lập trình web của các bạn
-            {' '}<b>bớt chông gai, không lặp lại những sai lầm tôi đã mắc phải</b>.
-            Tôi lập ra blog này nhằm chia sẻ mọi thứ mà tôi biết. Từ{' '}
+            Mình muốn giúp bạn, để con đường đến với lập trình web của các bạn
+            {' '}<b>bớt chông gai, không lặp lại những sai lầm mình đã mắc phải</b>.
+            mình lập ra blog này nhằm chia sẻ mọi thứ mà mình biết. Từ{' '}
             <b>kinh nghiệm học</b>, <b>kinh nghiệm học tiếng Anh</b>, {' '}
             <b>kinh nghiệm đi phỏng vấn</b>, <b>kinh nghiệm đi làm</b>,{' '}
             <b>ứng xử</b>, <b>quy trình trong môi trường công sở</b>. Xen kẽ với
             đó là các bài viết về <b>Technical</b> {' '}
             từ cơ bản đến chuyên sâu về <b>HTML</b>, <b>CSS</b>, <b>ReactJS</b>,
-            các <b>bài viết dịch thuật</b>, ... mọi thứ mà tôi biết và nghĩ là
+            các <b>bài viết dịch thuật</b>, ... mọi thứ mà mình biết và nghĩ là
             có thể giúp được mọi người.
           </p>
           <p>
@@ -82,7 +82,7 @@ const SecondPage = () => (
         <section>
           <h2>Cảm ơn</h2>
           <p>
-            Tôi không thể nào hình dung nổi sẽ có một ngày tôi có thể tự tạo cho
+            Mình không thể nào hình dung nổi sẽ có một ngày mình có thể tự tạo cho
             mình một blog, làm những thứ đẹp đẽ và thú vị như thế này. Xin chân
             thành tỏ lòng biết ơn đến:
             <ul>
@@ -92,7 +92,7 @@ const SecondPage = () => (
                 với mọi người.
               </li>
               <li>
-                Bạn Nghiệp: người thầy, người bạn đã hướng dẫn tôi trong những
+                Bạn Nghiệp: người thầy, người bạn đã hướng dẫn mình trong những
                 bước đầu tiên trên con đường lập trình web.
               </li>
               <li>
@@ -111,7 +111,7 @@ const SecondPage = () => (
                 tiền đâu ra trả tiền nhà.
               </li>
               <li>
-                Cảm ơn Phát, Xít, anh chị em, bạn bè, những người tôi không thể
+                Cảm ơn Phát, Xít, anh chị em, bạn bè, những người mình không thể
                 kể hết đến.
               </li>
               <li>
