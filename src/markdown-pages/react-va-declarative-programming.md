@@ -22,8 +22,6 @@ Vâng, tới đây thì mình chính thức tịt ngòi :D
 
 Mến chào các bạn đã đến với blog “kỹ sự mặt tiền” ngày hôm nay. Câu chuyện trên là thật, và nó là cuộc phỏng vấn của mình vào những ngày đầu học lập trình web. Nhớ không lầm đó là thời điểm 3 tháng sau khi tập tò học lập trình web và phỏng vấn đi xin việc ở vị trí thực tập tại một công ty nọ. Và mình đã được học ngay những bài học đầu tiên - the hard way. Mình đã tạch các bạn ạ, tạch ngay từ thời điểm đi xin thực tập.
 
-Mình xuất thân từ kỹ sư phần cứng, sau một năm đi làm mình chuyển ngành và thành thật mà nói là mình không hề biết gì về web, về JS hay thậm chí là web chạy như thế nào. Có chăng là tí kiến thức lập trình đại cương lúc học 2 năm đầu đại học. Nếu bạn cũng là một người tự mày mò học web, hẳn bạn cũng đã trải qua cảm giác như mình: rằng có quá nhiều thứ để học, tỉ tỉ thứ chưa biết :D, chưa học hết JS căn bản đã phải lao vào ngay React. Nào là DOM ảo, (DOM thật là gì lúc đó mình còn chưa biết nói chi đến DOM ảo, hè hè), rồi vô vàn thứ mới lạ khác.
-
 Mình tin rằng phần lớn đa số những người mới sẽ luôn phải đối mặt với các vấn đề khó khăn như thế, vì chính mình đã trải qua. Với loạt bài viết trên trang blog này, mình hy vọng giúp ích được phần nào cho các bạn mới và đặc biệt cũng rất mong những ý kiến đánh giá, nhận xét của các bạn để mình hoàn thiện hơn, để chúng ta cùng nhau phát triển.
 
 Vào chủ để chính thôi, Declrative programming chính là yếu tố đầu tiên mà đội ngũ phát triển ReactJS tự hào xem như là điểm mạnh của bản thân library này, và nó được show ngay ở trang chủ của React:
@@ -41,31 +39,36 @@ Còn với “Declarative” programming thì mọi thứ sẽ là: “Chào anh
 
 Về code, lấy ví dụ implement 1 button. Khi bấm vào button, button sẽ đổi màu giữa hai màu xanh và đỏ. Nếu đang xanh thì sẽ chuyển sang đỏ, nếu đang đỏ thì chuyển sang xanh.
 
-```Javascript
+<div class='iframe-centered'>
+    <iframe src="https://giphy.com/embed/VHwngXdifvjAYXEv8f" width="480" height="210" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+</div>
+
 Lập trình JavaScript Imperative way, thì bạn sẽ phải làm những thứ như sau:
+
+```javascript
 //Ok, tạo một biến nắm giữ DOM node body, dùng api-hàm querySelector
-const body = document.querySelector("body");
+const body = document.querySelector('body');
 //Tiếp tục, create một button bằng hàm createElement
-const btn = document.createElement("button");
+const btn = document.createElement('button');
 //Thêm text cho button bằng cách gán propterty “innerText” = …
-btn.innerText = 'Nút kỳ diệu'
+btn.innerText = 'Nút kỳ diệu';
 //Thêm default css cho button, default mới vào là màu đỏ
-btn.className = "btn red";
+btn.className = 'btn red';
 //Gán event onclick vào button vừa tạo, khi click vào button thì hàm này sẽ:
-btn.onclick = function(event) {
- //Kiểm tra nếu list css class của button này (“this”) có chứa “red” (A)
- if (this.classList.contains("red")) {
-   //Thì remove css class red này đi
-   this.classList.remove("red");
-   //Rồi add css class “blue” mới vào list
-   this.classList.add("blue");
-   //Ngược lại với ý (A), nếu ban đầu css class không chứa “red”, tức là đang chứa “blue”
- } else {
-   //Thì remove class “blue” ra
-   this.classList.remove("blue");
-   //Rồi add class mới tên “red” vào
-   this.classList.add("red");
- }
+btn.onclick = function(event) {
+  //Kiểm tra nếu list css class của button này (“this”) có chứa “red” (A)
+  if (this.classList.contains('red')) {
+    //Thì remove css class red này đi
+    this.classList.remove('red');
+    //Rồi add css class “blue” mới vào list
+    this.classList.add('blue');
+    //Ngược lại với ý (A), nếu ban đầu css class không chứa “red”, tức là đang chứa “blue”
+  } else {
+    //Thì remove class “blue” ra
+    this.classList.remove('blue');
+    //Rồi add class mới tên “red” vào
+    this.classList.add('red');
+  }
 };
 //Cuối cùng, gắn cái button này vào thân body của file html.
 body.appendChild(btn);
@@ -75,7 +78,7 @@ Oh my god, mới chỉ là một dumb-function, tạo nút và click đổi màu
 
 Nhưng với React, chúng ta sẽ làm như sau:
 
-```JSX
+```jsx
 //Tôi muốn tạo một Button class component
 class Button extends React.Component{
 //Button này có một biến stat là color, thể hiện màu sắc background của nút, mặc định sẽ là đỏ
@@ -87,11 +90,11 @@ this.state = { color: 'red' }
     }
     render() {
         return (
-            //Render ra màn hình giúp tôi một thẻ div, trong thẻ div có một button
+            {/*Render ra màn hình giúp tôi một thẻ div, trong thẻ div có một button*/}
             <div>
-                //css classes của button này bao gồm “btn” và tùy vào trạng thái của biến state “color” mà sẽ add thêm “red” hay “blue” vào thêm sau “btn.
+                {/*css classes của button này bao gồm “btn” và tùy vào trạng thái của biến state “color” mà sẽ add thêm “red” hay “blue” vào thêm sau “btn.*/}
                 <button className={`btn ${this.state.color}`}>
-                    //Mỗi khi click vào nút này thì tui muốn xử lý như sau (xem (A))
+                    {/*Mỗi khi click vào nút này thì tui muốn xử lý như sau (xem (A))*/}
                     onClick={this.handleChange}>
                 </button>
             </div>
@@ -108,19 +111,23 @@ this.state = { color: 'red' }
 
 **Imperative way:**
 
-  Function arrayHandler(array) {
-  const results = [];
-  For (let I = 0; I < array.length; I++) {
-  Results[I] = array[I] \* 2;
-  }
-  Return results;
-  }
+```javascript
+function arrayHandler(array) {
+    const results = [];
+    for (let i = 0; i < array.length; i++) {
+        results[i] = array[i] * 2;
+    }
+    return results;
+}
+```
 
 **Declarative way:**
 
-  Function arrayHandler(array) {
-  Return array.map(element => element \* 2);
-  }
+```javascript
+function arrayHandler(array) {
+    return array.map(element => element * 2);
+}
+```
 
 Một lần nữa, ở cách viết Imperative, chúng ta tạo một mảng kết quả “results”, duyệt qua từng phần tử của mảng, từ vị trí index thứ 0 đến chiều dài của mảng, mỗi lần ta, rồi lấy từng element nhân 2, chèn vào mảng kết quả. Tóm lại, ta tiếp tục đi “hướng dẫn” máy tính các công việc cần thực hiện từng bước một, làm như thế nào để đạt được kết quả. Còn với cách viết Declarative, ta biết rằng hàm “map” sẽ duyệt qua các phần tử trong mảng và trả ra một mảng mới. Tại đây, ta nói với máy tính rằng tôi muốn nhận về mảng mới với mỗi phần tử bằng phần tử của mảng gốc nhân cho 2. Ít code và dễ đọc, dễ hiểu hơn đúng không các bạn. (À, còn tùy mức độ quen thuộc của bạn với các hàm của javascript nữa, “map” bên trên là một ví dụ. Nhưng cơ bản ta hoàn toàn không quan tâm đến cách duyệt qua từng phần tử như thế nào, hay mảng kết quả đã được khởi tạo và trả ra như thế nào ngay bên trong hàm map.
 
@@ -132,11 +139,8 @@ Hay như với library ReactJS, với ví dụ đầu tiên khi implement button
 ## 4.Kết luận
 
 Declarative cá nhân mình nhận định là một cách lập trình “thông minh”, thứ mà tự mỗi bản thân developer chúng ta mong muốn hướng tới, hay ít nhất là muốn làm việc với một framework, library có tính Declarative. Declarative programming ngày nay đã trở nên khá phổ biến, với nhiều thư viện hay framework đã thực hiện như React, Vue, Angular, …. Nhìn chung, chúng giúp che giấu các thao tác xử lý phức tạp và lặp đi lặp lại, giúp developer lập trình theo hướng ngắn gọn hơn, tối ưu hóa performance, code dễ đọc dễ hiểu hơn.
-Lần sau khi có ai hỏi đến Declarative Programming trong ReactJS, bạn sẽ có thể tự tin trả lời và cho ví dụ ngay đúng không nào?
-Cảm ơn các bạn đã ghé đọc bài viết ngày hôm nay. Hẹn gặp lại các bạn trong những bài viết tiếp theo của mình nhé. Mến chào các bạn!
-
-<div class='iframe-centered'>
-    <iframe src="https://giphy.com/embed/VHwngXdifvjAYXEv8f" width="480" height="210" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-</div>
 
 Thực chất để một người mới học, mới tìm hiểu lập trình nắm và hiểu được các định nghĩa, khái niệm, ‘terms’ như thế này khá là khó các bạn ạ. Nhưng biết sao được, có rất nhiều người đang theo học web ngày nay, đồng nghĩa với việc cạnh tranh là điều khó tránh khỏi. Hơn nữa, thay vì lấy lý do mới học nên không tìm hiểu, cố gắng mỗi ngày luôn là cách để chúng ta phát triển phải không nào? Bên cạnh việc làm được việc, có hiểu biết sâu và rộng về technical cũng là một điểm mạnh khiến bạn lọt vào mắt xanh nhà tuyển dụng. Mách bạn một tip nhỏ thì chính những kiến thức như thế này sẽ là tiêu chí để các anh senior phân loại ứng viên đấy.
+
+Lần sau khi có ai hỏi đến Declarative Programming trong ReactJS, bạn sẽ có thể tự tin trả lời và cho ví dụ ngay đúng không nào?
+Cảm ơn các bạn đã ghé đọc bài viết ngày hôm nay. Hẹn gặp lại các bạn trong những bài viết tiếp theo của mình nhé. Mến chào các bạn!

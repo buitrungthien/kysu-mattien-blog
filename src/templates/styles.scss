@@ -182,7 +182,17 @@
   width: fit-content;
 }
 code {
-  width: 100%;
-  overflow-x: auto;
-  display: block;
+  font-size: 1.8rem !important;
+}
+.token.comment {
+  font-style: italic;
+  display: inline-block;
+  margin-top: 10px;
+}
+.tag {
+  padding: 0;
+  background: none;
+  font-weight: normal;
+  text-transform: none;
+  cursor: text;
 }
