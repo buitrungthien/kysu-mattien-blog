@@ -59,7 +59,6 @@ const Layout = ({ children }) => {
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${typeof window !== 'undefined' ? window.location.href : 'kysumattien.netlify.app'}`}
               target="_blank"
-              rel="noopener noreferrer"
             >
               <svg>
                 <use xlinkHref={`${sprite}#icon-facebook`}></use>
