@@ -4,7 +4,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Front end - ReactJS - Kỹ sư "mặt tiền"`,
-    description: 'Từ Zero đến Hero',
+    description: 'HOW TO SHARE',
     author: `Tony`,
   },
   plugins: [
