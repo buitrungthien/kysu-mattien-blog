@@ -52,7 +52,7 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Home is HOUSE" />
+      <SEO title="Kỹ sư mặt tiền" />
       <div className="register-bar">
         <span>
           Bạn muốn nhận những bài viết mới nhất, những khóa học bổ ích?

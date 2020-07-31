@@ -40,15 +40,9 @@ export default ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO
-        title={post.frontmatter.title}
-        description={'THIEN TEST SHARE FEATURE'}
-        meta={[
-          {
-            property: `og:image`,
-            content:
-              'https://cdn.gametv.vn/gtv-photo/GTVNews/2020/01/OG-new-roster.jpg',
-          },
-        ]}
+        title={post.frontmatter?.title}
+        description={post.frontmatter?.description}
+        image={post.frontmatter?.image}
       />
       <article className="post">
         <div className="post-header">

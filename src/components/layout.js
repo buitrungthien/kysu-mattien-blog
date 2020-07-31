@@ -13,7 +13,6 @@ import Header from './header';
 import '../scss/main.scss';
 import sprite from '../images/sprite.svg';
 const Layout = ({ children }) => {
-  
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -31,7 +30,11 @@ const Layout = ({ children }) => {
         <ul className="social-links-wrap">
           <li className="social-link facebook">
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${typeof window !== 'undefined' ? window.location.href : 'kysumattien.netlify.app'}`}
+              href={`https://www.facebook.com/sharer/sharer.php?u=${
+                typeof window !== 'undefined'
+                  ? window.location.href
+                  : 'kysumattien.netlify.app'
+              }`}
               target="_blank"
             >
               <svg>
@@ -59,9 +62,9 @@ const Layout = ({ children }) => {
             <li>
               <a href="portfolio">Dự án tôi đã làm</a>
             </li>
-            <li>
+            {/* <li>
               <a href="contact">Liên hệ / Thuê</a>
-            </li>
+            </li> */}
           </ul>
         </nav>
         <span>
