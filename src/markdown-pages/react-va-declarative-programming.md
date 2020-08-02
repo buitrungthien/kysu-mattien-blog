@@ -2,7 +2,7 @@
 title: 'ReactJs và Declarative Programming'
 date: '26/07/2020'
 author: { name: 'Thiên Bùi' }
-tag: 'exp'
+tag: 'tech'
 image: 'https://wordsofayoungmind.files.wordpress.com/2015/02/i-want-to.jpg'
 description: 'Declarative Programming là gì mà được React nêu ra như based-feature?'
 ---

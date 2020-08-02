@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
@@ -36,6 +36,7 @@ const Layout = ({ children }) => {
                   : 'kysumattien.netlify.app'
               }`}
               target="_blank"
+              rel="noopener noreferrer"
             >
               <svg>
                 <use xlinkHref={`${sprite}#icon-facebook`}></use>

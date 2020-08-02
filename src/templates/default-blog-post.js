@@ -8,13 +8,13 @@ import './styles.scss';
 
 export default ({ data, pageContext }) => {
   const post = data.markdownRemark;
-  const { previous, next } = pageContext;
+  const { previous, next, slug } = pageContext;
   const { author } = post.frontmatter;
   useEffect(() => {
     function windowPopup(url, width, height) {
       // Calculate the position of the popup so
       // it’s centered on the screen.
-      var left = window.screen.width / 2 - width / 2,
+      const left = window.screen.width / 2 - width / 2,
         top = window.screen.height / 2 - height / 2;
 
       window.open(
@@ -31,8 +31,12 @@ export default ({ data, pageContext }) => {
       );
     }
 
-    var facebookIcon = document.querySelector('.facebook > a');
-    facebookIcon.addEventListener('click', function(e) {
+    const facebookShareLink = document.querySelector('.facebook > a');
+    facebookShareLink.setAttribute(
+      'href',
+      `https://www.facebook.com/sharer/sharer.php?u=kysumattien.netlify.app${slug}`
+    );
+    facebookShareLink.addEventListener('click', function(e) {
       e.preventDefault();
       windowPopup(this.href, 500, 500);
     });
@@ -82,6 +86,7 @@ export const query = graphql`
       frontmatter {
         title
         image
+        description
         author {
           name
         }
