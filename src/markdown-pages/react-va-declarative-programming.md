@@ -29,24 +29,25 @@ Mình tin rằng phần lớn đa số những người mới sẽ luôn phải 
 
 Với loạt bài viết trên trang blog này, mình hy vọng giúp ích được phần nào cho các bạn mới và đặc biệt cũng rất mong những ý kiến đánh giá, nhận xét của các bạn để mình hoàn thiện hơn, để chúng ta cùng nhau phát triển.
 
-Vào chủ để chính thôi, Declrative programming chính là yếu tố đầu tiên mà đội ngũ phát triển ReactJS tự hào xem như là điểm mạnh của bản thân library này, và nó được show ngay ở trang chủ của React:
+Vào chủ để chính thôi, **Declrative programming** chính là yếu tố đầu tiên mà đội ngũ phát triển ReactJS tự hào xem như là điểm mạnh của bản thân library này, và nó được show ngay ở trang chủ của React:
 
 <div className='image-wrapper'>
-    <img src='/static/declarative-react.PNG' />
+    <img src='../images/declarative-react.PNG' />
 </div>
+
 _Declarative programming - một trong ba based-factors được React nhắc đến ngay trang chủ - Ảnh: reactjs.org_
 
 Cụ thể, thưở sơ khai, khi các tiền bối web developers còn sống trong hang trong hốc (em giỡn :D), thao tác tất tần tật mọi thứ, nào gắn event listener, thêm, xóa, sửa, thao tác với “cây” DOM để thay đổi nội dung, xử lý các thao tác, vân vân và mây mây.
 
-Đa số phong cách lập trình khi đó sẽ là “Imperative programming” (google dịch nôm na là “Lập trình mệnh lệnh”), cùng với jQuery, ajax, họ sống hạnh phúc bên nhau…
+Đa số phong cách lập trình khi đó sẽ là **“Imperative programming”** (google dịch nôm na là “Lập trình mệnh lệnh”), cùng với jQuery, ajax, họ sống hạnh phúc bên nhau…
 
 Cho đến lúc mỗi ngày mỗi phát triển, browser google V8 engine mạnh mẽ, web ngày càng nhiều tính năng, và việc handle một núi các thứ logic kia đã thực sự trở thành một thách thức, thì đội ngũ trai tài gái sắc phát triển ReactJS đã đem một làn gió mới đến với cộng đồng developers một library siêu phê với phong cách lập trình Declarative Programming (“Lập trình khai báo”).
 
 Thực ra có nhiều các framework, thư viện, hay bản thân khái niệm declrative programming này đã có từ lâu rồi, nhưng mình thích nói về React.
 
-Nói đơn giản, lập trình phong cách Imperative là chúng ta đi nói với máy tính làm thế nào, HOW, tui phải làm những gì để đạt được kết quả mà anh mong muốn.
+Nói đơn giản, lập trình phong cách Imperative là chúng ta đi nói với máy tính làm thế nào, **HOW**, tui phải làm những gì để đạt được kết quả mà anh mong muốn.
 
-Khác với điều này, lập trình Declarative là chúng ta đi nói với máy tính (ví dụ vậy thôi, chứ ai lại đi nói chuyện với máy tính ha các bạn :D) rằng chúng ta muốn làm gì, WHAT I want to have…
+Khác với điều này, lập trình Declarative là chúng ta đi nói với máy tính (ví dụ vậy thôi, chứ ai lại đi nói chuyện với máy tính ha các bạn :D) rằng chúng ta muốn làm gì, **WHAT** I want to have…
 
 Lấy một ví dụ. Bạn và bạn gái đi vào quán phở:
 

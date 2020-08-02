@@ -130,8 +130,7 @@ const IndexPage = ({ data }) => {
               />
             </div>
             <p className="brief-introduction">
-              Bắt đầu học web từ con số 0, sau 9 tháng mình đã được nhận vào làm
-              việc tại công ty thương mại điện tử Sen Đỏ (sendo.vn).
+              Chào các bạn mình là Thiên. Mình là một web developer.
             </p>
             <p className="brief-introduction mobile-no-display">
               Thưở mới vào nghề, mình đã trải qua rất nhiều khó khăn, sai lầm,
