@@ -64,12 +64,12 @@ export default ({ data, pageContext }) => {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div className="pre-next-navigator">
           {previous && (
-            <Link to={previous.fields.slug} className="pre-link">
+            <Link to={previous.fields.slug} className="pre-link" title={previous.frontmatter.title}>
               {previous.frontmatter.title}
             </Link>
           )}
           {next && (
-            <Link to={next.fields.slug} className="next-link">
+            <Link to={next.fields.slug} className="next-link" title={next.frontmatter.title}>
               {next.frontmatter.title}
             </Link>
           )}

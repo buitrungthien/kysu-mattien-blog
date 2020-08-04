@@ -12,10 +12,6 @@
   width: 20px;
   height: 20px;
   border-radius: 1000px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
   border: solid 2px currentColor;
   background-color: white;
   display: flex;
@@ -34,22 +30,30 @@
   font-size: 1.3rem;
 
   .pre-link {
+    border: solid 1px $primary-purple;
+    padding: 0.8rem;
+    transition: all ease 0.3s;
     position: relative;
     margin-left: auto;
     @extend %ellipsis-text;
     &::after {
       content: '\00bb';
       @extend %arrow-button;
+      margin-right: auto;
     }
   }
 
   .next-link {
+    border: solid 1px $primary-purple;
+    padding: 0.8rem;
+    transition: all ease 0.3s;
     position: relative;
     margin-right: auto;
     @extend %ellipsis-text;
     &::after {
       content: '\00ab';
       @extend %arrow-button;
+      margin-left: auto;
     }
   }
 }
@@ -62,6 +66,12 @@
   transform: translateX(-3rem);
   @media screen and (max-width: 760px) {
     transform: translateX(0);
+    max-width: 100%;
+  }
+
+  a {
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   em {
@@ -140,6 +150,7 @@
 
   @media screen and (max-width: 980px) {
     width: 100%;
+    transform: translate(0);
   }
 
   img {
@@ -191,10 +202,13 @@
   overflow: hidden;
 }
 pre {
-  max-width: 80vw;
+  max-width: 60vw;
 }
 code {
   font-size: 1.8rem !important;
+  @media screen and (max-width: 980px) {
+    font-size: 1.6rem !important;
+  }
 
   .tag {
     padding: 0;
@@ -220,4 +234,36 @@ code {
     height: 10%;
     object-fit: cover;
   }
+}
+.should-not-label {
+  color: red;
+  font-weight: bold;
+  border: solid 1px red;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background-color: lightpink;
+}
+.problem-label {
+  color: blue;
+  font-weight: bold;
+  border: solid 1px blue;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background-color: lightblue;
+}
+.solution-label {
+  color: green;
+  font-weight: bold;
+  border: solid 1px green;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background-color: lightgreen;
+}
+.inline-code {
+  color: gray;
+  font-style: italic;
+  background-color: lightgray;
+  padding: 0 0.5rem;
+  display: inline-block;
+  border-radius: 5px;
 }

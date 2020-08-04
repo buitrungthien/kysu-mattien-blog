@@ -19,6 +19,9 @@
   margin: 0.5em 0;
   padding: 1em;
   overflow: auto;
+  @media screen and (max-width: 980px) {
+    max-width: 96vw;
+  }
 }
 
 /**
@@ -51,12 +54,18 @@
   margin: 0.5em 0;
   padding: 1em;
   overflow: auto;
+  @media screen and (max-width: 980px) {
+    padding-left: .5rem;
+  }
 }
 
 .gatsby-highlight pre[class*='language-'].line-numbers {
   padding: 0;
   padding-left: 2.8em;
   overflow: initial;
+  @media screen and (max-width: 980px) {
+    padding-left: 4rem;
+  }
 }
 .command-line-prompt > span:before {
   color: #999;

@@ -1,6 +1,6 @@
 ---
-title: 'ReactJs và Declarative Programming'
-date: '26/07/2020'
+title: 'ReactJS và Declarative Programming'
+date: '07/26/2020'
 author: { name: 'Thiên Bùi' }
 tag: 'tech'
 image: 'https://wordsofayoungmind.files.wordpress.com/2015/02/i-want-to.jpg'

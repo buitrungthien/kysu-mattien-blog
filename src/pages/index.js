@@ -61,32 +61,41 @@ const IndexPage = ({ data }) => {
       </div>
       <div className="main__content">
         <div className="articles-wrap">
-          {filteredData.map(({ node }) => (
-            <article key={node.id} className="article-card">
-              <Link to={node.fields.slug} className="article-card__image-wrap">
-                <img src={defaultImage} alt="abc" />
-              </Link>
-              <div className="article-card__content">
-                <Link to={node.fields.slug}>
-                  <h2 className="article-card__header">
-                    {node.frontmatter.title}
-                  </h2>
+          {filteredData.length ? (
+            filteredData.map(({ node }) => (
+              <article key={node.id} className="article-card">
+                <Link
+                  to={node.fields.slug}
+                  className="article-card__image-wrap"
+                >
+                  <img src={node.frontmatter.image || defaultImage} className="article-image-pre" />
                 </Link>
-                <div className="article-card__excerpt">{node.excerpt}</div>
-                <div className="article-card__footer">
-                  <Author name="Thiên Bùi" avatar={myAvatar} />
-                  <div className="time-tag-wrapper">
-                    <time>{node.frontmatter.date}</time>
-                    <span className="tag">
-                      {node.frontmatter.tag === 'tech'
-                        ? 'technical'
-                        : 'kinh nghiệm đi làm, tự học'}
-                    </span>
+                <div className="article-card__content">
+                  <Link to={node.fields.slug}>
+                    <h2 className="article-card__header">
+                      {node.frontmatter.title}
+                    </h2>
+                  </Link>
+                  <div className="article-card__excerpt">{node.excerpt}</div>
+                  <div className="article-card__footer">
+                    <Author name="Thiên Bùi" avatar={myAvatar} />
+                    <div className="time-tag-wrapper">
+                      <time>{node.frontmatter.date}</time>
+                      <span className="tag">
+                        {node.frontmatter.tag === 'tech'
+                          ? 'technical'
+                          : 'kinh nghiệm đi làm, tự học'}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))
+          ) : (
+            <span className="not-found-article-message">
+              Bài viết bạn tìm hiện chưa có!
+            </span>
+          )}
         </div>
         <aside className="sidebar">
           <div className="filter">
@@ -130,7 +139,7 @@ const IndexPage = ({ data }) => {
               />
             </div>
             <p className="brief-introduction">
-              Chào các bạn mình là Thiên. Mình là một web developer.
+              Chào các bạn mình là Thiên. Hiện tại mình đang là front-end developer làm việc tại sendo.vn.
             </p>
             <p className="brief-introduction mobile-no-display">
               Thưở mới vào nghề, mình đã trải qua rất nhiều khó khăn, sai lầm,
@@ -166,6 +175,7 @@ export const query = graphql`
             author {
               name
             }
+            image
             tag
           }
           excerpt

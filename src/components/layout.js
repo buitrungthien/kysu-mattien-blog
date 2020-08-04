@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
               href={`https://www.facebook.com/sharer/sharer.php?u=${
                 typeof window !== 'undefined'
                   ? window.location.href
-                  : 'kysumattien.netlify.app'
+                  : 'kysumattien.com'
               }`}
               target="_blank"
               rel="noopener noreferrer"
