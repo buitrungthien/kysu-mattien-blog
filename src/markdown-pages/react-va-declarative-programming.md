@@ -19,29 +19,29 @@ Nghĩ là vậy thôi, chứ trả lời nó phải ra ngô ra khoai để ngư�
 
 > Ừm, ok, vậy cho anh biết viết code declarative hay declarative programming là gì mà nó được xem như là một điểm mạnh của React em ha?
 
-Vâng, tới đây thì mình chính thức tịt ngòi :D
+**Vâng, tới đây thì mình chính thức tịt ngòi :D**
 
-Mến chào các bạn đã đến với blog “kỹ sự mặt tiền” ngày hôm nay. Câu chuyện trên là thật, và nó là cuộc phỏng vấn của mình vào những ngày đầu học lập trình web.
+Mến chào các bạn đã đến với blog **“kỹ sự mặt tiền”** ngày hôm nay. Câu chuyện trên là thật, và nó là cuộc phỏng vấn của mình vào những ngày đầu học lập trình web.
 
 Nhớ không lầm đó là thời điểm 3 tháng sau khi tập tò học lập trình web và phỏng vấn đi xin việc ở vị trí thực tập tại một công ty nọ. Và mình đã được học ngay những bài học đầu tiên - the hard way. Mình đã tạch các bạn ạ, tạch ngay từ thời điểm đi xin thực tập.
 
 Mình tin rằng phần lớn đa số những người mới sẽ luôn phải đối mặt với các vấn đề khó khăn như thế, vì chính mình đã trải qua.
 
-Với loạt bài viết trên trang blog này, mình hy vọng giúp ích được phần nào cho các bạn mới và đặc biệt cũng rất mong những ý kiến đánh giá, nhận xét của các bạn để mình hoàn thiện hơn, để chúng ta cùng nhau phát triển.
-
 Vào chủ để chính thôi, **Declrative programming** chính là yếu tố đầu tiên mà đội ngũ phát triển ReactJS tự hào xem như là điểm mạnh của bản thân library này, và nó được show ngay ở trang chủ của React:
 
-<div className='image-wrapper'>
-    <img src='../images/declarative-react.PNG' />
-</div>
+<div class='image-description-wrapper'>
+  <div class='image-wrapper'>
+    <img src='https://i.imgur.com/Q4J9aQe.png' />
+  </div>
 
-_Declarative programming - một trong ba based-factors được React nhắc đến ngay trang chủ - Ảnh: reactjs.org_
+  <p class='image-description'>Declarative programming - một trong ba based-factors được React nhắc đến ngay trang chủ - Ảnh: reactjs.org</p>
+</div>
 
 Cụ thể, thưở sơ khai, khi các tiền bối web developers còn sống trong hang trong hốc (em giỡn :D), thao tác tất tần tật mọi thứ, nào gắn event listener, thêm, xóa, sửa, thao tác với “cây” DOM để thay đổi nội dung, xử lý các thao tác, vân vân và mây mây.
 
-Đa số phong cách lập trình khi đó sẽ là **“Imperative programming”** (google dịch nôm na là “Lập trình mệnh lệnh”), cùng với jQuery, ajax, họ sống hạnh phúc bên nhau…
+Đa số phong cách lập trình khi đó sẽ là **“Imperative programming”** (google dịch nôm na là **“Lập trình mệnh lệnh”**), cùng với jQuery, ajax, họ sống hạnh phúc bên nhau…
 
-Cho đến lúc mỗi ngày mỗi phát triển, browser google V8 engine mạnh mẽ, web ngày càng nhiều tính năng, và việc handle một núi các thứ logic kia đã thực sự trở thành một thách thức, thì đội ngũ trai tài gái sắc phát triển ReactJS đã đem một làn gió mới đến với cộng đồng developers một library siêu phê với phong cách lập trình Declarative Programming (“Lập trình khai báo”).
+Cho đến lúc mỗi ngày mỗi phát triển, browser google V8 engine mạnh mẽ, web ngày càng nhiều tính năng, và việc handle một núi các thứ logic kia đã thực sự trở thành một thách thức, thì đội ngũ trai tài gái sắc phát triển ReactJS đã đem một làn gió mới đến với cộng đồng developers một library siêu phê với phong cách lập trình **Declarative Programming** (**“Lập trình khai báo”**).
 
 Thực ra có nhiều các framework, thư viện, hay bản thân khái niệm declrative programming này đã có từ lâu rồi, nhưng mình thích nói về React.
 
@@ -76,15 +76,17 @@ const btn = document.createElement('button');
 btn.innerText = 'Nút kỳ diệu';
 //Thêm default css cho button, default mới vào là màu đỏ
 btn.className = 'btn red';
-//Gán event onclick vào button vừa tạo, khi click vào button thì hàm này sẽ:
+//Gán event onclick vào button vừa tạo,
+//khi click vào button thì hàm này sẽ:
 btn.onclick = function(event) {
-  //Kiểm tra nếu list css class của button này (“this”) có chứa “red” (A)
+  //Nếu list css class của button này (“this”) có chứa “red” (A)
   if (this.classList.contains('red')) {
     //Thì remove css class red này đi
     this.classList.remove('red');
     //Rồi add css class “blue” mới vào list
     this.classList.add('blue');
-    //Ngược lại với ý (A), nếu ban đầu css class không chứa “red”, tức là đang chứa “blue”
+    //Ngược lại với ý (A), nếu ban đầu css class không chứa “red”,
+    //tức là đang chứa “blue”
   } else {
     //Thì remove class “blue” ra
     this.classList.remove('blue');
@@ -100,16 +102,19 @@ Oh my god, mới chỉ là một dumb-function, tạo nút và click đổi màu
 
 Rồi với một app lớn, nhiều lớp giao diện, nhiều thao tác cần xử lý, load dữ liệu, v,v… thì thật quả là ác mộng khi viết code kiểu này đúng không các bạn.
 
-Cách viết này giống như chúng ta đang hướng dẫn browser làm cái này làm cái kia, tạo biến này, nói chung là đi trình bày từng bước LÀM THẾ NÀO để đạt được kết quả mong muốn là một cái nút bấm chuyển màu qua lại.
+Cách viết này giống như chúng ta đang hướng dẫn browser làm cái này làm cái kia, tạo biến này, nói chung là đi trình bày từng bước **LÀM THẾ NÀO** để đạt được kết quả mong muốn là một cái nút bấm chuyển màu qua lại.
 
 Nhưng với React, chúng ta sẽ làm như sau:
 
 ```jsx
 //Tôi muốn tạo một Button class component
 class Button extends React.Component{
-//Button này có một biến stat là color, thể hiện màu sắc background của nút, mặc định sẽ là đỏ
+//Button này có một biến stat là color, thể hiện màu sắc background của nút,
+//mặc định sẽ là đỏ
 this.state = { color: 'red' }
-//(A) Tạo biến local color, check tùy vào biến state color đang là gì, nếu đang là “red” thì local color = “blue” và ngược lại. Sau cùng set lại state color ứng với biến color mới khởi tạo vừa rồi.
+//(A) Tạo biến local color, check tùy vào biến state color đang là gì,
+//nếu đang là “red” thì local color = “blue” và ngược lại.
+//Sau cùng set lại state color ứng với biến color mới khởi tạo vừa rồi.
     handleChange = () => {
         const color = this.state.color === 'red' ? 'blue' : 'red';
         this.setState({ color });
@@ -118,7 +123,8 @@ this.state = { color: 'red' }
         return (
             {/*Render ra màn hình giúp tôi một thẻ div, trong thẻ div có một button*/}
             <div>
-                {/*css classes của button này bao gồm “btn” và tùy vào trạng thái của biến state “color” mà sẽ add thêm “red” hay “blue” vào thêm sau “btn.*/}
+                {/*css classes của button này bao gồm “btn” và tùy vào trạng thái của biến state “color” 
+                mà sẽ add thêm “red” hay “blue” vào thêm sau “btn.*/}
                 <button className={`btn ${this.state.color}`}>
                     {/*Mỗi khi click vào nút này thì tui muốn xử lý như sau (xem (A))*/}
                     onClick={this.handleChange}>
@@ -135,9 +141,9 @@ Tùy vào trạng thái “color” state của nó mà anh đổi màu cho đ�
 
 Và yeah, React sẽ lo hết việc còn lại.
 
-Thật ra, bản chất họat động behind the scene của React suy cho cùng cũng phải đi thao tác với DOM thật để render, vẽ lại cái nút kia, cũng sẽ có các bước createElement, change class list,… Nhưng cách React làm sẽ khác chúng ta, và nó làm điều này một cách nhanh, performance tối ưu hơn.
+Thật ra, bản chất họat động behind the scene của React suy cho cùng cũng phải đi thao tác với DOM thật để render, vẽ lại cái nút kia, cũng sẽ có các bước <span class='inline-code'>createElement</span>, change class list,… Nhưng cách React làm sẽ khác chúng ta, và nó làm điều này một cách nhanh, performance tối ưu hơn.
 
-Thứ duy nhất chúng ta cần quan tâm và control đó là sự thay đổi của biến state “color”, và dựa trên “color” này, ta cân nói cái chúng ta muốn đạt được và React sẽ tự mình làm điều đó, bạn không cần quan tâm đến các bước “low-level” bên dưới, thật tuyệt vời.
+Thứ duy nhất chúng ta cần quan tâm và control đó là sự thay đổi của biến state <span class='inline-code'>color</span>, và dựa trên “color” này, ta cân nói cái chúng ta muốn đạt được và React sẽ tự mình làm điều đó, bạn không cần quan tâm đến các bước “low-level” bên dưới, thật tuyệt vời.
 
 Tùy vào mức độ thành thạo và việc bạn đã làm với JS vanilla nhiều hay không mà khi nhìn vào ví dụ bên trên, bạn sẽ thấy được lợi ích của cách viết này nhiều hay ít.
 
@@ -165,11 +171,11 @@ function arrayHandler(array) {
 }
 ```
 
-Một lần nữa, ở cách viết Imperative, chúng ta tạo một mảng kết quả “results”, duyệt qua từng phần tử của mảng, từ vị trí index thứ 0 đến chiều dài của mảng, mỗi lần duuyệt qua ta lấy từng element nhân 2, chèn vào mảng kết quả.
+Một lần nữa, ở cách viết Imperative, chúng ta tạo một mảng kết quả <span class='inline-code'>results</span>, duyệt qua từng phần tử của mảng, từ vị trí index thứ 0 đến chiều dài của mảng, mỗi lần duyệt qua ta lấy từng element nhân 2, chèn vào mảng kết quả.
 
-Tóm lại, ta tiếp tục đi “hướng dẫn” máy tính các công việc cần thực hiện từng bước một, làm như thế nào để đạt được kết quả.
+Tóm lại, ta tiếp tục đi **“hướng dẫn”** máy tính các công việc cần thực hiện từng bước một, làm như thế nào để đạt được kết quả.
 
-Còn với cách viết Declarative, ta biết rằng hàm “map” sẽ duyệt qua các phần tử trong mảng và trả ra một mảng mới. Tại đây, ta nói với máy tính rằng tôi muốn nhận về mảng mới với mỗi phần tử bằng phần tử của mảng gốc nhân cho 2.
+Còn với cách viết Declarative, ta biết rằng hàm <span class='inline-code'>map</span> sẽ duyệt qua các phần tử trong mảng và trả ra một mảng mới. Tại đây, ta nói với máy tính rằng tôi muốn nhận về mảng mới với mỗi phần tử bằng phần tử của mảng gốc nhân cho 2.
 
 Ít code và dễ đọc, dễ hiểu hơn đúng không các bạn. (À, còn tùy mức độ quen thuộc của bạn với các hàm của javascript nữa, “map” bên trên là một ví dụ).
 

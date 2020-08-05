@@ -34,13 +34,13 @@ export default ({ data, pageContext }) => {
     const facebookShareLink = document.querySelector('.facebook > a');
     facebookShareLink.setAttribute(
       'href',
-      `https://www.facebook.com/sharer/sharer.php?u=kysumattien.netlify.app${slug}`
+      `https://www.facebook.com/sharer/sharer.php?u=kysumattien.com${slug}`
     );
     facebookShareLink.addEventListener('click', function(e) {
       e.preventDefault();
       windowPopup(this.href, 500, 500);
     });
-  }, []);
+  }, [slug]);
   return (
     <Layout>
       <SEO
@@ -64,12 +64,20 @@ export default ({ data, pageContext }) => {
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div className="pre-next-navigator">
           {previous && (
-            <Link to={previous.fields.slug} className="pre-link" title={previous.frontmatter.title}>
+            <Link
+              to={previous.fields.slug}
+              className="pre-link"
+              title={previous.frontmatter.title}
+            >
               {previous.frontmatter.title}
             </Link>
           )}
           {next && (
-            <Link to={next.fields.slug} className="next-link" title={next.frontmatter.title}>
+            <Link
+              to={next.fields.slug}
+              className="next-link"
+              title={next.frontmatter.title}
+            >
               {next.frontmatter.title}
             </Link>
           )}
