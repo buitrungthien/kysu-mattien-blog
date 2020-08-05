@@ -123,11 +123,11 @@ this.state = { color: 'red' }
         return (
             {/*Render ra màn hình giúp tôi một thẻ div, trong thẻ div có một button*/}
             <div>
-                {/*css classes của button này bao gồm “btn” và tùy vào trạng thái của biến state “color” 
+                {/*css classes của button này bao gồm “btn” và tùy vào trạng thái của biến state “color”
                 mà sẽ add thêm “red” hay “blue” vào thêm sau “btn.*/}
-                <button className={`btn ${this.state.color}`}>
+                <button className={`btn ${this.state.color}`}
+                  onClick={this.handleChange} >
                     {/*Mỗi khi click vào nút này thì tui muốn xử lý như sau (xem (A))*/}
-                    onClick={this.handleChange}>
                 </button>
             </div>
         );
