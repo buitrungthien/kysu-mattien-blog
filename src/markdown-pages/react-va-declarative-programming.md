@@ -21,7 +21,7 @@ Nghĩ là vậy thôi, chứ trả lời nó phải ra ngô ra khoai để ngư�
 
 **Vâng, tới đây thì mình chính thức tịt ngòi :D**
 
-Mến chào các bạn đã đến với blog **“kỹ sự mặt tiền”** ngày hôm nay. Câu chuyện trên là thật, và nó là cuộc phỏng vấn của mình vào những ngày đầu học lập trình web.
+Mến chào các bạn đã đến với blog **“kỹ sư mặt tiền”** ngày hôm nay. Câu chuyện trên là thật, và nó là cuộc phỏng vấn của mình vào những ngày đầu học lập trình web.
 
 Nhớ không lầm đó là thời điểm 3 tháng sau khi tập tò học lập trình web và phỏng vấn đi xin việc ở vị trí thực tập tại một công ty nọ. Và mình đã được học ngay những bài học đầu tiên - the hard way. Mình đã tạch các bạn ạ, tạch ngay từ thời điểm đi xin thực tập.
 
