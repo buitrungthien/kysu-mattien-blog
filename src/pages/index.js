@@ -142,7 +142,7 @@ const IndexPage = ({ data }) => {
               Chào các bạn mình là Thiên. Hiện tại mình đang là front-end developer làm việc tại sendo.vn.
             </p>
             <p className="brief-introduction mobile-no-display">
-              Thưở mới vào nghề, mình đã trải qua rất nhiều khó khăn, sai lầm,
+              Thuở mới vào nghề, mình đã trải qua rất nhiều khó khăn, sai lầm,
               lắm lúc bế tắc và có thật nhiều thắc mắc nhưng không có ai giải
               đáp.
             </p>

@@ -9,7 +9,7 @@ const SecondPage = () => (
   <Layout>
     <SEO title="About me and this blog" />
     <article className="post">
-      <h1>Tại sao mình viêt blog này</h1>
+      <h1>Tại sao mình viết blog này</h1>
       <main>
         <section>
           <h2>Mình bắt đầu từ con số 0</h2>
@@ -64,7 +64,7 @@ const SecondPage = () => (
           <p>
             Mình muốn giúp bạn, để con đường đến với lập trình web của các bạn
             {' '}<b>bớt chông gai, không lặp lại những sai lầm mình đã mắc phải</b>.
-            mình lập ra blog này nhằm chia sẻ mọi thứ mà mình biết. Từ{' '}
+            Mình lập ra blog này nhằm chia sẻ mọi thứ mà mình biết. Từ{' '}
             <b>kinh nghiệm học</b>, <b>kinh nghiệm học tiếng Anh</b>, {' '}
             <b>kinh nghiệm đi phỏng vấn</b>, <b>kinh nghiệm đi làm</b>,{' '}
             <b>ứng xử</b>, <b>quy trình trong môi trường công sở</b>. Xen kẽ với
