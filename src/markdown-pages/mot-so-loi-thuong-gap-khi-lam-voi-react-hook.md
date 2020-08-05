@@ -282,7 +282,7 @@ function Example(props) {
 
 <b class='problem-label'>Vấn đề</b>
 
-Có 2 action \*không liên quan đến nhau** là “get data từ api” và “hiển thị breadcrums” ứng với địa chỉ url tương ứng. Cả 2 action này đều được đặt trong cùng một useEffect. useEffect này sẽ chạy cả **fetchData** và **updateBreadcrumbs\*\* khi location.pathname thay đổi.
+Có 2 action **không liên quan đến nhau** là “get data từ api” và “hiển thị breadcrums” ứng với địa chỉ url tương ứng. Cả 2 action này đều được đặt trong cùng một useEffect. useEffect này sẽ chạy cả **fetchData** và **updateBreadcrumbs** khi location.pathname thay đổi.
 
 Thứ nhất, với fetchData, chúng ta chỉ muốn chạy nó một lần, thay vì chạy các lần **không cần thiết** chỉ vì location.pathname thay đổi.
 
