@@ -8,6 +8,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 
 import Header from './header';
 import '../scss/main.scss';
@@ -61,11 +62,11 @@ const Layout = ({ children }) => {
         <nav>
           <ul>
             <li>
-              <a href="portfolio">Dự án tôi đã làm</a>
+              <Link to="/portfolio">Dự án tôi đã làm</Link>
             </li>
-            {/* <li>
-              <a href="contact">Liên hệ / Thuê</a>
-            </li> */}
+            <li>
+              <span>Liên hệ: thienbt95@gmail.com</span>
+            </li>
           </ul>
         </nav>
         <span>

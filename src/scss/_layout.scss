@@ -106,9 +106,10 @@
     justify-content: space-between;
     align-items: center;
 
-    a {
+    a, span {
       color: whitesmoke;
-      padding: 0 3rem;
+      padding: 0 1rem;
+      display: inline-block;
     }
 
     li:not(:last-child) {
