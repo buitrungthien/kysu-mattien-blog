@@ -15,7 +15,7 @@ Mình nghĩ thầm trong bụng:
 
 Nghĩ là vậy thôi, chứ trả lời nó phải ra ngô ra khoai để người ta còn nhận mình chứ vầy thì tạch mất.
 
-> Dạ, React nó sử dụng DOM ảo, nó nhanh, không có làm với DOM thuần, nó “học một lần, viết tùm lum” (Learn Oce, Write Anywhere), chia nhỏ theo cấu trúc Component (Component-Based) và viết code theo hướng Declarative giúp dễ đọc, dễ hiểu.
+> Dạ, React nó sử dụng DOM ảo, nó nhanh, không có làm với DOM thuần, nó “học một lần, viết tùm lum” (Learn Once, Write Anywhere), chia nhỏ theo cấu trúc Component (Component-Based) và viết code theo hướng Declarative giúp dễ đọc, dễ hiểu.
 
 > Ừm, ok, vậy cho anh biết viết code declarative hay declarative programming là gì mà nó được xem như là một điểm mạnh của React em ha?
 
