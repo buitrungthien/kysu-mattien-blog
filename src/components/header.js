@@ -1,13 +1,15 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Logo from '../images/logo.png';
 
 const Header = ({ siteTitle }) => (
-  <header className='header'>
+  <header className="header">
     <div className="header-inner-wrap">
-      <h1 className="logo">
-        <Link to="/">{siteTitle}</Link>
-      </h1>
+      <Link className="logo-wrap" to="/">
+        <img src={Logo} alt="Kỹ sư mặt tiền - Từ Zero đến Hero" />
+        <span>{siteTitle}</span>
+      </Link>
       <p className="perspective">Từ Zero đến Hero</p>
     </div>
   </header>

@@ -3,7 +3,7 @@ require('dotenv').config({
 });
 module.exports = {
   siteMetadata: {
-    title: `Front end - ReactJS - Kỹ sư "mặt tiền"`,
+    title: `Kỹ sư "mặt tiền"`,
     description: 'Từ Zero đến Hero',
     author: `Tony`,
   },
