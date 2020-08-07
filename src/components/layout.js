@@ -59,20 +59,39 @@ const Layout = ({ children }) => {
       </aside>
       <main className="main">{children}</main>
       <footer className="footer">
-        <nav>
-          <ul>
-            <li>
-              <Link to="/portfolio">Dự án tôi đã làm</Link>
-            </li>
-            <li>
-              <span>Liên hệ: thienbt95@gmail.com</span>
-            </li>
-          </ul>
-        </nav>
-        <span>
+        <div className="footer__inner">
+          <div className="my-contact">
+            <Link to="/portfolio">Dự án tôi đã làm</Link>
+            <span>Liên hệ: thienbt95@gmail.com</span>
+          </div>
+          <div className="related-sites-wrap">
+            <p>Các trang liên quan: </p>
+            <ul className="related-sites">
+              <li>
+                <a
+                  target="_blank"
+                  href="https://www.youtube.com/channel/UCxRgDi15EJsB2ayyP-eg3Tg"
+                >
+                  nghiepuit
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://www.toidicodedao.com">
+                  toidicodedao.com
+                </a>
+              </li>
+              <li>
+                <a target="_blank" href="https://niviki.com/">
+                  niviki.com
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer__copyright">
           © {new Date().getFullYear()}, Built with
           {` love`}
-        </span>
+        </div>
       </footer>
     </>
   );
