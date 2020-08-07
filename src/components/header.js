@@ -6,13 +6,17 @@ import Logo from '../images/logo.png';
 const Header = ({ siteTitle }) => {
   useEffect(() => {
     function scrollFunction() {
+      const header = document.getElementById('header');
+      const allSpans = header.querySelectorAll('span');
       if (
         document.body.scrollTop > 70 ||
         document.documentElement.scrollTop > 70
       ) {
-        document.getElementById('header').style.padding = '0.4rem 0';
+        header.style.padding = '0.4rem 0';
+        allSpans.forEach(span => (span.style.fontSize = '2rem'));
       } else {
-        document.getElementById('header').style.padding = '1rem 0';
+        header.style.padding = '1rem 0';
+        allSpans.forEach(span => (span.style.fontSize = '2.7rem'));
       }
     }
     window.onscroll = function() {
@@ -27,7 +31,7 @@ const Header = ({ siteTitle }) => {
           <img src={Logo} alt="Kỹ sư mặt tiền - Từ Zero đến Hero" />
           <span>{siteTitle}</span>
         </Link>
-        <p className="perspective">Từ Zero đến Hero</p>
+        <span className="perspective">Từ Zero đến Hero</span>
       </div>
     </header>
   );
