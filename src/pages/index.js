@@ -68,7 +68,7 @@ const IndexPage = ({ data }) => {
                   to={node.fields.slug}
                   className="article-card__image-wrap"
                 >
-                  <img src={node.frontmatter.image || defaultImage} className="article-image-pre" />
+                  <img src={node.frontmatter.image || defaultImage} className="article-image-pre" alt={node.frontmatter.title} />
                 </Link>
                 <div className="article-card__content">
                   <Link to={node.fields.slug}>
