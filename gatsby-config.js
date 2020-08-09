@@ -31,7 +31,6 @@ module.exports = {
         timeout: 3500,
       },
     },
-    `gatsby-transformer-remark`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
@@ -41,10 +40,10 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#171f42`,
+        theme_color: `#171f42`,
         display: `minimal-ui`,
-        icon: `src/images/default.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo.png`, // This path is relative to the root of the site.
       },
     },
     {
@@ -114,6 +113,12 @@ module.exports = {
               // Add additional HTML escapes by providing a mapping
               // of HTML entities and their escape value IE: { '}': '&#123;' }
               escapeEntities: {},
+            },
+          },
+          {
+            resolve: 'gatsby-remark-stackblitz',
+            options: {
+              height: 600,
             },
           },
         ],

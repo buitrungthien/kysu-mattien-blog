@@ -1,6 +1,6 @@
 ---
 title: 'Một số lỗi thường gặp khi làm việc với React hooks'
-date: '08/04/2020'
+date: '2020-08-04'
 author: { name: 'Thiên Bùi' }
 tag: 'tech'
 image: 'https://secureservercdn.net/198.71.233.138/kh4.9f9.myftpupload.com/wp-content/uploads/2017/12/management-mistakes-pic_678X381.jpg'
