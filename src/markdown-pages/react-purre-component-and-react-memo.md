@@ -452,7 +452,7 @@ Phù, dài và buồn ngủ quá rồi, chủ đề này cũng cần nói khá d
 
 ## 7. Kết luận
 
-Qua bài viế trên, hy vọng các bạn đã nắm được:
+Qua bài viết trên, hy vọng mình đã giúp các bạn đã nắm được:
 - Cách thức re-render giữa các component cha con trong React
 - Cách tối ưu performance bằng việc tránh re-render không cần thiết
 - Lý do vì sao PureComponent và memo ra đời
