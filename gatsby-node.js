@@ -20,7 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return graphql(`
     {
-      allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}) {
+      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
         edges {
           next {
             fields {
@@ -47,16 +47,18 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(result => {
-    result.data.allMarkdownRemark.edges.forEach(({node, previous, next}, index) => {
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve('./src/templates/default-blog-post.js'),
-        context: {
-          slug: node.fields.slug,
-          previous,
-          next,
-        }
-      });
-    });
+    result.data.allMarkdownRemark.edges.forEach(
+      ({ node, previous, next }, index) => {
+        createPage({
+          path: node.fields.slug,
+          component: path.resolve('./src/templates/default-blog-post.js'),
+          context: {
+            slug: node.fields.slug,
+            previous,
+            next,
+          },
+        });
+      }
+    );
   });
 };
