@@ -281,7 +281,7 @@ class PostContent extends PureComponent {
 
 **PureComponent** dùng cho các **React Class Component**, còn **React Functional Component** thì dùng... **memo**.
 
-Với React Functional Component cúng ta sẽ không có life cycle shouldComponentUpdate, và cũng không thể extends từ PureComponent, thay vào đó React cung cấp cho chúng ta một Higher-order-component có tên **memo**.
+Với React Functional Component chúng ta sẽ không có life cycle shouldComponentUpdate, và cũng không thể extends từ PureComponent, thay vào đó React cung cấp cho chúng ta một Higher-order-component có tên **memo**.
 
 vẫn là ví dụ về component PostContent bên trên, thay vì implement <span class='inline-code'>shouldComponentUpdate</span> hay <span class='inline-code'>extends PureComponent</span>. Với Functional Component và React.memo, ta làm như sau:
 
@@ -316,7 +316,7 @@ function areEqual(prevProps, nextProps) {
   trả ra true nếu nextprops và prevProps bằng nhau, 
   ngược lại trả ra false.
   */
-  if (prevProps === nextProps) {
+  if (prevProps.postContent === nextProps.postContent) {
     return true;
   }
   return false;
