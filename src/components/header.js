@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import React from 'react';
 import Logo from '../images/logo.png';
 
 const Header = ({ siteTitle }) => {

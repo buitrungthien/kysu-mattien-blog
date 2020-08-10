@@ -70,18 +70,23 @@ const Layout = ({ children }) => {
               <li>
                 <a
                   target="_blank"
+                  rel="noreferrer"
                   href="https://www.youtube.com/channel/UCxRgDi15EJsB2ayyP-eg3Tg"
                 >
                   nghiepuit
                 </a>
               </li>
               <li>
-                <a target="_blank" href="https://www.toidicodedao.com">
+                <a
+                  target="_blank"
+                  href="https://www.toidicodedao.com"
+                  rel="noreferrer"
+                >
                   toidicodedao.com
                 </a>
               </li>
               <li>
-                <a target="_blank" href="https://niviki.com/">
+                <a target="_blank" href="https://niviki.com/" rel="noreferrer">
                   niviki.com
                 </a>
               </li>

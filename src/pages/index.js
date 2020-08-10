@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => {
       }
     });
     setFilteredData(filteredPosts);
-  }, [filterValue, searchValue]);
+  }, [filterValue, searchValue, allPosts]);
 
   const handleFilterChange = event => {
     const { name } = event.target;
@@ -68,7 +68,11 @@ const IndexPage = ({ data }) => {
                   to={node.fields.slug}
                   className="article-card__image-wrap"
                 >
-                  <img src={node.frontmatter.image || defaultImage} className="article-image-pre" alt={node.frontmatter.title} />
+                  <img
+                    src={node.frontmatter.image || defaultImage}
+                    className="article-image-pre"
+                    alt={node.frontmatter.title}
+                  />
                 </Link>
                 <div className="article-card__content">
                   <Link to={node.fields.slug}>
@@ -139,7 +143,8 @@ const IndexPage = ({ data }) => {
               />
             </div>
             <p className="brief-introduction">
-              Chào các bạn mình là Thiên. Hiện tại mình đang là front-end developer làm việc tại sendo.vn.
+              Chào các bạn mình là Thiên. Hiện tại mình đang là front-end
+              developer làm việc tại sendo.vn.
             </p>
             <p className="brief-introduction mobile-no-display">
               Thuở mới vào nghề, mình đã trải qua rất nhiều khó khăn, sai lầm,
