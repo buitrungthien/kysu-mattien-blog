@@ -1,7 +1,7 @@
 ---
 title: 'Những điều mình ước mình biết được khi mới bắt đầu học lập trình (Phần 1)'
 author: { name: 'Thiên Bùi' }
-date: '2020-08-13'
+date: '2020-08-14'
 tag: 'exp'
 image: 'https://i.imgur.com/y8xr2f9.jpg'
 description: 'Biết được những điều này có thể sẽ giúp bạn rất nhiều trên con đường tự học lập trình đấy. Cùng mình tìm hiểu nha'

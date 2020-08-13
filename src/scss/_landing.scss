@@ -265,6 +265,7 @@
     & > img {
       display: block;
       width: 98%;
+      height: 98%;
       max-height: 98%;
       object-fit: cover;
     }
@@ -272,7 +273,7 @@
 
   &__content {
     flex-grow: 1;
-    flex-basis: auto;
+    flex-basis: 60%;
     padding: 1rem;
     display: flex;
     flex-direction: column;
