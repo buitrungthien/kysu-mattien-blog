@@ -248,7 +248,9 @@
   max-height: 25rem;
   min-height: 23rem;
   @media screen and (max-width: 760px) {
-    min-height: 27rem;
+    flex-direction: column;
+    max-height: unset;
+    height: fit-content;
   }
   overflow: hidden;
 
@@ -256,20 +258,21 @@
     height: 100%;
     flex-grow: 1;
     flex-basis: 40%;
-    @media screen and (max-width: 980px) {
-      flex-basis: 35%;
+    @media screen and (max-width: 768px) {
+      flex-basis: 20rem;
+      height: 20rem;
     }
     & > img {
       display: block;
       width: 98%;
-      height: 98%;
+      max-height: 98%;
       object-fit: cover;
     }
   }
 
   &__content {
     flex-grow: 1;
-    flex-basis: 60%;
+    flex-basis: auto;
     padding: 1rem;
     display: flex;
     flex-direction: column;

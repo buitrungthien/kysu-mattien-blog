@@ -11,6 +11,7 @@ import EmailRegisterForm from '../components/EmailRegister';
 
 const IndexPage = ({ data }) => {
   const allPosts = data.allMarkdownRemark.edges;
+  console.log('allPosts', allPosts)
   const [filteredData, setFilteredData] = useState([...allPosts]);
   const [filterValue, setFilterValue] = useState({ tech: true, exp: true });
   const [searchValue, setSearchValue] = useState('');
@@ -27,6 +28,7 @@ const IndexPage = ({ data }) => {
           return post;
       }
     });
+    console.log('filteredPosts', filteredPosts)
     setFilteredData(filteredPosts);
   }, [filterValue, searchValue, allPosts]);
 

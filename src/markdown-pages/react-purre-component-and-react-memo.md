@@ -392,13 +392,13 @@ const author = { name: 'thien' };
 const author2 = { name: 'thien' };
 ```
 
-Thì khi so sánh: 
+Thì khi so sánh:
 
 ```js
 console.log(author === author2);
 ```
 
-Sẽ cho ra kết quả là **false**. 
+Sẽ cho ra kết quả là **false**.
 
 Vì khi khai báo biến <span class='inline-code'>author2</span>, runtime-environment sẽ đi khởi tạo một object khác trong vùng heap có giá trị { name: 'thien' }, và tiếp tục gán **giá trị vùng nhớ** của object vừa tạo cho biến <span class='inline-code'>author2</span>. Vì **gí trị vùng nhớ là duy nhất**. Nên author2 lúc này sẽ nắm giữ gí trị **0x0abcd4567**
 
@@ -423,6 +423,7 @@ const nestedObjectB = {
   },
 };
 ```
+
 Thì khi so sánh
 
 ```js
@@ -438,9 +439,9 @@ Ngược lại với **so sánh nông** là **so sánh sâu** - **deep compariso
 Nếu phép so sánh vừa rồi mà thực hiện **so sánh sâu** thì js sẽ đi so sánh đi sâu vào tận các property trong cùng.
 
 ```js
-nestedObjectA.author.name === nestedObjectB.author.name 
+nestedObjectA.author.name === nestedObjectB.author.name;
 //true. Vì cả 2 property name này đều đang là kiểu primitve, đều đang chứa giá trị 'Thien Bui'
-nestedObjectA.author.country === nestedObjectB.author.country
+nestedObjectA.author.country === nestedObjectB.author.country;
 //true. Vì cả 2 property name này đều đang là kiểu primitve, đều đang chứa giá trị 'Viet Nam'
 ```
 
@@ -453,6 +454,7 @@ Phù, dài và buồn ngủ quá rồi, chủ đề này cũng cần nói khá d
 ## 7. Kết luận
 
 Qua bài viết trên, hy vọng mình đã giúp các bạn đã nắm được:
+
 - Cách thức re-render giữa các component cha con trong React
 - Cách tối ưu performance bằng việc tránh re-render không cần thiết
 - Lý do vì sao PureComponent và memo ra đời
