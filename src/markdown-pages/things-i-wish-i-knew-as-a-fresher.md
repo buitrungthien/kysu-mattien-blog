@@ -95,7 +95,7 @@ Nghĩ lại thật bậy bạ hết sức ^^
 
 Nếu may mắn, bạn có người mentor, chỉ dẫn đường đi thì đó là một lợi thế lớn. Nhưng không phải ai cũng có được may mắn đó.
 
-Nếu có một người chịu vui vẻ giải thích hay ngồi chỉ dẫn bạn cách học, đường đi nước bước, nên tập trung cái nào, tạm thời bỏ qua cái nào, thì bạn nên cảm ơn trời đất vì tỏ lòng biết ơn khôn xiết vì gặp được một người quá tốt.
+Nếu có một người chịu vui vẻ giải thích hay ngồi chỉ dẫn bạn cách học, đường đi nước bước, nên tập trung cái nào, tạm thời bỏ qua cái nào, thì bạn nên cảm ơn trời đất và tỏ lòng biết ơn khôn xiết vì gặp được một người quá tốt.
 
 Nhưng thường thì sẽ không như vậy. Ai cũng có công việc riêng, không thể suốt ngày đi chỉ dẫn cho một thằng em út suốt ngày theo hỏi những câu hỏi ngớ ngẩn được.
 
@@ -111,10 +111,10 @@ Lấy ví dụ về React, đi theo structure của khóa học trên udemy, b�
 
 Nếu không đi theo structure trên, bạn sẽ dễ rơi vào vòng lặp, loay hoay mãi tìm không thấy lối ra.
 
-**Túm lại: Nên học theo sturcture của các khóa học có sẵn, vốn đã đầy đủ và được sắp xếp hợp lý. Với internet ngày nay thì chỉ cần vài giây search là sẽ ra ngay một structure đầy đủ. Bạn có thể tận dụng các platform học tập nổi tiếng như **udemy**, kinh nghiệm là cứ top rating và nhiều người đăng ký thì chọn. Nếu có điều kiện hơn một xíu nữa, hãy đầu tư luôn một khoản tiền để học những khóa học như vậy. Đây sẽ là bước tiến đầu tiên vô cùng quan trọng trong suốt quãng đường học và làm của bạn.**
+**Túm lại: Nên học theo sturcture của các khóa học có sẵn, vốn đã đầy đủ và được sắp xếp hợp lý. Với internet ngày nay thì chỉ cần vài giây search là sẽ ra ngay một structure đầy đủ. Bạn có thể tận dụng các platform học tập nổi tiếng như udemy, kinh nghiệm là cứ top rating và nhiều người đăng ký thì chọn. Nếu có điều kiện hơn một xíu nữa, hãy đầu tư luôn một khoản tiền để học những khóa học như vậy. Đây sẽ là bước tiến đầu tiên vô cùng quan trọng trong suốt quãng đường học và làm của bạn.**
 
 ## 4.Học cũng như luyện võ trong phim kiếm hiệp. Người phàm thì sẽ khó hiểu lời của cao nhân.
-Đã bao giờ bạn đọc trên mạng hay nhận những lời khuyên từ các anh dev senior mà bản thân bạn nghe cứ ù ù cạc cạc rất khó hiểu, thậm chí còn thấy nó rất khó hiểu không?
+Đã bao giờ bạn đọc trên mạng hay nhận những lời khuyên từ các anh dev senior mà bản thân bạn nghe cứ ù ù cạc cạc rất khó hiểu, thậm chí còn thấy nó có vẻ vô lý không?
 
 >Em phải nắm rõ design pattern.
 
@@ -142,13 +142,21 @@ Cái sai lớn nhất của dev mới đó là vì quá bỡ ngỡ, chưa có c�
 
 Ví dụ đang tìm hiểu và làm **redux-thunk**, chưa thuần thục thì lại vô tình đọc được một bài nào đó nói **reudx-saga** “ngon” hơn, “test-driven” hơn. Thế là lại nhảy phốc qua tìm hiểu ngay redux-saga, hay thậm chí ngồi dành 1, 2 ngày liên chỉ để tìm đọc các bài viết **so sánh redux-saga hay redux-thunk, bạn nên chọn cái nào**, bla, bla.
 
-Chỉ cần bạn hỏi ý kiến, hay cách học và làm của một người có thiên hướng **học rộng**, **học để làm freelancer** các thứ, hay giữa một người thích học, tìm hiểu sâu, đọc source code các library là một ví dụ. Thì ngay lập tức bạn sẽ nhận về những lời khuyên, ý kiến khác nhau.
+Ở giai đoạn này mình xin khẳng định là **Công nghệ có quan trọng**. Nếu bạn muốn có nhiều cơ hội việc làm, hãy học và làm những thứ mà thị trường, ngành công nghiệp đang cần. Hay nói thẳng ra là học React.
+
+Thay vì lăn tăn chuyển qua chuyển lại, học React được 1, 2 tháng rồi quay qua Angular, xong rồi tới Vue. Hãy tập trung học tốt, tìm hiểu chuyên sâu về  một thứ.
+
+**Công nghệ không quan trọng**, **nó cũng chỉ là công cụ**, ... là những lời khuyên đúng... cho tương lai. Bạn của sau này sẽ cần nó, còn hiện tại thì không, hãy tập trung.
+
+Chỉ cần bạn hỏi ý kiến, cách học và làm của một người có thiên hướng **học rộng**, **học để làm freelancer** các thứ, hay giữa một người thích học, tìm hiểu sâu, đọc source code các library là một ví dụ. Thì ngay lập tức bạn sẽ nhận về những lời khuyên, ý kiến khác nhau.
 
 > Không cần quá sâu đâu em. Quan trọng là biết làm để kiếm job, kiếm được tiền
+
 > Học sâu vô em. Biết làm thôi thì ai cũng làm được, phải hiểu tại sao!?
+
 > Đọc source code React? Nó có làm em kiếm được cơm hay không? Trong khi còn có hàng tá thứ phải học.
 
-**Túm lại: Tập thói quen tư duy phản biện. Lời khuyên rất dễ cho, ai cũng có thể nói được. Nhưng bản thân chúng ta mỗi khi nghe phải biết chắt lọc, cố gắng có cái nhìn tổng quan, suy nghĩ xem liệu lỹ lẽ đó có thích hợp với mình ở thời điểm hiện tại hay không. Cố gắng bám sát lộ trình, không lan man.**
+**Túm lại: Tập thói quen tư duy phản biện. Lời khuyên rất dễ cho, ai cũng có thể nói được. Nhưng bản thân chúng ta mỗi khi nghe phải biết chắt lọc, cố gắng có cái nhìn tổng quan, suy nghĩ xem liệu lý lẽ đó có thích hợp với mình ở thời điểm hiện tại hay không. Cố gắng bám sát lộ trình, không lan man.**
 
 **Học cũng như luyện võ, phải đi qua từng cấp độ. Người thường mà đùng một cái luyện mật tịch, thì không sớm thì muộn, cũng sẽ bị tẩu hỏa nhập ma.**
 
