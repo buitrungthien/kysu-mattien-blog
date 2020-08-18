@@ -47,8 +47,6 @@
   display: flex;
   flex-direction: column;
   flex-basis: 29%;
-  position: sticky;
-  top: 100px;
   @media screen and (max-width: 980px) {
     flex-direction: row;
     position: static;
@@ -187,7 +185,7 @@
     display: flex;
     flex-direction: column;
     .tag {
-      margin-top: .5rem;
+      margin-top: 0.5rem;
     }
   }
 }
@@ -309,7 +307,7 @@
       cursor: text;
 
       @media screen and (max-width: 760px) {
-        margin-left: .5rem;
+        margin-left: 0.5rem;
         @media screen and (max-width: 370px) {
           margin-left: 0;
         }

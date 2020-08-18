@@ -89,7 +89,7 @@ Nghĩ lại thật bậy bạ hết sức ^^
 
 **Túm lại: Bám sát theo lộ trình đã vạch ra, tạm thời bỏ ngoài tai các ý kiến trái chiều hay các bài viết so sánh này nọ. Những bài viết đó hay, mình đồng ý, nhưng nó không giúp gì cho bạn ở level này đâu. Bạn hoàn toàn có thể cải thiện, tìm hiểu thêm trong suốt quá trình học và làm**
 
-## 3.Học theo sructure của khóa học
+## 3.Học theo structure của khóa học
 
 **Vạch ra con đường tổng quan và bám sát theo nó**, nghe thì có vẻ đơn giản, nhưng thật ra cực kỳ khó đối với các bạn mới bắt đầu.
 
@@ -140,7 +140,7 @@ Cơ bản họ đã trải qua khoảng thời gian đó khá lâu, và mọi th
 
 Cái sai lớn nhất của dev mới đó là vì quá bỡ ngỡ, chưa có cái nhìn tổng quan, nên cứ hễ nghe một lời khuyên vô thưởng vô phạt là sẽ lao vào tìm kiếm say sưa, học không có mục đích.
 
-Ví dụ đang tìm hiểu và làm **redux-thunk**, chưa thuần thục thì lại vô tình đọc được một bài nào đó nói **reudx-saga** “ngon” hơn, “test-driven” hơn. Thế là lại nhảy phốc qua tìm hiểu ngay redux-saga, hay thậm chí ngồi dành 1, 2 ngày liên chỉ để tìm đọc các bài viết **so sánh redux-saga hay redux-thunk, bạn nên chọn cái nào**, bla, bla.
+Ví dụ đang tìm hiểu và làm **redux-thunk**, chưa thuần thục thì lại vô tình đọc được một bài nào đó nói **redux-saga** “ngon” hơn, “test-driven” hơn. Thế là lại nhảy phốc qua tìm hiểu ngay redux-saga, hay thậm chí ngồi dành 1, 2 ngày liên chỉ để tìm đọc các bài viết **so sánh redux-saga hay redux-thunk, bạn nên chọn cái nào**, bla, bla.
 
 Ở giai đoạn này mình xin khẳng định là **Công nghệ có quan trọng**. Nếu bạn muốn có nhiều cơ hội việc làm, hãy học và làm những thứ mà thị trường, ngành công nghiệp đang cần. Hay nói thẳng ra là học React.
 
