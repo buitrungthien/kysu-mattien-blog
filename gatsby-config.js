@@ -4,8 +4,9 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `Kỹ sư "mặt tiền"`,
-    description: 'Từ Zero đến Hero',
-    author: `Tony`,
+    description:
+      'Blog chia sẻ kiến thức lập trình web front-end, ReactJS,..., kinh nghiệm tự học, kinh nghiệm đi làm. Giúp con đường đến với lập trình web của các bạn mới đỡ chông gai!',
+    author: `Thiên Bùi`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
