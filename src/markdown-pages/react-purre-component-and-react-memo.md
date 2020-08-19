@@ -460,7 +460,7 @@ Qua bài viết trên, hy vọng mình đã giúp các bạn đã nắm được
 - Lý do vì sao PureComponent và memo ra đời
 - So sánh nông là gì
 
-Ở bài viết tiếp theo, mình sẽ chỉ ra **Các lỗi dễ mắc khiến cho các nỗ lực sử dụng PureComponent và memo trở thành công cốc**. Các bạn nhớ đón đọc nhé.
+Ở bài viết tiếp theo, mình sẽ chỉ ra <a href='https://www.kysumattien.com/mistakes-make-memo-and-pure-component-useless/'>Các lỗi dễ mắc khiến cho các nỗ lực sử dụng PureComponent và memo trở thành công cốc</a>. Các bạn nhớ đón đọc nhé.
 
 Cảm ơn các bạn đã đồng hành từ trên đầu trang đến tới tận dưới này ^^.
 

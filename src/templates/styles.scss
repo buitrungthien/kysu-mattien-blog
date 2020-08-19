@@ -75,6 +75,7 @@
   a {
     max-width: 100%;
     overflow-wrap: anywhere;
+    text-decoration: underline;
   }
 
   em {
@@ -272,6 +273,7 @@ code {
   font-style: italic;
   background-color: lightgray;
   padding: 0 0.5rem;
+  font-size: 1.7rem;
   display: inline-block;
   border-radius: 5px;
 }
