@@ -83,7 +83,6 @@ function SEO({ description, lang, meta, title, image }) {
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  description: ``,
   image: 'https://toidicodedao.files.wordpress.com/2018/07/react.png',
 };
 
