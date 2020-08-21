@@ -7,7 +7,10 @@ import avatar from '../images/profile_avatar.jpg';
 
 const SecondPage = () => (
   <Layout>
-    <SEO title="About me and this blog" />
+    <SEO
+      title="About me and this blog"
+      description="Tại sao mình viết blog này? Vì mình bắt đầu học lập trình web từ con số 0"
+    />
     <article className="post">
       <h1>Tại sao mình viết blog này</h1>
       <main>
@@ -62,16 +65,16 @@ const SecondPage = () => (
             </ul>
           </p>
           <p>
-            Mình muốn giúp bạn, để con đường đến với lập trình web của các bạn
-            {' '}<b>bớt chông gai, không lặp lại những sai lầm mình đã mắc phải</b>.
+            Mình muốn giúp bạn, để con đường đến với lập trình web của các bạn{' '}
+            <b>bớt chông gai, không lặp lại những sai lầm mình đã mắc phải</b>.
             Mình lập ra blog này nhằm chia sẻ mọi thứ mà mình biết. Từ{' '}
-            <b>kinh nghiệm học</b>, <b>kinh nghiệm học tiếng Anh</b>, {' '}
+            <b>kinh nghiệm học</b>, <b>kinh nghiệm học tiếng Anh</b>,{' '}
             <b>kinh nghiệm đi phỏng vấn</b>, <b>kinh nghiệm đi làm</b>,{' '}
             <b>ứng xử</b>, <b>quy trình trong môi trường công sở</b>. Xen kẽ với
-            đó là các bài viết về <b>Technical</b> {' '}
-            từ cơ bản đến chuyên sâu về <b>HTML</b>, <b>CSS</b>, <b>ReactJS</b>,
-            các <b>bài viết dịch thuật</b>, ... mọi thứ mà mình biết và nghĩ là
-            có thể giúp được mọi người.
+            đó là các bài viết về <b>Technical</b> từ cơ bản đến chuyên sâu về{' '}
+            <b>HTML</b>, <b>CSS</b>, <b>ReactJS</b>, các{' '}
+            <b>bài viết dịch thuật</b>, ... mọi thứ mà mình biết và nghĩ là có
+            thể giúp được mọi người.
           </p>
           <p>
             Đen Vâu nói (hát): "Đời có qua có lại thì mới toại lòng nhau. Người
@@ -82,9 +85,9 @@ const SecondPage = () => (
         <section>
           <h2>Cảm ơn</h2>
           <p>
-            Mình không thể nào hình dung nổi sẽ có một ngày mình có thể tự tạo cho
-            mình một blog, làm những thứ đẹp đẽ và thú vị như thế này. Xin chân
-            thành tỏ lòng biết ơn đến:
+            Mình không thể nào hình dung nổi sẽ có một ngày mình có thể tự tạo
+            cho mình một blog, làm những thứ đẹp đẽ và thú vị như thế này. Xin
+            chân thành tỏ lòng biết ơn đến:
             <ul>
               <li>
                 Anh Hoàn superman: người anh senior với kiến thức sâu rộng,

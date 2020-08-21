@@ -52,7 +52,10 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Kỹ sư mặt tiền" />
+      <SEO
+        title="Kỹ sư mặt tiền"
+        description="Blog chia sẻ kiến thức lập trình web front-end, ReactJS,..., kinh nghiệm tự học, kinh nghiệm đi làm. Giúp con đường đến với lập trình web của các bạn mới đỡ chông gai!"
+      />
       <div className="register-bar">
         <span>
           Bạn muốn nhận những bài viết mới nhất, những khóa học bổ ích?
