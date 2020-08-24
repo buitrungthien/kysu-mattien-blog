@@ -4,10 +4,10 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import defaultImage from '../images/images.jpg';
-import myAvatar from '../images/my-avatar.jpg';
 import myAvatarSecond from '../images/my-avatar-2.jpg';
 import Author from '../components/Author';
 import EmailRegisterForm from '../components/EmailRegister';
+import Image from 'gatsby-image';
 
 const IndexPage = ({ data }) => {
   const allPosts = data.allMarkdownRemark.edges;
@@ -85,7 +85,7 @@ const IndexPage = ({ data }) => {
                   </Link>
                   <div className="article-card__excerpt">{node.excerpt}</div>
                   <div className="article-card__footer">
-                    <Author name="Thiên Bùi" avatar={myAvatar} />
+                    <Author />
                     <div className="time-tag-wrapper">
                       <time>{node.frontmatter.date}</time>
                       <span className="tag">
@@ -139,10 +139,15 @@ const IndexPage = ({ data }) => {
           </div>
           <section className="profile">
             <div className="profile__avatar">
-              <img
-                src={myAvatarSecond}
-                alt=""
-                style={{ objectPosition: 'top' }}
+              <Image
+                fixed={data.file.desktopAvatar.fixed}
+                alt="Thiên Bùi"
+                className="desktop-avatar"
+              />
+              <Image
+                fixed={data.file.mobileAvatar.fixed}
+                alt="Thiên Bùi"
+                className="mobile-avatar"
               />
             </div>
             <p className="brief-introduction">
@@ -190,6 +195,18 @@ export const query = graphql`
           fields {
             slug
           }
+        }
+      }
+    }
+    file(name: { regex: "/my-avatar-2/" }) {
+      desktopAvatar: childImageSharp {
+        fixed(height: 120, width: 120) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+      mobileAvatar: childImageSharp {
+        fixed(height: 70, width: 70) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
