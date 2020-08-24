@@ -76,9 +76,7 @@
   align-items: flex-start;
   padding: 1rem;
   z-index: 0;
-  height: 15vw;
-  max-height: 25rem;
-  min-height: 23rem;
+  height: 240px;
   @media screen and (max-width: 980px) {
     box-shadow: none;
     margin-bottom: 0;
@@ -262,8 +260,8 @@
     min-width: 300px;
     overflow: hidden;
     @media screen and (max-width: 768px) {
-      flex-basis: 20rem;
-      height: 20rem;
+      flex-basis: 27rem;
+      height: 27rem;
     }
   }
 
