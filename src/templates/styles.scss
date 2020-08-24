@@ -145,10 +145,7 @@
 .image-wrap {
   width: calc(100% + 10rem);
   transform: translateX(-5rem);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 30vw;
+  max-height: 480px;
   border-radius: 10px;
   overflow: hidden;
 

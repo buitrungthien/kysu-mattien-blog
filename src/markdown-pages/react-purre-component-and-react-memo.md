@@ -3,7 +3,8 @@ title: 'React.PureComponent và React.memo - bạn nhất định phải biết'
 date: '2020-08-09'
 author: { name: 'Thiên Bùi' }
 tag: 'tech'
-image: 'https://i.imgur.com/eqnM93z.png'
+featuredImgUrl: 'https://i.imgur.com/eqnM93z.png?1'
+featuredImgAlt: 'React.PureComponent và React.memo - bạn nhất định phải biết'
 description: 'Bạn đã biết làm sơ sơ với React? Tốt! Giờ là lúc chúng ta quan tâm đến vấn đề performance thôi'
 ---
 

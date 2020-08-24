@@ -3,7 +3,8 @@ title: 'Các lỗi dễ mắc khiến việc sử dụng PureComponent, memo th�
 date: '2020-08-19'
 author: { name: 'Thiên Bùi' }
 tag: 'tech'
-image: 'https://i.imgur.com/k4rpYSa.png'
+featuredImgUrl: 'https://i.imgur.com/k4rpYSa.png'
+featuredImgAlt: 'Các lỗi dễ mắc khiến việc sử dụng PureComponent, memo thành công cốc'
 description: 'Các lỗi sai sau đây sẽ khiến việc sử dụng PureComponent và memo trở thành công cốc. Cùng xem bạn có mắc lỗi nào không nhé!'
 ---
 

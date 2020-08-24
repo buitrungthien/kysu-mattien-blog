@@ -3,8 +3,6 @@ import { graphql, Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import defaultImage from '../images/images.jpg';
-import myAvatarSecond from '../images/my-avatar-2.jpg';
 import Author from '../components/Author';
 import EmailRegisterForm from '../components/EmailRegister';
 import Image from 'gatsby-image';
@@ -71,10 +69,10 @@ const IndexPage = ({ data }) => {
                   to={node.fields.slug}
                   className="article-card__image-wrap"
                 >
-                  <img
-                    src={node.frontmatter.image || defaultImage}
-                    className="article-image-pre"
-                    alt={node.frontmatter.title}
+                  <Image
+                    fluid={node.featuredImg.childImageSharp.fluid}
+                    alt={node.frontmatter.featuredImgAlt}
+                    title={node.frontmatter.featuredImgAlt}
                   />
                 </Link>
                 <div className="article-card__content">
@@ -182,13 +180,20 @@ export const query = graphql`
       edges {
         node {
           id
+          featuredImg {
+            childImageSharp {
+              fluid(maxWidth: 300){
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
           frontmatter {
             date
             title
             author {
               name
             }
-            image
+            featuredImgAlt
             tag
           }
           excerpt

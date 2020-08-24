@@ -1,8 +1,14 @@
-const { createFilePath } = require('gatsby-source-filesystem');
+const { createFilePath, createRemoteFileNode } = require('gatsby-source-filesystem');
 const path = require('path');
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
+exports.onCreateNode = async ({
+  node,
+  getNode,
+  actions: { createNode, createNodeField },
+  store,
+  cache,
+  createNodeId,
+}) => {
   if (node.internal.type === 'MarkdownRemark') {
     const slug = createFilePath({ node, getNode });
 
@@ -11,6 +17,23 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: 'slug',
       value: slug,
     });
+  }
+  if (
+    node.internal.type === 'MarkdownRemark' &&
+    node.frontmatter.featuredImgUrl !== null
+  ) {
+    let fileNode = await createRemoteFileNode({
+      url: node.frontmatter.featuredImgUrl, // string that points to the URL of the image
+      parentNodeId: node.id, // id of the parent node of the fileNode you are going to create
+      createNode, // helper function in gatsby-node to generate the node
+      createNodeId, // helper function in gatsby-node to generate the node id
+      cache, // Gatsby's cache
+      store, // Gatsby's redux store
+    });
+    // if the file was created, attach the new node to the parent node
+    if (fileNode) {
+      node.featuredImg___NODE = fileNode.id;
+    }
   }
 };
 

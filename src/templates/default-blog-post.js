@@ -5,6 +5,7 @@ import Author from '../components/Author';
 import myAvatar from '../images/my-avatar.jpg';
 import SEO from '../components/seo';
 import './styles.scss';
+import Image from 'gatsby-image';
 
 export default ({ data, pageContext }) => {
   const post = data.markdownRemark;
@@ -46,7 +47,7 @@ export default ({ data, pageContext }) => {
       <SEO
         title={post.frontmatter?.title}
         description={post.frontmatter?.description}
-        image={post.frontmatter?.image}
+        image={post.frontmatter?.featuredImgUrl}
       />
       <article className="post">
         <div className="post-header">
@@ -56,9 +57,11 @@ export default ({ data, pageContext }) => {
             <time>{post.frontmatter.date}</time>
           </div>
           <div className="image-wrap">
-            {post.frontmatter.image && (
-              <img src={post.frontmatter.image} alt="" />
-            )}
+            <Image
+              fluid={post.featuredImg.childImageSharp.fluid}
+              alt={post.frontmatter.featuredImgAlt}
+              title={post.frontmatter.featuredImgAlt}
+            />
           </div>
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
@@ -91,9 +94,17 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      featuredImg {
+        childImageSharp {
+          fluid(maxWidth: 820) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
       frontmatter {
         title
-        image
+        featuredImgAlt
+        featuredImgUrl
         description
         author {
           name

@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Image from 'gatsby-image';
-import { grapql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const SecondPage = () => {
   const avatar = useStaticQuery(graphql`

@@ -3,7 +3,8 @@ title: 'Một số lỗi thường gặp khi làm việc với React hooks'
 date: '2020-08-04'
 author: { name: 'Thiên Bùi' }
 tag: 'tech'
-image: 'https://secureservercdn.net/198.71.233.138/kh4.9f9.myftpupload.com/wp-content/uploads/2017/12/management-mistakes-pic_678X381.jpg'
+featuredImgUrl: 'https://i.imgur.com/Dxycnqe.jpg?1'
+featuredImgAlt: 'Một số lỗi thường gặp khi làm việc với React hooks'
 description: 'Bạn có mắc các lỗi sau khi làm việc với React hooks? Cùng tìm hiểu qua bài viết này nhé!'
 ---
 
