@@ -102,7 +102,7 @@ Nhưng thường thì sẽ không như vậy. Ai cũng có công việc riêng, 
 
 Nên có một phương án tối ưu hơn mà bản thân mình rất thích. Đó chính là: **học theo structure của khóa học**
 
-Trình độ tiếng Anh khá, bạn có thể nghe hiểu tiếng Anh tốt? Hãy mua ngay 1 khóa học trên udemy hoặc trên các platform khác. Chỉ 10 - 15$, một con số rất đáng để đầu tư.
+Trình độ tiếng Anh khá, bạn có thể nghe hiểu tiếng Anh tốt? Hãy mua ngay 1 khóa học trên udemy hoặc trên các platform khác. Chỉ 10 - 15\$, một con số rất đáng để đầu tư.
 
 Chưa đủ trình độ để nghe tiếng Anh hoặc nghe chậm, quá tốn thời gian? Hãy chọn các khóa học của các anh chị dev Việt Nam, hoặc thậm chí có điều kiện hơn hãy đăng ký luôn một lớp offline càng tốt.
 
@@ -115,13 +115,14 @@ Nếu không đi theo structure trên, bạn sẽ dễ rơi vào vòng lặp, lo
 **Túm lại: Nên học theo sturcture của các khóa học có sẵn, vốn đã đầy đủ và được sắp xếp hợp lý. Với internet ngày nay thì chỉ cần vài giây search là sẽ ra ngay một structure đầy đủ. Bạn có thể tận dụng các platform học tập nổi tiếng như udemy, kinh nghiệm là cứ top rating và nhiều người đăng ký thì chọn. Nếu có điều kiện hơn một xíu nữa, hãy đầu tư luôn một khoản tiền để học những khóa học như vậy. Đây sẽ là bước tiến đầu tiên vô cùng quan trọng trong suốt quãng đường học và làm của bạn.**
 
 ## 4.Học cũng như luyện võ trong phim kiếm hiệp. Người phàm thì sẽ khó hiểu lời của cao nhân.
+
 Đã bao giờ bạn đọc trên mạng hay nhận những lời khuyên từ các anh dev senior mà bản thân bạn nghe cứ ù ù cạc cạc rất khó hiểu, thậm chí còn thấy nó có vẻ vô lý không?
 
->Em phải nắm rõ design pattern.
+> Em phải nắm rõ design pattern.
 
->Công nghệ không quan trọng, nó cũng chỉ là công cụ, em học cái nào cũng được.
+> Công nghệ không quan trọng, nó cũng chỉ là công cụ, em học cái nào cũng được.
 
->Redux saga, redux thunk hay gì cũng được, tựu chung nó cũng chỉ là middle ware để handle các action bất đồng bộ thôi hà.
+> Redux saga, redux thunk hay gì cũng được, tựu chung nó cũng chỉ là middle ware để handle các action bất đồng bộ thôi hà.
 
 Và rất nhiều những lời khuyên khác nhau.
 
@@ -145,7 +146,7 @@ Ví dụ đang tìm hiểu và làm **redux-thunk**, chưa thuần thục thì l
 
 Ở giai đoạn này mình xin khẳng định là **Công nghệ có quan trọng**. Nếu bạn muốn có nhiều cơ hội việc làm, hãy học và làm những thứ mà thị trường, ngành công nghiệp đang cần. Hay nói thẳng ra là học React.
 
-Thay vì lăn tăn chuyển qua chuyển lại, học React được 1, 2 tháng rồi quay qua Angular, xong rồi tới Vue. Hãy tập trung học tốt, tìm hiểu chuyên sâu về  một thứ.
+Thay vì lăn tăn chuyển qua chuyển lại, học React được 1, 2 tháng rồi quay qua Angular, xong rồi tới Vue. Hãy tập trung học tốt, tìm hiểu chuyên sâu về một thứ.
 
 **Công nghệ không quan trọng**, **nó cũng chỉ là công cụ**, ... là những lời khuyên đúng... cho tương lai. Bạn của sau này sẽ cần nó, còn hiện tại thì không, hãy tập trung.
 
@@ -162,15 +163,17 @@ Chỉ cần bạn hỏi ý kiến, cách học và làm của một người có
 **Học cũng như luyện võ, phải đi qua từng cấp độ. Người thường mà đùng một cái luyện mật tịch, thì không sớm thì muộn, cũng sẽ bị tẩu hỏa nhập ma.**
 
 **Cứ bình tĩnh chăm chỉ và cố gắng mỗi ngày, bạn sẽ sớm nâng cao trình độ.**
+
 <hr/>
 
-**Tạm kết:** Trên đây là những chia sẻ mang tính cá nhân mà bản thân mình tự đúc kết ra trên con đường web development.  Đây mới chỉ là phần một, các bạn đón đọc phần 2 nhé.
+**Tạm kết:** Trên đây là những chia sẻ mang tính cá nhân mà bản thân mình tự đúc kết ra trên con đường web development. Đây mới chỉ là phần một, các bạn đón đọc <a href="https://www.kysumattien.com/things-i-wish-i-knew-as-a-fresher-2" target="_blank" rel="noopener noreferrer">phần 2</a> nhé.
 
 Nơi mình sẽ chia sẻ về:
-+ **Học thôi chưa đủ, bạn phải thực sự làm**
-+ **Tìm mentor**
-+ **Tư duy tích cực**
-+ **Bạn sẽ tiến rất nhanh khi tinh thần thoải mái**
-+ **Đầu tiên đừng đọc document, sau đó hãy đọc document**.
+
+- **Học thôi chưa đủ, bạn phải thực sự làm**
+- **Tìm mentor**
+- **Tư duy tích cực**
+- **Bạn sẽ tiến rất nhanh khi tinh thần thoải mái**
+- **Đầu tiên đừng đọc document, sau đó hãy đọc document**.
 
 Hẹn gặp lại các bạn!
