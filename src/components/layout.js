@@ -12,6 +12,7 @@ import { Link } from 'gatsby';
 
 import Header from './header';
 import '../scss/main.scss';
+import BackToTopButton from './BackToTopButton';
 import sprite from '../images/sprite.svg';
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -58,6 +59,7 @@ const Layout = ({ children }) => {
         </ul>
       </aside>
       <main className="main">{children}</main>
+      <BackToTopButton />
       <footer className="footer">
         <div className="footer__inner">
           <div className="my-contact">
