@@ -71,7 +71,11 @@ export default ({ data, pageContext }) => {
             <Like
               showFaces
               size="large"
-              layout={window?.innerWidth < 768 ? 'button' : 'standard'}
+              layout={
+                typeof window !== 'undefined' && window.innerWidth < 768
+                  ? 'button'
+                  : 'standard'
+              }
               showFaces
               share
             />
