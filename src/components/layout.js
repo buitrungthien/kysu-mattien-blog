@@ -33,7 +33,7 @@ const Layout = ({ children }) => {
         <ul className="social-links-wrap">
           <li style={{marginBottom: 20}}>
             <FacebookProvider appId="3364552500258287">
-              <Like showFaces layout="box_count" />
+              <Like showFaces layout="box_count" href='https://www.kysumattien.com' />
             </FacebookProvider>
           </li>
           <li className="social-link facebook">
