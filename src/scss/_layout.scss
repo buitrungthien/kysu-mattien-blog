@@ -255,8 +255,10 @@
   @media screen and (max-width: 760px) {
     margin-right: 0;
   }
-
+  
   .social-links-wrap {
+    z-index: 20;
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -31,6 +31,7 @@
   font-size: 1.3rem;
   border-top: solid 3px #171f42;
   padding-top: 2rem;
+  margin-top: 5rem;
 
   .pre-link {
     border: solid 1px $primary-purple;
@@ -276,4 +277,9 @@ code {
 .image-description-wrapper {
   padding: 0.5rem;
   box-shadow: rgba(19, 15, 235, 0.1) 1px 2px 20px;
+}
+.facebook-actions {
+  padding: 2rem;
+  box-shadow: rgba(19, 15, 235, 0.1) 1px 2px 20px;
+  border-radius: 8px;
 }

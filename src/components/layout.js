@@ -9,6 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Link } from 'gatsby';
+import { FacebookProvider, Like } from 'react-facebook';
 
 import Header from './header';
 import '../scss/main.scss';
@@ -30,6 +31,11 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <aside className="social">
         <ul className="social-links-wrap">
+          <li style={{marginBottom: 20}}>
+            <FacebookProvider appId="3364552500258287">
+              <Like showFaces layout="box_count" />
+            </FacebookProvider>
+          </li>
           <li className="social-link facebook">
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${

@@ -166,6 +166,8 @@ const IndexPage = ({ data }) => {
               Đọc thêm &gt;&gt;
             </Link>
           </section>
+          <div className="facebook-counts">
+          </div>
         </aside>
       </div>
     </Layout>
@@ -182,7 +184,7 @@ export const query = graphql`
           id
           featuredImg {
             childImageSharp {
-              fluid(maxWidth: 300){
+              fluid(maxWidth: 300) {
                 ...GatsbyImageSharpFluid
               }
             }

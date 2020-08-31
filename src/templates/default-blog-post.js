@@ -6,6 +6,7 @@ import myAvatar from '../images/my-avatar.jpg';
 import SEO from '../components/seo';
 import './styles.scss';
 import Image from 'gatsby-image';
+import { FacebookProvider, Comments, Like } from 'react-facebook';
 
 export default ({ data, pageContext }) => {
   const post = data.markdownRemark;
@@ -50,41 +51,53 @@ export default ({ data, pageContext }) => {
         image={post.frontmatter?.featuredImgUrl}
       />
       <article className="post">
-        <div className="post-header">
-          <h1 className="post-title">{post.frontmatter.title}</h1>
-          <div className="post-info">
-            <Author name={author.name} avatar={myAvatar} />
-            <time>{post.frontmatter.date}</time>
+        <FacebookProvider appId="3364552500258287">
+          <div className="post-header">
+            <h1 className="post-title">{post.frontmatter.title}</h1>
+            <div className="post-info">
+              <Author name={author.name} avatar={myAvatar} />
+              <time>{post.frontmatter.date}</time>
+            </div>
+            <div className="image-wrap">
+              <Image
+                fluid={post.featuredImg.childImageSharp.fluid}
+                alt={post.frontmatter.featuredImgAlt}
+                title={post.frontmatter.featuredImgAlt}
+              />
+            </div>
           </div>
-          <div className="image-wrap">
-            <Image
-              fluid={post.featuredImg.childImageSharp.fluid}
-              alt={post.frontmatter.featuredImgAlt}
-              title={post.frontmatter.featuredImgAlt}
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+          <div className="facebook-actions">
+            <Like
+              showFaces
+              size="large"
+              layout={window.innerWidth < 768 ? 'button' : 'standard'}
+              showFaces
+              share
             />
+            <Comments width={'100%'} />
           </div>
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <div className="pre-next-navigator">
-          {previous && (
-            <Link
-              to={previous.fields.slug}
-              className="pre-link"
-              title={previous.frontmatter.title}
-            >
-              {previous.frontmatter.title}
-            </Link>
-          )}
-          {next && (
-            <Link
-              to={next.fields.slug}
-              className="next-link"
-              title={next.frontmatter.title}
-            >
-              {next.frontmatter.title}
-            </Link>
-          )}
-        </div>
+          <div className="pre-next-navigator">
+            {previous && (
+              <Link
+                to={previous.fields.slug}
+                className="pre-link"
+                title={previous.frontmatter.title}
+              >
+                {previous.frontmatter.title}
+              </Link>
+            )}
+            {next && (
+              <Link
+                to={next.fields.slug}
+                className="next-link"
+                title={next.frontmatter.title}
+              >
+                {next.frontmatter.title}
+              </Link>
+            )}
+          </div>
+        </FacebookProvider>
       </article>
     </Layout>
   );
