@@ -42,10 +42,10 @@ export default function HTML(props) {
             __html: `
                 window.fbAsyncInit = function() {
                   FB.init({
-                  appId      : '{your-app-id}',
+                  appId      : '3364552500258287',
                   cookie     : true,
                   xfbml      : true,
-                  version    : '{api-version}'
+                  version    : 'v8.0'
                 });
     
                 FB.AppEvents.logPageView();   
