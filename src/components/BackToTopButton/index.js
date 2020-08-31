@@ -6,15 +6,19 @@ const ScrollArrow = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', checkScrollTop);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', checkScrollTop);
+    };
+  });
 
-  const checkScrollTop = useCallback(() => {
+  const checkScrollTop = () => {
     if (!showScroll && window.pageYOffset > 400) {
+      console.log(showScroll);
       setShowScroll(true);
     } else if (showScroll && window.pageYOffset <= 400) {
       setShowScroll(false);
     }
-  }, [showScroll, window.pageYOffset]);
+  };
 
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
