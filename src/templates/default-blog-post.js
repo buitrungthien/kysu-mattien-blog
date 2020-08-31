@@ -78,8 +78,12 @@ export default ({ data, pageContext }) => {
               }
               showFaces
               share
+              href={`https://www.kysumattien.com${slug}`}
             />
-            <Comments width={'100%'} />
+            <Comments
+              width={'100%'}
+              href={`https://www.kysumattien.com${slug}`}
+            />
           </div>
           <div className="pre-next-navigator">
             {previous && (
