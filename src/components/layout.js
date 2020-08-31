@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
       <aside className="social">
         <ul className="social-links-wrap">
           <li style={{ marginBottom: 20 }}>
-            <FacebookProvider appId="3364552500258287">
+            <FacebookProvider appId="3364552500258287" await>
               <Like
                 showFaces
                 layout="box_count"

@@ -51,7 +51,7 @@ export default ({ data, pageContext }) => {
         image={post.frontmatter?.featuredImgUrl}
       />
       <article className="post">
-        <FacebookProvider appId="3364552500258287">
+        <FacebookProvider appId="3364552500258287" await>
           <div className="post-header">
             <h1 className="post-title">{post.frontmatter.title}</h1>
             <div className="post-info">
