@@ -31,9 +31,17 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <aside className="social">
         <ul className="social-links-wrap">
-          <li style={{marginBottom: 20}}>
+          <li style={{ marginBottom: 20 }}>
             <FacebookProvider appId="3364552500258287">
-              <Like showFaces layout="box_count" href='https://www.kysumattien.com' />
+              <Like
+                showFaces
+                layout="box_count"
+                href={
+                  typeof window !== 'undefined'
+                    ? window.location.href
+                    : 'https://www.kysumattien.com'
+                }
+              />
             </FacebookProvider>
           </li>
           <li className="social-link facebook">
