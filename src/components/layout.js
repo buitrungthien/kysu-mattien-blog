@@ -30,7 +30,6 @@ const Layout = ({ children }) => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setHref(window.location.href);
-      window.FB.XFBML.parse();
     }
   });
 
