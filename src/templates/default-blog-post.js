@@ -78,7 +78,11 @@ export default ({ data, pageContext }) => {
           <div className="facebook-actions">
             <Like
               showFaces
-              size="large"
+              size={
+                typeof window !== 'undefined' && window.innerWidth > 768
+                  ? 'large'
+                  : 'small'
+              }
               layout={
                 typeof window !== 'undefined' && window.innerWidth > 768
                   ? 'standard'

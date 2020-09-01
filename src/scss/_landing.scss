@@ -251,6 +251,9 @@
     flex-direction: column;
     object-fit: cover;
     min-width: unset;
+    .author-info {
+      display: none;
+    }
   }
   overflow: hidden;
 
