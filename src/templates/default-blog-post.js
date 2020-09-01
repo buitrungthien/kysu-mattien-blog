@@ -82,7 +82,7 @@ export default ({ data, pageContext }) => {
               layout={
                 typeof window !== 'undefined' && window.innerWidth > 768
                   ? 'standard'
-                  : 'button'
+                  : 'button_count'
               }
               showFaces
               share
