@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Link } from 'gatsby';
@@ -26,6 +26,7 @@ const Layout = ({ children }) => {
     }
   `);
   const [href, setHref] = useState('https://www.kysumattien.com');
+  const firstRender = useRef(true);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -35,6 +36,10 @@ const Layout = ({ children }) => {
       setHref(
         `https://www.kysumattien.com/${window.location.pathname.split('/')[1]}/`
       );
+      console.log(firstRender.current);
+      firstRender.current
+        ? (firstRender.current = false)
+        : window.FB.XFBML.parse();
     }
   });
 
@@ -44,7 +49,7 @@ const Layout = ({ children }) => {
       <aside className="social">
         <ul className="social-links-wrap">
           <li style={{ marginBottom: 20 }}>
-            <FacebookProvider appId="3364552500258287">
+            <FacebookProvider appId="3364552500258287" await>
               <Like showFaces layout="box_count" href={href} />
             </FacebookProvider>
           </li>

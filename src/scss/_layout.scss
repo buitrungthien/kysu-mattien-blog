@@ -7,12 +7,12 @@
     'head head head head' min-content
     '. social main side' 1fr
     'foot foot foot foot' min-content /
-    1fr minmax(min-content, 70px) minmax(min-content, 998px) 1fr;
+    1fr minmax(80px, 100px) minmax(min-content, 998px) 1fr;
   @media screen and (max-width: 760px) {
     grid-template:
       'head' min-content
       'main' 1fr
-      'social' minmax(min-content, 150px)
+      'social' minmax(100px, 150px)
       'foot' min-content /
       minmax(min-content, 998px);
   }
@@ -250,7 +250,7 @@
 
 .social {
   grid-area: social;
-  margin-right: 2.5rem;
+  max-width: 100%;
   display: flex;
   @media screen and (max-width: 760px) {
     margin-right: 0;
@@ -267,6 +267,9 @@
     position: sticky;
     top: 30rem;
     left: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
     @media screen and (max-width: 760px) {
       flex-direction: row;
       & > *:not(:last-child) {
