@@ -26,7 +26,6 @@ const Layout = ({ children }) => {
     }
   `);
   const [href, setHref] = useState('https://www.kysumattien.com');
-  const [firstRender, setFirstRender] = useState(true);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -39,23 +38,16 @@ const Layout = ({ children }) => {
     }
   });
 
-  useEffect(() => {
-    setFirstRender(false);
-    console.log('fir');
-  }, []);
-
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <aside className="social">
         <ul className="social-links-wrap">
-          {!firstRender && (
-            <li style={{ marginBottom: 20 }}>
-              <FacebookProvider appId="3364552500258287">
-                <Like showFaces layout="box_count" href={href} />
-              </FacebookProvider>
-            </li>
-          )}
+          <li style={{ marginBottom: 20 }}>
+            <FacebookProvider appId="3364552500258287">
+              <Like showFaces layout="box_count" href={href} />
+            </FacebookProvider>
+          </li>
           <li className="social-link facebook">
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${

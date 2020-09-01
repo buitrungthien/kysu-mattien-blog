@@ -7,12 +7,12 @@
     'head head head head' min-content
     '. social main side' 1fr
     'foot foot foot foot' min-content /
-    1fr min-content minmax(min-content, 998px) 1fr;
+    1fr minmax(min-content, 70px) minmax(min-content, 998px) 1fr;
   @media screen and (max-width: 760px) {
     grid-template:
       'head' min-content
       'main' 1fr
-      'social' min-content
+      'social' minmax(min-content, 150px)
       'foot' min-content /
       minmax(min-content, 998px);
   }
@@ -250,12 +250,12 @@
 
 .social {
   grid-area: social;
-  margin-right: 3rem;
+  margin-right: 2.5rem;
   display: flex;
   @media screen and (max-width: 760px) {
     margin-right: 0;
   }
-  
+
   .social-links-wrap {
     z-index: 20;
     align-items: center;
