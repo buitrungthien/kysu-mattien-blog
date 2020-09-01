@@ -15,7 +15,10 @@ export default ({ data, pageContext }) => {
   const [href, setHref] = useState('');
 
   useEffect(() => {
-    setHref(`https://www.kysumattien.com${slug}`);
+    if (typeof window !== 'undefined') {
+      setHref(`https://www.kysumattien.com${slug}`);
+      window.FB.XFBML.parse();
+    }
   });
 
   useEffect(() => {
