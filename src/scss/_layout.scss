@@ -257,10 +257,11 @@
   }
 
   .social-links-wrap {
+    padding-top: 20px;
     z-index: 20;
     align-items: center;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: center;
     list-style: none;
     height: fit-content;
