@@ -41,7 +41,6 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     setFirstRender(false);
-    window.FB.XFBML.parse();
   }, []);
 
   return (
