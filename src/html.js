@@ -33,7 +33,7 @@ export default function HTML(props) {
           async
           defer
           crossorigin="anonymous"
-          src="https://connect.facebook.net/vi_VN/sdk.js"
+          src="https://connect.facebook.net/vi_VN/all.js"
           nonce="LNtDbL4t"
         ></script>
         {props.preBodyComponents}
