@@ -80,9 +80,9 @@ export default ({ data, pageContext }) => {
               showFaces
               size="large"
               layout={
-                typeof window !== 'undefined' && window.innerWidth < 768
-                  ? 'button'
-                  : 'standard'
+                typeof window !== 'undefined' && window.innerWidth > 768
+                  ? 'standard'
+                  : 'button'
               }
               showFaces
               share
