@@ -26,15 +26,22 @@ const Layout = ({ children }) => {
     }
   `);
   const [href, setHref] = useState('https://www.kysumattien.com');
+  const [firstRender, setFirstRender] = useState(true);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      console.log(`https://www.kysumattien.com/${window.location.pathname.split('/')[1]}/`)
+      console.log(
+        `https://www.kysumattien.com/${window.location.pathname.split('/')[1]}/`
+      );
       setHref(
         `https://www.kysumattien.com/${window.location.pathname.split('/')[1]}/`
       );
     }
   });
+
+  useEffect(() => {
+    setFirstRender(false);
+  }, []);
 
   return (
     <>
