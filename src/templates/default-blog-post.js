@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/layout';
 import Author from '../components/Author';
@@ -12,6 +12,12 @@ export default ({ data, pageContext }) => {
   const post = data.markdownRemark;
   const { previous, next, slug } = pageContext;
   const { author } = post.frontmatter;
+  const [href, setHref] = useState('');
+
+  useEffect(() => {
+    setHref(`https://www.kysumattien.com${slug}`);
+  });
+
   useEffect(() => {
     function windowPopup(url, width, height) {
       // Calculate the position of the popup so
@@ -51,7 +57,7 @@ export default ({ data, pageContext }) => {
         image={post.frontmatter?.featuredImgUrl}
       />
       <article className="post">
-        <FacebookProvider appId="3364552500258287" await>
+        <FacebookProvider appId="3364552500258287">
           <div className="post-header">
             <h1 className="post-title">{post.frontmatter.title}</h1>
             <div className="post-info">
@@ -78,12 +84,9 @@ export default ({ data, pageContext }) => {
               }
               showFaces
               share
-              href={`https://www.kysumattien.com${slug}`}
+              href={href}
             />
-            <Comments
-              width={'100%'}
-              href={`https://www.kysumattien.com${slug}`}
-            />
+            <Comments width={'100%'} href={href} />
           </div>
           <div className="pre-next-navigator">
             {previous && (
