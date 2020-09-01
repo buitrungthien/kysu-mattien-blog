@@ -29,8 +29,9 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
+      console.log(`https://www.kysumattien.com/${window.location.pathname.split('/')[1]}/`)
       setHref(
-        `https://www.kysumattien.com/${window.location.pathname.split('/')[1]}`
+        `https://www.kysumattien.com/${window.location.pathname.split('/')[1]}/`
       );
     }
   });
