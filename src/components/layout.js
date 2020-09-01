@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
       console.log(firstRender.current);
       firstRender.current
         ? (firstRender.current = false)
-        : window.FB.XFBML.parse();
+        : window.FB && window.FB.XFBML.parse();
     }
   });
 
