@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setHref(
-        `https://www.kysumattien.com/${window.location.pathname.split('/')[0]}`
+        `https://www.kysumattien.com/${window.location.pathname.split('/')[1]}`
       );
     }
   });
