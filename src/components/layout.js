@@ -41,6 +41,7 @@ const Layout = ({ children }) => {
 
   useEffect(() => {
     setFirstRender(false);
+    console.log('fir');
   }, []);
 
   return (
@@ -48,11 +49,13 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <aside className="social">
         <ul className="social-links-wrap">
-          <li style={{ marginBottom: 20 }}>
-            <FacebookProvider appId="3364552500258287">
-              <Like showFaces layout="box_count" href={href} />
-            </FacebookProvider>
-          </li>
+          {!firstRender && (
+            <li style={{ marginBottom: 20 }}>
+              <FacebookProvider appId="3364552500258287">
+                <Like showFaces layout="box_count" href={href} />
+              </FacebookProvider>
+            </li>
+          )}
           <li className="social-link facebook">
             <a
               href={`https://www.facebook.com/sharer/sharer.php?u=${
