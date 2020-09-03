@@ -178,7 +178,7 @@ Tuy nhiên, kể từ khi chyển mình sang HTTP/2, các kỹ thuật trên dư
 
 Hmm, cũng không thực chất tệ và tránh khỏi các practices này như vậy đâu. Cụ thể, ở phần 3 - phần cuối cùng sắp tới, mình sẽ nói về **HTTP/2 và các lầm tưởng**, các bạn nhớ đón đọc nha.
 
-Còn các bạn, các bạn có biết kỹ thuật nào khác hay ho để chia sẻ với mọi người thì hãy comment phía dưới để chia sẻ với mọi người nha. Thấy bài viết hay thì cho mình một like và một share để ủng hộ mình nhé. Mến chào các bạn!
+Các bạn có biết kỹ thuật nào khác hay ho thì hãy comment phía dưới để chia sẻ với mọi người nha. Thấy bài viết hay thì cho mình một like và một share để ủng hộ mình nhé. Mến chào các bạn!
 
 ## 7. Nguồn và bài viết hay liên quan
 
