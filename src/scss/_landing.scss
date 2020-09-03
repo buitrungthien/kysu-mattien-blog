@@ -74,6 +74,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  background-color: white;
   padding: 1rem;
   z-index: 0;
   height: 240px;
@@ -83,6 +84,9 @@
     margin-right: 1rem;
     min-height: unset;
     height: fit-content;
+  }
+  @media screen and (max-width: 768px) {
+    margin-right: 0;
   }
 
   & > *:not(:first-child) {
@@ -97,12 +101,14 @@
     padding: 0 5px;
     background: white;
     display: inline-block;
+    border-radius: 8px;
   }
 }
 
 .profile {
   box-shadow: rgba(19, 15, 235, 0.1) 1px 2px 20px;
   padding: 1rem;
+  background-color: white;
   border-radius: 10px;
   @media screen and (max-width: 980px) {
     box-shadow: none;
@@ -234,13 +240,14 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-
+  
   & > *:not(:last-child) {
     margin-bottom: 3rem;
   }
 }
 
 .article-card {
+  background-color: white;
   display: flex;
   justify-content: flex-start;
   align-items: stretch;

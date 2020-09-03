@@ -3,6 +3,7 @@
 /* autoprefixer grid: true */
 #gatsby-focus-wrapper {
   display: grid;
+  background-color: #F0F2F5;
   grid-template:
     'head head head head' min-content
     '. social main side' 1fr

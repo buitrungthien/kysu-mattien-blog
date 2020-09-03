@@ -130,6 +130,7 @@ Chắc hẳn bạn đã quá quen với việc nhìn thấy các thẻ script n�
   <script src="Scripts/Script2.js" type="text/javascript"></script>
 </body>
 ```
+
 Về cơ bản, khi browser parse code trong file html, code sẽ được đọc từ trên xuống, khi bắt gặp tag **\<script\>**, browser gửi lần lượt các request để nhận về các file script tương ứng.
 
 Với HTTP/2 Server Push thì thông minh hơn. Server có khả năng dự đoán được client sẽ có khả năng cần đến ở tương lai. Ví dụ, nếu client request đến file X, và trong X có reference đến file Y, thì server sẽ quyết định push luôn Y khi trả về X, thay vì đợi browser yêu cầu ở lần tiếp theo.
@@ -143,6 +144,7 @@ Với HTTP/2 Server Push thì thông minh hơn. Server có khả năng dự đo�
 </div>
 
 **Lợi ích**:
+
 - Client có thể cache các dữ liệu được pushed này.
 - Client cos theer tái sử dụng chúng giữa các page khác nhau.
 - Server có thể prioritize pushed resources.
@@ -281,6 +283,6 @@ Tính tới thời điểm này, các website trên thị trường đại đa s
   <p class='image-description'>sendo.vn sử dụng HTTP/2</p>
 </div>
 
-Tuy nhiên, việc sử dụng HTTP/2 đồng nghĩa với việc chúng ta cần cân nhắc cách phân chia source code, cách bundle các file assets như images. Và đó sẽ là chủ đề của **Phần 2: HTTP/2 thay đổi cuộc chơi, cách bundle assets, cách bundle với webpack như thế nào?**
+Tuy nhiên, việc sử dụng HTTP/2 đồng nghĩa với việc chúng ta cần cân nhắc cách phân chia source code, cách bundle các file assets như images. Và đó sẽ là chủ đề của <a href="https://www.kysumattien.com/what-and-why-http2-part-1" rel="noopener noreferrer" target="_blank">**Phần 2: HTTP/2 thay đổi cuộc chơi, cách bundle assets, cách bundle với webpack như thế nào?**</a>
 
 Các bạn nhớ đón đọc nhé. Mến chào các bạn!
