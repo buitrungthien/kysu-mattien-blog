@@ -283,6 +283,6 @@ Tính tới thời điểm này, các website trên thị trường đại đa s
   <p class='image-description'>sendo.vn sử dụng HTTP/2</p>
 </div>
 
-Tuy nhiên, việc sử dụng HTTP/2 đồng nghĩa với việc chúng ta cần cân nhắc cách phân chia source code, cách bundle các file assets như images. Và đó sẽ là chủ đề của <a href="https://www.kysumattien.com/what-and-why-http2-part-1" rel="noopener noreferrer" target="_blank">**Phần 2: HTTP/2 thay đổi cuộc chơi, cách bundle assets, cách bundle với webpack như thế nào?**</a>
+Tuy nhiên, việc sử dụng HTTP/2 đồng nghĩa với việc chúng ta cần cân nhắc cách phân chia source code, cách bundle các file assets như images. Và đó sẽ là chủ đề của <a href="https://www.kysumattien.com/what-and-why-http2-part-2" rel="noopener noreferrer" target="_blank">**Phần 2: HTTP/2 thay đổi cuộc chơi, cách bundle assets, cách bundle với webpack như thế nào?**</a>
 
 Các bạn nhớ đón đọc nhé. Mến chào các bạn!
