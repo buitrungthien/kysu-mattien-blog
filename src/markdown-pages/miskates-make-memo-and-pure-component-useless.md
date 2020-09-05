@@ -264,9 +264,9 @@ const ComponentB = memo((props) => {
 
 Theo cá nhân mình đây là một practice bạn nên dùng nhiều. Áp dụng với các object config, array, hoặc các hàm, logic tính toán chỉ cần khởi tạo một lần và không thay đổi.
 
-Tuy nhiên, cách viết trên vô tình đem các logic hay các biến ra khỏi phạm vi component, về mặt tính đóng gói thì không hay lắm. Để giải quyết vấn đề này, phương án tối ưu thường được sử dụng hiện nay là dùng React hook <span class='inline-code'>useMemo</span> và <span class='inline-code'>useCallback</span>. 
+Tuy nhiên, cách viết trên vô tình đem các logic hay các biến ra khỏi phạm vi component, về mặt tính đóng gói thì không hay lắm. Để giải quyết vấn đề này, phương án tối ưu thường được sử dụng hiện nay là dùng React hook <span class='inline-code'>useMemo</span> và <span class='inline-code'>useCallback</span>.
 
-Trong tương lai, khi đến post về hai hook này, mình sẽ giải thích cách dùng nha.
+Trong tương lai, khi đến <a href="https://www.kysumattien.com/the-ultimate-guide-about-useMemo-and-useCallback" rel="noopener noreferrer" target="_blank">post về hai hook này</a>, mình sẽ giải thích cách dùng nha.
 
 ## 4. Bonus: biết đến và cẩn thận hơn với mapStateToProps với connect HOC khi dùng react-redux
 

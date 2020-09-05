@@ -9,6 +9,7 @@ import Image from 'gatsby-image';
 
 const IndexPage = ({ data }) => {
   const allPosts = data.allMarkdownRemark.edges;
+  console.log(allPosts);
   const [filteredData, setFilteredData] = useState([...allPosts]);
   const [filterValue, setFilterValue] = useState({ tech: true, exp: true });
   const [searchValue, setSearchValue] = useState('');
@@ -178,7 +179,7 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           id
