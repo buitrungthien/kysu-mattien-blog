@@ -133,13 +133,13 @@ const componentA = () => {
   return (
     <div>
       <button onClick={() => setCount(count + 1)}>{count}</button>
-      <div>mảng phức tạp: {getArray()}</div>
+      <div>mảng phức tạp: {getArray}</div>
     </div>
   )
 }
 ```
 
-Giờ đây, mặc cho bạn bấm nút và tăng biến <span class='inline-code'>count</span>, hàm getArray ngay lập tức trả ra giá trị <span class='inline-code'>result</span> trước đó mà không cần tốn 2s tính toán.
+Giờ đây, mặc cho bạn bấm nút và tăng biến <span class='inline-code'>count</span>, hàm getArray ngay lập tức trả ra giá trị <span class='inline-code'>result</span> trước đó mà không cần tốn 2s tính toán. Để ý <span class="inline-code">getArray</span> lúc này không còn dấu gọi hàm nữa, vì bản thân useMemo đã chạy hàm ta pass vào, việc của dev chúng ta là nhận ra một memoized value mà thôi.
 
 <span class="solution-label">Tránh re-render</span>
 
@@ -183,7 +183,7 @@ const ComponentA = () => {
   return (
     <div>
       CHA NÈ CON
-      <ComponentB myStyle={getStyle()} />
+      <ComponentB myStyle={getStyle} />
     </div>
   );
 };
@@ -193,7 +193,7 @@ const ComponentB = React.memo(props => {
 });
 ```
 
-Giờ đây, khi dùng <span class="inline-code">useMemo</span> cho hàm <span class='inline-code'>getStyle</span>, ở các lần re-render sau của <span class="inline-code">ComponentA</span>, object style cũ sẽ được trả ra thay vì tạo mới -> React.memo ở <span class="inline-code">ComponentB</span> nhận thấy prop nhận vào không có sự thay đổi -> không re-render.
+Giờ đây, khi dùng <span class="inline-code">useMemo</span> cho hàm <span class='inline-code'>getStyle</span>, (để ý getStyle không còn dấu gọi hàm, useMemo đã thực thi hàm mà chúng ta pass vào rồi, ta chỉ nhận ra kết quả - một memoized value mà thôi) ở các lần re-render sau của <span class="inline-code">ComponentA</span>, object style cũ sẽ được trả ra thay vì tạo mới -> React.memo ở <span class="inline-code">ComponentB</span> nhận thấy prop nhận vào không có sự thay đổi -> không re-render.
 
 ## 4. Ví dụ cụ thể với useCallback
 
