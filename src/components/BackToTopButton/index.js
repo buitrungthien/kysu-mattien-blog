@@ -30,7 +30,7 @@ const ScrollArrow = () => {
       style={{ display: showScroll ? 'flex' : 'none' }}
       title="Lên đầu trang"
     >
-      <span>^</span>
+      <span>&#8593;</span>
     </button>
   );
 };
