@@ -122,6 +122,13 @@ module.exports = {
               height: 600,
             },
           },
+          {
+            resolve:"@weknow/gatsby-remark-codepen",
+            options: {
+              theme: "dark",
+              height: 600
+            }
+          },
         ],
       },
     },
