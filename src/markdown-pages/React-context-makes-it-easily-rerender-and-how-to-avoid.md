@@ -163,7 +163,7 @@ const Message = React.memo((props) => {
 
 const componentWrapper = () => {
     const {message} = useContext(AppContext);
-    return <Message message={message}>;
+    return <Message message={message}>
 }
 ```
 
