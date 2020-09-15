@@ -9,7 +9,6 @@ import Image from 'gatsby-image';
 
 const IndexPage = ({ data }) => {
   const allPosts = data.allMarkdownRemark.edges;
-  console.log(allPosts);
   const [filteredData, setFilteredData] = useState([...allPosts]);
   const [filterValue, setFilterValue] = useState({ tech: true, exp: true });
   const [searchValue, setSearchValue] = useState('');
