@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import styles from './styles.scss';
+import React, { useState, useEffect } from 'react';
+import './styles.scss';
 
 const ScrollArrow = () => {
   const [showScroll, setShowScroll] = useState(false);

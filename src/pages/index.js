@@ -166,8 +166,7 @@ const IndexPage = ({ data }) => {
               Đọc thêm &gt;&gt;
             </Link>
           </section>
-          <div className="facebook-counts">
-          </div>
+          <div className="facebook-counts"></div>
         </aside>
       </div>
     </Layout>
@@ -178,7 +177,7 @@ export default IndexPage;
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
       edges {
         node {
           id
