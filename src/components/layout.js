@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 import { Link } from 'gatsby';
 import { FacebookProvider, Like } from 'react-facebook';
-import { globalHistory } from '@reach/router';
 
 import Header from './header';
 import '../scss/main.scss';
@@ -28,7 +27,6 @@ const Layout = ({ children }) => {
   `);
   const [href, setHref] = useState('https://www.kysumattien.com');
   const firstRender = useRef(true);
-  const path = globalHistory.location.pathname;
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -39,7 +37,7 @@ const Layout = ({ children }) => {
         ? (firstRender.current = false)
         : window.FB && window.FB.XFBML.parse();
     }
-  }, [path]);
+  });
 
   return (
     <>
