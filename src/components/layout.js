@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setHref(
-        `https://www.kysumattien.com/${window.location.pathname.split('/')[1]}/`
+        `https://www.kysumattien.com/${window.location.pathname.split('/')[1]}/`.toLowerCase()
       );
       firstRender.current
         ? (firstRender.current = false)
