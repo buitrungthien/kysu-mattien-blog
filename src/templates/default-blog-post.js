@@ -16,7 +16,7 @@ export default ({ data, pageContext }) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setHref(`https://www.kysumattien.com${slug}`);
+      setHref(`https://www.kysumattien.com${slug}`.toLowerCase());
     }
   });
 
