@@ -52,6 +52,29 @@ module.exports = {
       options: {
         plugins: [
           {
+            // Using gatsby-remark-embed-video before gatsby-remark-images & gatsby-remark-responsive-iframe plugins.
+            resolve: `gatsby-remark-embed-video`,
+            options: {
+              maxWidth: 800,
+              ratio: 1.77,
+              height: 400,
+              related: false,
+              noIframerder: true,
+            },
+          },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          {
             resolve: `gatsby-remark-prismjs`,
             options: {
               // Class prefix for <pre> tags containing syntax highlighting;
@@ -123,11 +146,11 @@ module.exports = {
             },
           },
           {
-            resolve:"@weknow/gatsby-remark-codepen",
+            resolve: '@weknow/gatsby-remark-codepen',
             options: {
-              theme: "dark",
-              height: 600
-            }
+              theme: 'dark',
+              height: 600,
+            },
           },
         ],
       },
