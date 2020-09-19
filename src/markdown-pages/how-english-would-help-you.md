@@ -66,7 +66,7 @@ Ba năm học đại học đầu tiên, cũng đã trải qua đủ chuyện vu
   <p class='image-description'>Điểm học phần Anh văn 3</p>
 </div>
 
-## 2. Đi thìm phương pháp perfect để học tiếng Anh
+## 2. Đi tìm phương pháp perfect để học tiếng Anh
 
 Trong suốt năm tháng đó, thỉnh thoảng mình cũng tìm đọc, nghiên cứu các phương pháp, chiến lược học tiếng Anh. Cũng mày mò áp dụng, thử nghiệm chăm chỉ, **những 20 phút mỗi ngày cơ mà :))**. Nào Effortless English, nào tiếng Anh trong tiềm thức, tiếng Anh trong lúc tắm, tiếng Anh lúc đi ngủ, shadow English, đổ bóng đổ cây các kiểu,... vân vân và mây mây.
 
