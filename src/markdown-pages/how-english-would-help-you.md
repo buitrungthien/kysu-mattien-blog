@@ -8,7 +8,9 @@ featuredImgAlt: 'Tiếng Anh sẽ giúp ích cho con đường học lập trìn
 description: 'Giỏi tiếng Anh sẽ mang lại cho bạn vô vàn lợi thế, giúp ích rất nhiều trên con đường học lập trình web. Cùng lắng nghe câu chuyện của chính bản thân mình nhé!'
 ---
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/njzyFePyHzk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-container">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/njzyFePyHzk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 Video trên được mình quay với ý định thể hiện cho các bạn thấy trình độ tiếng Anh hiện tại của mình. Có thể nói nếu quá trình học lập trình web của mình xuất phát từ con số 0, thì việc học tiếng Anh cũng... lại là từ một con số 0 nữa. (Ôi sao cuộc đời mình nhiều con số 0 quá ^^).
 
