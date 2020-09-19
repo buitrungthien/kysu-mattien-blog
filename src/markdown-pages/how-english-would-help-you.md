@@ -120,7 +120,7 @@ Hay nhớ lại lần đi xin việc đầu tiên, mặc dù kiến thức vẫn
 
 Trong quá trình học và làm ReactJs, gần như toàn bộ lượng kiến thức technical đều dễ dàng tìm được bằng tiếng Anh. Với khả năng đọc hiểu cơ bản, bạn sẽ đọc được nhiều bài báo, blog bổ ích, hay lý tưởng nhất là xem các video tutorial trên Udemy - vốn dĩ hoàn toàn bằng tiếng Anh.
 
-Hay lúc làm ở công ty outsource, mình có thể tự tin daily-meeting với khách hàng bằng tiếng Anh, gây ấn tượng với đồng nghiệp và anh quản lý, mặc dù lúc đó chỉ mới là một cậu fresher non kém về technical thôi. Thậm chí nhờ tiếng Anh, mình còn có cơ hội đi onsite qua nước bạn Thái Lan nữa (nhưng vì Covid và vài lý do khác mà cuối cùng không đi được, tiếc quá! ).
+Hay lúc làm ở công ty outsource, mình có thể tự tin daily-meeting với khách hàng bằng tiếng Anh, gây ấn tượng với đồng nghiệp và anh quản lý, mặc dù lúc đó chỉ mới là một cậu fresher non kém về technical thôi. Thậm chí nhờ tiếng Anh, mình còn có cơ hội đi onsite qua nước bạn Thái Lan nữa (nhưng vì Covid và vài lý do khác mà cuối cùng không đi được, tiếc quá! )
 
 ## 5. Kết luận
 
