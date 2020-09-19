@@ -2,7 +2,7 @@
 title: 'Tiếng Anh sẽ giúp ích cho con đường học lập trình web của bạn. Chia sẻ từ một người từ 0 đến 870 điểm TOEIC'
 date: '2020-09-18'
 author: { name: 'Thiên Bùi' }
-tag: 'tech'
+tag: 'exp'
 featuredImgUrl: 'https://i.imgur.com/TnxRT2B.jpg?1'
 featuredImgAlt: 'Tiếng Anh sẽ giúp ích cho con đường học lập trình web của bạn. Chia sẻ từ một người từ 0 đến 870 điểm TOEIC'
 description: 'Giỏi tiếng Anh sẽ mang lại cho bạn vô vàn lợi thế, giúp ích rất nhiều trên con đường học lập trình web. Cùng lắng nghe câu chuyện của chính bản thân mình nhé!'
