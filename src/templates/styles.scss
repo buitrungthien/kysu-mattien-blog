@@ -38,6 +38,7 @@
     transition: all ease 0.3s;
     position: relative;
     margin-right: auto;
+    text-align: left;
     @extend %prev-next-links;
     flex-direction: row-reverse;
     &::after {
@@ -53,6 +54,7 @@
     transition: all ease 0.3s;
     position: relative;
     margin-left: auto;
+    text-align: right;
     @extend %prev-next-links;
     &::after {
       content: '\00bb';
