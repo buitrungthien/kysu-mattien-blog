@@ -1,10 +1,10 @@
 ---
-title: 'Javascript module, import, export, dễ ẹc, ai mà chả biết'
+title: 'Javascript module, import, export, dễ ẹc, nhưng có thể bạn vẫn chưa biết'
 date: '2020-09-22'
 author: { name: 'Thiên Bùi' }
 tag: 'tech'
 featuredImgUrl: 'https://i.imgur.com/4KpMlZ4.jpg?1'
-featuredImgAlt: 'Javascript module, import, export, dễ ẹc, ai mà chả biết'
+featuredImgAlt: 'Javascript module, import, export, dễ ẹc, nhưng có thể bạn vẫn chưa biết'
 description: 'Để có được module hay cú pháp import, export dùng trong javascript như ngày nay, bản thân ngôn ngữ này đã trải qua một quá trình dài và chông gai, bài viết hôm nay chúng ta cùng tìm hiểu nhé!'
 ---
 
