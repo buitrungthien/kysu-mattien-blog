@@ -35,7 +35,7 @@ var mySwiper = new Swiper('.swiper-container', {
 
 Công việc này tạo ra một object instance tồn tại và duy trì bên trong moudle Swiper này.
 
-Tất nhiên, để làm cho swiper (banner, slider, ...) này hoạt động, kéo chạy sang trái, sang phải, animation các thứ, ta sẽ cần các method tương ứng, thay đổi trạng thái, instance object <span class='inline-code'>mySwiper</span> kia, ví dụ:
+Tất nhiên, để làm cho swiper (banner, slider, ...) này hoạt động, kéo chạy sang trái, sang phải, animation các thứ, ta sẽ cần các method tương ứng, thay đổi trạng thái của instance object <span class='inline-code'>mySwiper</span> kia, ví dụ:
 
 ```js
 mySwiper.slideNext();
@@ -64,7 +64,6 @@ Cuối cùng, tựu chung các lợi ích trên giúp ích rất nhiều trong v
 ## 3. Module những năm về trước
 
 Module tuyệt vời là vậy, nó gần như đóng vai trò rất lớn trong mọi ngôn ngữ lập trình. Ấy vậy mà, có một sự thật vô cùng khủng khiếp, đó là: những năm trước khi xuất hiện bước ngoặt ES6, thì cơ bản, native javascript không có concept về module. Developer phải tự động não, tìm trick, và manually tạo ra module bằng cách:
-
 
 
 ## 4. Module không phải là...
