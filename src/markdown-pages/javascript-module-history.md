@@ -195,9 +195,99 @@ Student.getName(73);
 
 ## 5. Module trong CommonJS - NodeJS
 
+NodeJs ra đời nhằm biến JS có thể sử dụng được ở tầng back-end. Và cũng như bao ngôn ngữ lập khác thời bấy giờ - vốn có concept về module, NodeJS phải tìm cách implement module bên trong nó bằng cách sử dụng library CommonJs's module.
+
+Với module trong CommonJS hay NodeJS, các module có đặc tính **file-based**, tức là **mỗi một file js là một module**.
+
+Xét ví dụ về NodeJS module sau:
+
+```js
+var records = [
+  { id: 14, name: 'Kyle', grade: 86 },
+  { id: 73, name: 'Suzy', grade: 87 },
+  { id: 112, name: 'Frank', grade: 75 },
+  { id: 6, name: 'Sarah', grade: 91 },
+];
+
+function getName(studentID) {
+  var student = records.find(student => student.id == studentID);
+  return student.name;
+}
+
+module.exports.getName = getName;
+```
+
+Đây chính là một module trong NodeJS.
+
+Mặc cho <span class='inline-code'>records</span> và <span class='inline-code'>getName</span> được khai báo ở **top-level scope**, các biến và hàm này vẫn đảm bảo **mặc định private** và chỉ nằm trong module này, tức là không nằm trong globals scope (ví dụ như ở browser thì các biến và function nằm ở global scope sẽ được truy vấn bằng **window.xyz**). Vì sao lại như vậy?
+
+Vì mặc định một file js được viết trong NodeJS trước khi được xử lý sẽ được bao bọc bởi một hàm wrapper và chính điều này làm cho các biến, với ví dụ trên, mọi thứ sẽ trở thành như sau:
+
+```js
+function Module(module, require, __dirname,...) {
+  var records = [
+    { id: 14, name: 'Kyle', grade: 86 },
+    { id: 73, name: 'Suzy', grade: 87 },
+    { id: 112, name: 'Frank', grade: 75 },
+    { id: 6, name: 'Sarah', grade: 91 },
+  ];
+
+  function getName(studentID) {
+    var student = records.find(student => student.id == studentID);
+    return student.name;
+  }
+  module.exports.getName = getName;
+}
+```
+
+Node sau đó mới **invoke** <span class='inline-code'>Module</span> và nhờ. Đến đây chúng ta có thể hiêu tại sao mọi thứ bên trong Module trở nên **private** với thế giới bên ngoài.
+
+Sau đó, developer chúng ta sẽ chọn ra những public API muốn export ra thế giới bên ngoài bằng cách export một cách tường minh
+```js
+module.exports.getName = getName;
+```
+
+hoặc export dưới dạng một object:
+
+```js
+module.exports = {
+  getName
+};
+```
+
+Ở module hoặc file js khác, muốn sử dụng CommonJS module vừa khởi tạo phía trên, chúng ta sử dụng **phương thức** **require**
+
+```js
+var Student = require("/path/to/student.js");
+
+Student.getName(73);
+// Suzy
+```
+
+Một lưu ý vô cùng quan trọng ở đây là: **CommonJS modules có tính singleton**. Không cần biết bạn **require** một module bao nhiêu lần, gán bằng bao nhiêu tên biến, thì mọi thứ đều đang trỏ về chung một module instance.
+
+Ví dụ:
+
+```js
+var Student1 = require("/path/to/student.js");
+var Student2 = require("/path/to/student.js");
+
+Student1.getStudent(73).changeName('Thien');
+```
+
+Ví dụ module Student lúc trước của chúng ta có thêm phương thức <span class='inline-code'>changeName</span> giúp thay đổi tên của một studen, thì với đặc tính **singleton**, khi Student1 thay đổi name của student có id = 73 thành 'Thien', thì student tương ứng trong **Student2** cũng sẽ change theo. Nói cách khác, theo đặc tính của **singleton**, hai biến Student1 và Student2 thực chất đang trỏ tới cùng một instance.
+
+Để sử dụng được nhiều instance trong CommonJS module, các bạn có thể tham khảo bài viết <a href="https://medium.com/@iaincollins/how-not-to-create-a-singleton-in-node-js-bd7fde5361f5" target="_blank">sau</a>.
+
 ## 6. Module trong ES6
 
-## 7. Giống và khhác nhau giữa ES6's module và CommonJS's module
+Như vậy, thoạt đầu từ cú pháp IFFE để tạo ra module, rồi đến CommonJS, và còn nhiều thư viện khác nữa (AMD, UMD, ...). Rõ ràng, module đóng một vai trò vô cùng quan trọng trong cộng đồng dev JavaScript. Và cuối cùng, JavaSciprt native module đã xúât hiện hay còn được biết với cái tên **ES Module**
+
+Về cơ bản, ES Module (ESM) có khá nhiều điểm tương đồng với CommonJS. ESM cũng có tính chất **file-based** (mỗi file js là một module), cũng có tính chất singleton, và mọi thứ by default sẽ được xem là **private** và chỉ có thể access được bên trong module đó.
+
+
+
+## 7. Khác nhau giữa ES6's module và CommonJS's module
 
 ## 8. Kết luận
 
