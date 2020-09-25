@@ -3,7 +3,7 @@ title: 'Javascript module, import, export, dễ ẹc, nhưng có thể bạn v�
 date: '2020-09-22'
 author: { name: 'Thiên Bùi' }
 tag: 'tech'
-featuredImgUrl: 'https://i.imgur.com/4KpMlZ4.jpg?1'
+featuredImgUrl: 'https://i.imgur.com/m2QgI0I.jpg?1'
 featuredImgAlt: 'Javascript module, import, export, dễ ẹc, nhưng có thể bạn vẫn chưa biết'
 description: 'Để có được module hay cú pháp import, export dùng trong javascript như ngày nay, bản thân ngôn ngữ này đã trải qua một quá trình dài và chông gai, bài viết hôm nay chúng ta cùng tìm hiểu nhé!'
 ---
@@ -15,6 +15,8 @@ Nhưng mấy ai biết được rằng, để có được những **import**, *
 Bài viết hôm nay mình sẽ cùng các bạn đi qua khái niệm **module** (đọc là "mo dzù ồl nha các bạn :D) trong JavaCript. Module là gì, tại sao module quan trọng, quá trình hình thành của javascript module và nhiều vấn đề hay ho khác.
 
 Trong bài viết đôi chỗ sẽ có những khái niệm, diễn giải khá hàn lâm nhưng chỉ cần chúng ta chịu khó đọc chậm và suy nghĩ kỹ càng thì sẽ nắm bắt được ý đồ đang diễn giải. Chúc các bạn gặt hái được nhiều kiến thức bổ ích nhé. Chúng ta bắt đầu thôi.
+
+> Nếu bạn đã quá quen thuộc với concept module, CommonJS module, hay ES6 module, bạn có thể bỏ qua các section đầu, nơi mình giới thiệu chi tiết về module cho các bạn mới và nhảy tới section 7. Khác nhau giữa ES6's module và CommonJS's module (Quan trọng)
 
 ## 1. Module là gì?
 
@@ -57,9 +59,9 @@ Hay như khi làm việc với ReactJS, ta thường tách nhỏ các component 
 
 Bằng cách tạo ra module, quyết định phần nào là private, phần nào là public, giúp che dấu thông tin code, chỉ cho phép người dùng thao tác với các phần thông tin, function public.
 
-Việc đóng gói các biến, function vào một module, rồi đến lúc sử dụng, chúng ta import vào dưới một cái **tên** khác cũng đem lại lợi ích lớn đó là tránh việc các khai báo biến, hàm bị trùng lập hay vô tình bị ghi đè lên nhau, thứ mà chúng ta sẽ dễ dàng mắc phải khi làm việc với **global scope**.
+Việc đóng gói các biến, function vào một module, rồi đến lúc sử dụng, chúng ta import vào dưới một cái **tên** khác cũng đem lại lợi ích lớn đó là tránh việc các khai báo biến, hàm bị trùng lặp hay vô tình bị ghi đè lên nhau, thứ mà chúng ta sẽ dễ dàng mắc phải khi làm việc với **global scope**.
 
-Cuối cùng, tựu chung các lợi ích trên giúp ích rất nhiều trong việc cấu trúc, hệ thống source code, giúp ích cho việc phát triển, scale up hay đơn giản là dễ dàng **maintainable** trong tương lai. Module quá tuyệ vời đúng không các bạn!?
+Cuối cùng, tựu chung các lợi ích trên giúp ích rất nhiều trong việc cấu trúc, hệ thống source code, giúp ích cho việc phát triển, scale up hay đơn giản là dễ dàng **maintainable** trong tương lai. Module quá tuyệt vời đúng không các bạn!?
 
 ## 3. Module những năm về trước
 
@@ -137,7 +139,7 @@ function defineStudent() {
 
 var firstInstance = defineStudent();
 var secondInstance = defineStudent();
-fullTime.getName(73); // Suzy
+firstInstance.getName(73); // Suzy
 ...
 ```
 
@@ -145,7 +147,7 @@ Tới đây, bạn đã dần dần thấy khái niệm và cách tạo ra modul
 
 ## 4. Module không phải là...
 
-Đến thời điểm này, chúng ta đã nhận ra module sẽ luôn được tạo ra bằng cách wrap mọi thứ bên trong một scope, một function hay một object nhất định, tuy nhiên... các cách làm sau đây không được xem là một **module** đúng nghĩa:
+Đến thời điểm này, chúng ta đã nhận ra module sẽ được tạo ra bằng cách wrap mọi thứ bên trong một scope, một function hay một object nhất định, tuy nhiên... các cách làm sau đây không được xem là một **module** đúng nghĩa:
 
 <span class='warning-label'>Namespaces (Stateless Grouping)</span>
 
@@ -172,7 +174,7 @@ var Utils = {
 
 <span class='warning-label'>Data Structures (Stateful Grouping)</span>
 
-Ngược lại, nếu chúng ta chỉ gom nhóm một set các giá trị state và function cùng nhau, **nhưng không limit phần nào là public, phần nào là private** (thông qua việc invoke hàm và return ra value như ví dụ trước), thì đây cũng không được xem là một module. Vì nó không có tính che dấu thông tin.
+Nếu chúng ta chỉ gom nhóm một set các giá trị state và function cùng nhau, **nhưng không limit phần nào là public, phần nào là private** (thông qua việc invoke hàm và return ra value như ví dụ trước), thì đây cũng không được xem là một module. Vì nó không có tính che dấu thông tin.
 
 ```js
 // data structure, not module
@@ -221,7 +223,7 @@ module.exports.getName = getName;
 
 Mặc cho <span class='inline-code'>records</span> và <span class='inline-code'>getName</span> được khai báo ở **top-level scope**, các biến và hàm này vẫn đảm bảo **mặc định private** và chỉ nằm trong module này, tức là không nằm trong globals scope (ví dụ như ở browser thì các biến và function nằm ở global scope sẽ được truy vấn bằng **window.xyz**). Vì sao lại như vậy?
 
-Vì mặc định một file js được viết trong NodeJS trước khi được xử lý sẽ được bao bọc bởi một hàm wrapper và chính điều này làm cho các biến, với ví dụ trên, mọi thứ sẽ trở thành như sau:
+Vì mặc định một file js được viết trong NodeJS trước khi được xử lý sẽ được bao bọc bởi một hàm wrapper. Với ví dụ trên, mọi thứ sẽ trở thành như sau:
 
 ```js
 function Module(module, require, __dirname,...) {
@@ -240,9 +242,10 @@ function Module(module, require, __dirname,...) {
 }
 ```
 
-Node sau đó mới **invoke** <span class='inline-code'>Module</span> và nhờ. Đến đây chúng ta có thể hiêu tại sao mọi thứ bên trong Module trở nên **private** với thế giới bên ngoài.
+Node sau đó mới **invoke** <span class='inline-code'>Module</span> và nhờ vậy, chúng ta có thể hiêu tại sao mọi thứ bên trong Module trở nên **private** với thế giới bên ngoài.
 
 Sau đó, developer chúng ta sẽ chọn ra những public API muốn export ra thế giới bên ngoài bằng cách export một cách tường minh
+
 ```js
 module.exports.getName = getName;
 ```
@@ -251,14 +254,14 @@ hoặc export dưới dạng một object:
 
 ```js
 module.exports = {
-  getName
+  getName,
 };
 ```
 
 Ở module hoặc file js khác, muốn sử dụng CommonJS module vừa khởi tạo phía trên, chúng ta sử dụng **phương thức** **require**
 
 ```js
-var Student = require("/path/to/student.js");
+var Student = require('/path/to/student.js');
 
 Student.getName(73);
 // Suzy
@@ -269,8 +272,8 @@ Một lưu ý vô cùng quan trọng ở đây là: **CommonJS modules có tính
 Ví dụ:
 
 ```js
-var Student1 = require("/path/to/student.js");
-var Student2 = require("/path/to/student.js");
+var Student1 = require('/path/to/student.js');
+var Student2 = require('/path/to/student.js');
 
 Student1.getStudent(73).changeName('Thien');
 ```
@@ -283,20 +286,258 @@ Ví dụ module Student lúc trước của chúng ta có thêm phương thức 
 
 Như vậy, thoạt đầu từ cú pháp IFFE để tạo ra module, rồi đến CommonJS, và còn nhiều thư viện khác nữa (AMD, UMD, ...). Rõ ràng, module đóng một vai trò vô cùng quan trọng trong cộng đồng dev JavaScript. Và cuối cùng, JavaSciprt native module đã xúât hiện hay còn được biết với cái tên **ES Module**
 
-Về cơ bản, ES Module (ESM) có khá nhiều điểm tương đồng với CommonJS. ESM cũng có tính chất **file-based** (mỗi file js là một module), cũng có tính chất singleton, và mọi thứ by default sẽ được xem là **private** và chỉ có thể access được bên trong module đó.
+Về cơ bản, ES Module (ESM) có khá nhiều điểm tương đồng với CommonJS. ESM cũng có tính chất **file-based** (mỗi file js là một module), có luôn singleton, và mọi thứ by default sẽ được xem là **private** tức chỉ có thể access được bên trong module đó. Tuy nhiên có một khác biệt nhỏ đó là: ESM files mặc định chạy trong strict mode.
 
+Tiếp đến, thay vì sử dụng <span class='inline-code'>module.exports</span> giống như CommonJS, ESM sử dụng keyword <span class='inline-code'>export</span>, đồng thời sử dụng **keyword** <span class='inline-code'>import</span> thay vì **method** <span class='inline-code'>require</span> như CommonJS.
 
+```javascript
+var records = [
+  { id: 14, name: 'Kyle', grade: 86 },
+  { id: 73, name: 'Suzy', grade: 87 },
+  { id: 112, name: 'Frank', grade: 75 },
+  { id: 6, name: 'Sarah', grade: 91 },
+];
 
-## 7. Khác nhau giữa ES6's module và CommonJS's module
+function getName(studentID) {
+  var student = records.find(student => student.id == studentID);
+  return student.name;
+}
+
+export { getName };
+```
+
+Ngoài cách export một object như trên, ESM còn cho phép chúng ta thoải mái sử dụng cú pháp export cho từng biến hay function cụ thể (named export):
+
+```javascript
+// awesome-library.js
+export const PI = 3.1415926;
+
+export function sum(...args) {
+  log('sum', args);
+  return args.reduce((num, tot) => tot + num);
+}
+
+export function mult(...args) {
+  log('mult', args);
+  return args.reduce((num, tot) => tot * num);
+}
+
+// private function
+function log(...msg) {
+  console.log(...msg);
+}
+```
+
+Một biến thể nữa là **default export**.
+
+```js
+export default function getName(studentID) {
+  // ..
+}
+```
+
+Khác với named export, một module chỉ có duy nhất một default export. Nếu người dùng không chỉ rõ phần nào cần import, mà chỉ import mopdule một cách chung chung, thì phần export default này sẽ được import.
+
+**Các biến thể import:**
+
+<span class='solution-label'>Named import</span>
+
+Sử dụng "named import", chúng ta sẽ import những thứ cần thiết, tránh import cả module.
+
+```js
+import { sum, mult } from './lib.js';
+
+console.log(sum(1, 2, 3, 4));
+console.log(mult(1, 2, 3, 4));
+```
+
+<span class='solution-label'>Alias thành một cái tên khác</span>
+
+Bằng cách sử dụng keyword **as**, chúng ta có thể import và gán một cái tên khác cho phần api vừa được import.
+
+```js
+import { sum as addAll, mult as multiplyAll } from './lib.js';
+
+console.log(addAll(1, 2, 3, 4));
+console.log(multiplyAll(1, 2, 3, 4));
+```
+
+<span class='solution-label'>default import</span>
+
+Như đã nhắc đến phía trên, nếu module có export default, thì khi đứng ở module khác chúng ta có thể import phần default đó như sau:
+
+```js
+import getName from "/path/to/students.js";
+
+getName(73);
+```
+
+<span class='solution-label'>Mix vừa default import vừa named import</span>
+
+```js
+import { default as getName, /* .. others .. */ }
+   from "/path/to/students.js";
+
+getName(73);
+```
+
+<span class='solution-label'>Namespace import</span>
+
+Cuối cùng, bạn có thể  sử dụng dấu * để import toàn bộ mọi thứ được export bên trong một module, bao gồm cả default và named export, gom chúng thành một **name space** - một biến xài chung như sau:
+
+```js
+import * as Student from "/path/to/students.js";
+
+Student.getName(73);
+```
+
+## 7. Khác nhau giữa ES6's module và CommonJS's module (Quan trọng)
+
+Tới phần quan trọng nhất rồi. Ở section này, chúng ta sẽ cùng nhau tìm hiểu về một số khác biệt giữa CommonJS module và ES module. Chúng rất thú vị và có thể nhiều dev trong số chúng ta vẫn chưa biết tới.
+
+Mọi điểm khác nhau giữa ES module và CommonJS module có thể được tóm gọn bằng một câu như sau: ES6 Module là **Static** và CommonJS Module là **Dynamic**. Cụ thể, NodeJS chạy ở server, vì thế  mọi thứ import, export sẽ diễn ra ở **Runtime**, ngược lại ESM diễn ra ở **Parse time** - trước khi code chạy (ví dụ với trường hợp sử dụng transpiler Babel hay bundler như Webpack).
+
+Từ điểm khác biệt cốt lõi đó sẽ kéo theo các điểm khác nhau giữa ESM và CommonJS module như:
+
+<span class='problem-label'>Tôi có thể đặt import, export ở đâu?</span>
+
+**ESM:**
+Bắt buộc phải ở **top-level** scope, hay nói cách khác: **không được nằm trong các câu lệnh rẽ nhánh if, else, trong các funtcion con,...**
+
+```js
+// valid
+import foo from 'foo';
+
+//invalid 
+if (false) {
+  import bar from 'bar';
+}
+
+// invalid
+setTimeout(function () {
+  export let num = 14;
+})
+```
+
+Lý do như đã nói phía trên, ESM chỉ hoạt động ở quá trình **Parse Time**, tổng hợp code, trước khi code chạy. Nhìn chung, mọi thứ import và export phải được **biết trước**, không cho phép dynamic import hay export dựa theo một điều kiện nhất định trong suốt quá trình chạy code.
+
+**CommonJS:**
+Bạn có thể đặt require/module.exports **anywhere**
+
+```js
+if (Math.random() > 0.1) {
+  exports.foobar = 7;
+} else {
+  require('lib.js');
+}
+```
+
+Với CommonJS module, mọi thứ xoay quanh object, mọi thứ diễn ra ở **Runtime**. exports, require nhìn chung cũng chỉ là add, get value từ một object, bạn có đặt ở bất kỳ logic, bất kỳ scope nào tùy thích.
+
+<span class='problem-label'>Khi nào có thể sử dụng được các giá trị import?</span>
+
+**ESM:**
+Dùng trước cả khi import:
+
+```js
+// valid
+console.log('this is ok', foo);
+import foo from 'foo';
+```
+
+Một lần nữa, vì import, export trong ESM diễn ra ở quá trình parse code, nên các cú pháp import có thể được **hoisted** giống như khi khai báo **var**, khiến cho đoạn code trên hoàn toàn hợp lệ.
+
+**CommonJS:**
+Với CommonJS, bạn không thể refer tới một giá trị trước khi nó được require.
+
+```js
+//throws an error
+console.log('oh no an error', foo); // ReferenceError
+const foo = require('./foo');
+```
+
+Ở đây, việc thực hiện gọi require để import một module chỉ đơn thuần là chạy một hàm, không hề có hoisting ở đây, dẫn đến lỗi **ReferenceError**
+
+<span class='problem-label'>Chúng ta có thể import bằng cách nào?</span>
+
+**ESM:**
+String literal, túm lại giá trị import phải là string
+
+```js
+// valid
+import foo from 'foo';
+
+//invalid 
+import foo from 'f' + 'oo';
+import foo from `template-string`;
+import foo from 6;
+import foo from {};
+```
+
+**CommonJS:**
+Như đã nhắc ở section trên khi nói về CommonJS, **require là một method**, không phải là native syntax như **import**. Chính vì việc nó là một hàm bình thường, chúng ta có thể  pass vào logic import tùy thích.
+
+```js
+require(hasDoneSomething ?
+  'left-pad' :
+  Math.random() * Date.now() / 2 + 7 + '.js'
+);
+```
+
+<span class='problem-label'>Variable binding</span>
+
+**ESM:**
+Với import và export trong ESM, variables sẽ được bind mặc định.
+
+```js
+// foo.js
+export let foo = 4;
+export function incFoo() { foo += 1; }
+//main.js
+import { foo, incFoo } from './foo.js';
+console.log(foo); // 4
+incFoo();
+console.log(foo); // 5
+```
+
+Như chúng ta thấy từ kết quả console.log. Mỗi lần chạy hàm <span class='inline-code'>incFoo()</span>, biến <span class='inline-code'>foo</span> cũng được tăng lên, như vậy mặc định đã có quá trình bind variable.
+
+**CommonJS:**
+Với CommonJS, mọi thứ... có chút phức tạp hơn, cùng xem xét kỹ đoạn code dưới đây:
+
+```js
+// lib.js
+var foo = 4;
+module.exports = { foo, bar: 7, incFoo, incBar };
+function incFoo() { foo += 1; }
+function incBar() { module.exports.bar += 1; };
+
+// main.js
+var instance = require('./lib');
+console.log(instance.foo, instance.bar); // 4, 7
+instance.incFoo();
+instance.incBar();
+console.log(instance.foo, instance.bar); // 4, 8
+```
+
+Với CommonJS thì không có cơ chế variable binding mặc định kia. Tức là, biến <span class='inline-code'>foo</span> được export ở dòng thứ 2 kia chỉ đơn giản nhận giá trị là **4** (key là **foo**, value là **4**). Khi gọi <span class='inline-code'>incFoo()</span>, biến foo ở dòng thứ nhất được tăng lên, nhưng foo trong object **exports** thì không.
+
+Để tăng được biến đếm khi sử dụng CommonJS module, trong hàm <span class='inline-code'>incBar</span>, ta phải trỏ trực tiếp tới giá property <span class='inline-code'>bar</span> trong object exports, cụ thể là **module.exports.bar**
 
 ## 8. Kết luận
 
+Bài viết hôm nay khá dài, cám ơn các bạn đã đón đọc. Chúc các bạn học tốt và nắm được các vấn đề chủ chốt về Module trong JavaScript.
+
+Mến chào các bạn, hẹn gặp lại các bạn trong các post tiếp theo.
+
 ## 9. Nguồn và bài viết hay liên quan
 
-<div class='image-description-wrapper'>
-  <div class='image-wrapper'>
-    <img src='https://i.imgur.com/3G2dOz4.png' alt='Anh văn 1' />
-  </div>
+Các concept, diễn giải, ví dụ trong bài viết được mình tìm tòi và tổng hợp từ nhiều nguồn, các bạn có thể đọc tài liệu, xem video gốc, hoặc thậm chí đào sâu hơn về Module Pattern thông qua các tài liệu dưới đây:
 
-  <p class='image-description'>Điểm học phần Anh văn 1</p>
-</div>
+<a href="https://www.sitepoint.com/understanding-es6-modules/#:~:text=While%20CommonJS%20and%20ES6%20modules,demand%20while%20executing%20the%20code">Understanding ES6 Modules</a> - Tác giả: **Craig Bucker**
+
+Video youtube: <a href="https://www.youtube.com/watch?v=8O_H2JgV7EQ">Modules: ES2015 vs. CommonJS (English)</a>
+
+You Don't Know JS Yet: <a href="https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch8.md">Chapter 8: The Module Pattern</a>
+
+<a href="https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript">The Module Pattern - Learning JavaScript Design Patterns</a> Tác giả: **Addy Osmani**
