@@ -14,7 +14,7 @@ Nhìn chung JavaScript Promise là một khái niệm, một công cụ khá h�
 
 Để đóng góp thêm vốn kiến thức đa dạng và phức tạp của anh bạn Promise, hôm nay mình sẽ cùng các bạn tìm hiểu sự khác nhau giữa việc **reject** và **throw** một **exception** trong object Promise, đồng thời cho những ai chưa biết, chúng ta cũng sẽ đi tìm hiểu Micro-task hay Job-queue là gì? (Bạn thường nghe Call-stack và Callback-queue đúng không nào).
 
-Bài viết giả định bạn đã có kiến thức cơ bản hoặc từng làm việc với Promise. Ngược lại, nếu chưa biết Promise là gì, các bạn đầu tiên hay tìm hiểu về khái niệm, cách khởi tạo, ý nghĩa của Promise qua bài viết cực kỳ hay và hài hước của tác giả **duongthanhduoc** - <a target="_blank" rel="noopener noreferrer" href="https://duthaho.com/js-promise/">**Tìm hiểu về promise trong JavaScript**</a>
+Bài viết giả định bạn đã có kiến thức cơ bản hoặc từng làm việc với Promise. Ngược lại, nếu chưa biết Promise là gì, các bạn đầu tiên hay tìm hiểu về khái niệm, cách khởi tạo, ý nghĩa của Promise qua bài viết cực kỳ hay và hài hước của tác giả **Dương Thanh Hợp** - <a target="_blank" rel="noopener noreferrer" href="https://duthaho.com/js-promise/">**Tìm hiểu về promise trong JavaScript**</a>
 
 Ok bây giờ chúng ta bắt đầu nào
 
@@ -147,7 +147,7 @@ p.catch(err => {
 });
 ```
 
-Bằng cách sử dụng <span class='inline-code'>reject</span>, catch block sẽ bắt được lỗi và JS Engine sẽ không còn hiện cảnh báo về \*\*lỗi không được handled" nữa.
+Bằng cách sử dụng <span class='inline-code'>reject</span>, catch block sẽ bắt được lỗi và JS Engine sẽ không còn hiện cảnh báo về **lỗi không được handled** nữa.
 
 <span class="problem-label">Ngắt luồng chạy code khi gặp lỗi</span>
 
@@ -167,7 +167,9 @@ p.catch(err => {
 });
 ```
 
-Với ví dụ trên, <span class='inline-code'>console.log('Here')</span> sẽ không được in ra, kết quả sẽ chỉ là "promise failed!". Vì trong scope của một function, nếu có một câu lệnh throw, ném ra một exception thì ngay lập tức luồng thực thi code sẽ bị ngắt. Nói cách khác, các dòng code nằm bên dưới đoạn **throw** đó sẽ không được thực thi, luồng thực thi code lúc này ngay lập tức thoát khỏi scope function đó, và tìm đến block xử lý lỗi để tiếp tục thự thi (ở đây là scope .catch).
+Với ví dụ trên, <span class='inline-code'>console.log('Here')</span> sẽ không được in ra, kết quả sẽ chỉ là "promise failed!". Vì trong scope của một function, nếu có một câu lệnh throw, ném ra một exception thì ngay lập tức luồng thực thi code sẽ bị ngắt.
+
+Nói cách khác, các dòng code nằm bên dưới đoạn **throw** đó sẽ không được thực thi, luồng thực thi code lúc này ngay lập tức thoát khỏi scope function đó, và tìm đến block xử lý lỗi để tiếp tục thự thi (ở đây là scope .catch).
 
 **Reject**:
 
@@ -268,7 +270,7 @@ try {
 }
 ```
 
-Kết quả trả về:
+Kết quả:
 
 ```js
 inside catch
@@ -277,21 +279,120 @@ Less than 25
 
 ## 4. Unhandle-promise-rejection (Lỗi promise chưa được xử lý) và Micro-task (Job-queue)
 
-Trong các ví dụ trên, mình đã đề cập khá nhiều lần đến việc 
+Trong các ví dụ trên, chắc hẳn các bạn đã để ý nhiều đến việc cảnh báo **Unhandled Promise Rejection**. Lỗi hay chính xác hơn là cảnh báo này xảy ra khi **JS engine** phát hiện Promise trả ra một exception (lỗi) nhưng không có **catch** block tương ứng để **bắt lấy lỗi và xử lý lỗi**. Nói cách khác, best practice JS Engine mong muốn lập trình viên chúng ta khi khai báo, sử dụng một promise mà có exception thì phải khai báo kèm luôn catch block để sử lý lỗi luôn, không thể để **trôi nổi** vô kỷ luật như vậy được.
 
-JS có một cái "luồng" mà thôi.
+Như vậy, warning như trên thường xuất hiện khi chúng ta quên thêm catch block để xử lý lỗi cho promise. Ví dụ:
 
-call-stack, event-queue (macro-task), job-queue (micro-task)
+```js
+let promise = Promise.reject(new Error("Promise Failed!"));
 
-3 cái thùng.
+//promise.catch(err => alert(err));
+```
 
-es6 promise xuất hiện, add thêm job-queue
+Ở ví dụ trên mình đã cố tình tạo một Promise có **trạng thái rejected** với message lỗi là "Promised Failed!", nhưng lại cố tình không add catch block để xử lý lỗi (comment out), thì ngay lập tức, broswer sẽ xuất hiện cảnh báo:
 
-stack - cái xô
-queue - cái xô lủng đít.
+<div class='image-description-wrapper'>
+  <div class='image-wrapper'>
+    <img src='https://i.imgur.com/aO67o7M.png' alt='Promise uncaught error' />
+  </div>
 
-stack -> job-queue -> event-queue
+  <p class='image-description'>Promise uncaught error</p>
+</div>
 
-promise error nằm ở job-queue, check cuối cái xô lủng đít job-queue mà không có catch block tương ứng để xử lý lỗi là warnning liền.
+Nhưng kỳ lạ thay, xét ví dụ tiếp theo, mặc dù ta thêm catch block như sau:
+
+```js
+let promise = Promise.reject(new Error("Promise Failed!"));
+
+setTimeout(() => promise.catch(err => alert('caught')), 1000);
+
+Thì lỗi **UnhandledPromiseRejectionWarning** kia vẫn xuất hiện. Tại sao vậy?
+```
+
+Ok, và lý do đó là vì **ở lần chạy cuối cùng, job-queue hay microtask queue không tìm thấy catch block handler tương ứng để xử lý lỗi**
+
+<span class="problem-label">Khoan đã, cái gì mà microtask queue ở đây?</span>
+
+Hè hè, mình cố tình cài vào để có thể tranh thủ nói đến một vấn đề hay ho trong javascript về cách thức thực thi code bất đồng bộ.
+
+Nếu các bạn đã tìm hiểu về **Event loop** và asynchronous code trong JS, các bạn sẽ thấy bức ảnh phía dưới rất quen thuộc.
+
+<div class='image-description-wrapper'>
+  <div class='image-wrapper'>
+    <img src='https://i.imgur.com/oXhs6LK.png' alt='Event Loop trong JavaScript' />
+  </div>
+
+  <p class='image-description'>Event Loop trong JavaScript</p>
+</div>
+
+Đại khái là trong JavasCript, có hai "loại" code cần thực thi, đó là **code bình thường** - các cú pháp khai báo biến, các phép tính cộng trừ nhân chia, ... và các **code bất đồng bộ** - hay còn gọi là các Wep APIs, bao gồm các event handler (click, submit,...), AJAX call hay các hàm setTimeout, setInterval.
+
+Các **code bình thường** sẽ được đặt trong call-stack (stack giống như một chiếc xô, đồ nào đặt vào sau cùng thì sẽ được lấy ra trước - LIFO (Last In First Out)).
+
+Còn **code bất đồng bộ** thì sẽ được **xếp vào một hàng đợi - queue** (queue thì cũng giống một cái xô, nhưng mà cái xô không có đáy, vào trước thì ra trước - FIFO (First In First Out))
+
+Về thứ tự thực thi code thì sẽ là code trong Call-stack chạy trước, đến khi toàn bộ code trong cái "xô" call-stack chạy xong thì sẽ đến cái xô lủng đít "Call back queue" kia.
+
+Điều này giải thích cho lý do tại sao đoạn code:
+
+```js
+setTimeout(() => {
+  console.log('in ra sau, mặc dù đợi 0 giây và nằm trên');
+}, 0);
+
+consol.log('code nằm dưới nhưng in ra trước');
+```
+
+Sẽ cho ra kết quả:
+
+```js
+code nằm dưới nhưng in ra trước
+in ra sau, mặc dù đợi 0 giây và nằm trên
+```
+
+Nhưng kể từ khi ES6 ra đời, kèm theo sự xuất hiện của Promise, thì ngoài cái xô lành (Call-stack) và cái xô lủng đít (Callback-queue) kia còn xuất hiện thêm một cái xô lủng đít nữa, đó chính là: "Job-queue", cái "xô lủng đít - queue" này dành để thực thi các "microtask", mà cụ thể ở đây là thực thi các logic code bên trong **.then/catch handlers**.
+
+Khi một promise đã "sẵn sàng" (ở trạng thái fulfilled hoặc rejected) thì tương ứng các code **trong** .then và .catch handler sẽ được xếp vào hàng đợi **Job-queue** và chờ chực để được chạy.
+
+Thứ tự chạy code ở 3 cái xô này bây giờ sẽ là:
+
+Xô lành (call-stack) chạy trước, chạy hết sạch code (theo cơ chế vào sau ra trước) -> xô lủng đít Job-queue (microtask) chạy tiếp (cơ chế vào trước ra trước), chạy hết sạch -> xô lủng đít cuối cùng Callback-queue.
+
+Bạn có thể kiểm chứng bằng ví dụ:
+
+```js
+setTimeout(() => {
+  console.log('Tui nằm trong callback queue, tui đứng đầu nhưng in ra cuối cùng');
+}, 0);
+
+Promise.resolve()
+.then(res => {console.log('Tui nằm trong microtask queue, tui in ra trước anh bạn callback queue')});
+
+console.log('Tui nằm trong callstack, tui đứng cuối nhưng in ra đầu tiên');
+```
+
+Quay lại với lý do xảy ra lỗi <span class='inline-code'>Unhandled promise rejection bên trên</span>.
+
+Nhìn chung JavaScript Engine mong đợi chúng ta luôn khai báo các hàm xử lý lỗi một cách đầy đủ cho mỗi cái "xô". Nói cách khác, lỗi xảy ra ở xô nào, thì trong xô đó phải có catch block tương ứng để xử lý lỗi, vì 3 cái xô này có thể coi là tách biệt với nhau.
+
+```js
+let promise = Promise.reject(new Error("Promise Failed!"));
+
+setTimeout(() => promise.catch(err => alert('caught')), 1000);
+```
+
+Như đoạn code trên, bằng cách đặt promise.catch vào bên trong setTimeout, ta đã vô tình mang nó đến cái xô lủng đít số 2 (xô callback-queue), trong khi ở ở xô nọ, eror quăng ra từ Promise.rejec không tìm thấy catch block handler tương ứng -> Engine báo lỗi **UnhandledPromiseRejectionWarning**
 
 ## 6. Kết luận
+
+Qua bài viết ngày hôm nay, mình đã cùng các bạn tìm hiểu về sự khác biệt giữa **reject** và **throw**, bên cạnh đó chúng ta cũng đã tìm hiểu sơ lược về **microtask** trong JavasCript.
+
+Promise trong JavaScript luôn là một chủ đề hấp dẫn và có rất nhiều vấn đề đi kèm như cách xử lý lỗi, trình tự thực thi,...
+
+Để nắm được các concept khó nhai này, mình xin chia sẻ các bạn link các bài viết hay để các bạn tiếp tục đào sâu hơn về các vấn đề nêu trên nhé.
+
+<a href="https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/">Tasks, microtasks, queues and schedules</a> - Tác giả: Jake - a developer advocate for Google Chrome. **Bài viết cực cực kỳ hay, có animation cho bạn bấm bấm, code chạy dễ hiểu, giúp bạn hiểu sâu và chi tiết về microtask, mình vô cùng tha thiết recommend các bạn đọc bài này**.
+
+<a href="https://duthaho.com/js-promise/">Tìm hiểu về promise trong JavaScript</a> - Tác giả: anh đ* tha hồ - duthaho **Giới thiệu về Promise, cách khai báo, cách dùng, lợi ích,... một cách rất hài hước và dễ hiểu**
+
+Nếu thấy hay đừng quên cho mình một like. Ngoài ra các bạn có những kiến thức nào khác liên quan đến chủ đề này, đừng quên comment phía bên dưới để mọi người cùng biết nhé. Mến chào các bạn!
