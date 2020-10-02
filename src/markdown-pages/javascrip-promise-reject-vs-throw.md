@@ -281,4 +281,17 @@ Trong các ví dụ trên, mình đã đề cập khá nhiều lần đến vi�
 
 JS có một cái "luồng" mà thôi.
 
+call-stack, event-queue (macro-task), job-queue (micro-task)
+
+3 cái thùng.
+
+es6 promise xuất hiện, add thêm job-queue
+
+stack - cái xô
+queue - cái xô lủng đít.
+
+stack -> job-queue -> event-queue
+
+promise error nằm ở job-queue, check cuối cái xô lủng đít job-queue mà không có catch block tương ứng để xử lý lỗi là warnning liền.
+
 ## 6. Kết luận
