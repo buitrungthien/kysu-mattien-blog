@@ -94,11 +94,29 @@ try {
 }
 ```
 
-## 1. Khác biệt giữa "reject" và "throw" khi dùng trong Promise
+## 3. Khác biệt giữa "reject" và "throw" khi dùng trong Promise
 
 Ok, như vậy chúng ta đã biết được reject và throw dùng để làm gì, thậm chí phát hiện chúng khá giống nhau - đều dùng để handle các lỗi, các exception. Vậy chúng có điểm nào khác nhau không? Câu trả lời là có, giữa reject và throw có các điểm khác nhau sau đây:
 
-<span class="problem-label">Asynchronous callback function inside the Promise</span>
+<span class="problem-label">callback bất đồng bộ đặt trong Promise</span>
+
+**Throw**:
+
+```js
+const p = new Promise((resolve, reject) => {
+  // Asynchronous function called within the Promise.
+  // throw lỗi trong asynchronous callback - đặt trong setTimeout
+  setTimeout(() => {
+    throw 'promise failed!';
+  }, 1000);
+});
+
+// .catch sẽ không bắt được lỗi trên
+// và JS engine sẽ la lên
+p.catch(err => {
+  console.log(err);
+});
+```
 
 Khi **được gọi** bên trong một async function (ví dụ **setTimeout**), chúng ta **không thể sử dụng throw**, vì **catch block** không bắt được lỗi này (lỗi mà được throw đi ấy).
 
@@ -112,13 +130,155 @@ Lúc này anh bạn Js Engine sẽ la làng lên **Uncaught promise failed!**. N
   <p class='image-description'>Promise uncaught error</p>
 </div>
 
-<span class="problem-label"></span>
-<span class="problem-label"></span>
+**Reject**:
 
-## 2. Unhandle-promise-rejection (Lỗi promise chưa được xử lý)
+```js
+const p = new Promise((resolve, reject) => {
+  // Asynchronus function called within the Promise.
+  setTimeout(() => {
+    reject('promise failed!');
+  }, 1000);
+});
 
-## 3. Micro-task là gì. setTimeout, promise, callstack, cái nào chạy trước, cái nào sau???
+// Giờ thì catch đã có thể bắt được lỗi
+// JS Enginge không còn cảnh báo nữa
+p.catch(err => {
+  console.log(err);
+});
+```
+
+Bằng cách sử dụng <span class='inline-code'>reject</span>, catch block sẽ bắt được lỗi và JS Engine sẽ không còn hiện cảnh báo về \*\*lỗi không được handled" nữa.
+
+<span class="problem-label">Ngắt luồng chạy code khi gặp lỗi</span>
+
+Điểm khác biệt này khá basic và có lẽ nhiều dev chúng ta đã biết, rằng:
+
+**Throw**:
+
+```js
+const p = new Promise((resolve, reject) => {
+  throw 'promise failed!';
+
+  console.log('Here');
+});
+
+p.catch(err => {
+  console.log(err);
+});
+```
+
+Với ví dụ trên, <span class='inline-code'>console.log('Here')</span> sẽ không được in ra, kết quả sẽ chỉ là "promise failed!". Vì trong scope của một function, nếu có một câu lệnh throw, ném ra một exception thì ngay lập tức luồng thực thi code sẽ bị ngắt. Nói cách khác, các dòng code nằm bên dưới đoạn **throw** đó sẽ không được thực thi, luồng thực thi code lúc này ngay lập tức thoát khỏi scope function đó, và tìm đến block xử lý lỗi để tiếp tục thự thi (ở đây là scope .catch).
+
+**Reject**:
+
+```js
+const p = new Promise((resolve, reject) => {
+  reject('promise failed!');
+
+  console.log('Here');
+});
+
+p.catch(err => {
+  console.log(err);
+});
+```
+
+Cùng ví dụ trên, khi thay thế <span class='inline-code'>throw</span> bằng <span class='inline-code'>reject</span>, kết quả in ra lúc này sẽ là:
+
+```js
+Here
+promise failed!
+```
+
+Như vậy, khác với throw, luồng thực thi code vẫn sẽ chạy hết các câu lệnh tiếp theo của scope function, sau đó mới tìm đến catch block để xử lý lỗi, thay vì ngay lập tức ngắt luồng chạy như throw đã làm.
+
+<span class="problem-label">Được dùng trong phạm vi nào</span>
+
+**Reject**:
+
+```js
+var a = 20;
+
+try {
+  if (a < 25) Promise.reject('Less than 25');
+
+  console.log('Okay!');
+} catch (err) {
+  console.log('inside catch');
+
+  console.log(err);
+}
+```
+
+**Lưu ý**: Promise.reject() là một built-in function. Nó trả ra một Promise object có trạng thái **rejected**.
+
+Kết quả trả về từ đoạn code ví dụ trên sẽ chỉ là:
+
+```js
+Okay!
+```
+
+Như vậy, exception đã không vào được catch block, khiến cho console.log('inside catch) và console.log(err) không được in ra.
+
+Bonus thêm anh bạn JS Engine la lên cảnh báo: <span class='inline-code'>UnhandledPromiseRejectionWarning</span>, vì không tìm được catch block tương ứng có thể handle exceiption sau khi reject.
+
+Lý do ở đây là vì **reject** chỉ có thể được dùng chung với scope của Promise object.
+
+Nói cách khác, đoạn code trên phải được viết lại thành:
+
+```js
+var a = 20;
+
+if (a < 25) {
+  console.log('Okay!');
+
+  Promise.reject('Less than 25').catch(err => {
+    console.log('inside catch');
+
+    console.log(err);
+  });
+}
+```
+
+Kết quả lúc này sẽ là:
+
+<div class='image-description-wrapper'>
+  <div class='image-wrapper'>
+    <img src='https://i.imgur.com/lvvGSkq.png' alt='Promise.reject phải được sử dụng trong scope của Promise' />
+  </div>
+
+  <p class='image-description'>Promise.reject phải được sử dụng trong scope của Promise</p>
+</div>
+
+**Throw**:
+
+Ngược lại, với cú pháp <span class='inline-code'>throw</span>, bạn có thể dùng để quăng ra exception trong **bất cứ** scope của try-catch block nào mà bạn muốn, không giới hạn chỉ trong scope của Promise.
+
+```js
+var a = 20;
+
+try {
+  if (a < 25) throw 'Less than 25';
+
+  console.log('Okay!');
+} catch (err) {
+  console.log('inside catch');
+
+  console.log(err);
+}
+```
+
+Kết quả trả về:
+
+```js
+inside catch
+Less than 25
+```
+
+## 4. Unhandle-promise-rejection (Lỗi promise chưa được xử lý)
+
+## 5. Micro-task là gì. setTimeout, promise, callstack, cái nào chạy trước, cái nào sau???
 
 JS có một cái "luồng" mà thôi.
 
-## 4. Kết luận
+## 6. Kết luận
