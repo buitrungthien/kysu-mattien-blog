@@ -275,9 +275,9 @@ inside catch
 Less than 25
 ```
 
-## 4. Unhandle-promise-rejection (Lỗi promise chưa được xử lý)
+## 4. Unhandle-promise-rejection (Lỗi promise chưa được xử lý) và Micro-task (Job-queue)
 
-## 5. Micro-task là gì. setTimeout, promise, callstack, cái nào chạy trước, cái nào sau???
+Trong các ví dụ trên, mình đã đề cập khá nhiều lần đến việc 
 
 JS có một cái "luồng" mà thôi.
 
