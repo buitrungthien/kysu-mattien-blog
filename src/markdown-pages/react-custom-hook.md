@@ -1,10 +1,10 @@
 ---
-title: 'Re-use logic giữa các component - HOC - React Custom hooks - Quát, quai èn quen?'
+title: 'Re-use logic giữa các component - HOC - Custom hooks - Quát, quai èn quen?'
 date: '2020-10-17'
 author: { name: 'Thiên Bùi' }
 tag: 'tech'
 featuredImgUrl: 'https://i.imgur.com/M8hd7pS.png?1'
-featuredImgAlt: 'Re-use logic giữa các component - HOC - React Custom hooks - Quát, quai èn quen?'
+featuredImgAlt: 'Re-use logic giữa các component - HOC - Custom hooks - Quát, quai èn quen?'
 description: 'React custom hooks là gì? Và khi nào thì nên sử dụng'
 ---
 
