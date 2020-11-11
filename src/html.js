@@ -19,6 +19,7 @@ export default function HTML(props) {
   gtag('config', 'G-GR913KFF8M');`,
           }}
         ></script>
+        <script data-ad-client="ca-pub-2166703651262870" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta
