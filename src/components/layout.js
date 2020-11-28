@@ -8,7 +8,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-import { Link } from 'gatsby';
 import { FacebookProvider, Like } from 'react-facebook';
 
 import Header from './header';
@@ -82,7 +81,7 @@ const Layout = ({ children }) => {
       <footer className="footer">
         <div className="footer__inner">
           <div className="my-contact">
-            <Link to="/portfolio">Dự án tôi đã làm</Link>
+            <a href="https://www.kysumattien.com/portfolio">Dự án tôi đã làm</a>
             <span>Liên hệ: thienbt95@gmail.com</span>
           </div>
           <div className="related-sites-wrap">

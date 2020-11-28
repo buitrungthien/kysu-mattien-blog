@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import Author from '../components/Author';
 import myAvatar from '../images/my-avatar.jpg';
@@ -96,22 +96,22 @@ export default ({ data, pageContext }) => {
           </div>
           <div className="pre-next-navigator">
             {previous && (
-              <Link
-                to={previous.fields.slug}
+              <a
+                href={"https://www.kysumattien.com"+previous.fields.slug}
                 className="pre-link"
                 title={previous.frontmatter.title}
               >
                 {previous.frontmatter.title}
-              </Link>
+              </a>
             )}
             {next && (
-              <Link
-                to={next.fields.slug}
+              <a
+                href={"https://www.kysumattien.com"+next.fields.slug}
                 className="next-link"
                 title={next.frontmatter.title}
               >
                 {next.frontmatter.title}
-              </Link>
+              </a>
             )}
           </div>
         </FacebookProvider>

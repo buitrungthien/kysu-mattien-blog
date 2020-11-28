@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -142,9 +141,9 @@ const SecondPage = () => {
             </p>
           </section>
         </main>
-        <Link to="/" style={{ fontSize: '1.8rem' }}>
+        <a href="https://www.kysumattien.com" style={{ fontSize: '1.8rem' }}>
           Trang chủ
-        </Link>
+        </a>
       </article>
     </Layout>
   );
