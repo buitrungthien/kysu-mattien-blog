@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -65,8 +65,8 @@ const IndexPage = ({ data }) => {
           {filteredData.length ? (
             filteredData.map(({ node }) => (
               <article key={node.id} className="article-card">
-                <Link
-                  to={node.fields.slug}
+                <a
+                  href={"https://www.kysumattien.com" + node.fields.slug}
                   className="article-card__image-wrap"
                 >
                   <Image
@@ -74,13 +74,13 @@ const IndexPage = ({ data }) => {
                     alt={node.frontmatter.featuredImgAlt}
                     title={node.frontmatter.featuredImgAlt}
                   />
-                </Link>
+                </a>
                 <div className="article-card__content">
-                  <Link to={node.fields.slug}>
+                  <a href={"https://www.kysumattien.com" + node.fields.slug}>
                     <h2 className="article-card__header">
                       {node.frontmatter.title}
                     </h2>
-                  </Link>
+                  </a>
                   <div className="article-card__excerpt">{node.excerpt}</div>
                   <div className="article-card__footer">
                     <Author />
@@ -162,9 +162,9 @@ const IndexPage = ({ data }) => {
               và chắc chắn sẽ giúp được các bạn, đặc biệt là Fresher, các bạn
               sinh viên mới ra trường hay đặc biệt là tay ngang như mình...
             </p>
-            <Link to="about-me-and-this-blog" className="read-more-link">
+            <a href="https://www.kysumattien.com/about-me-and-this-blog" className="read-more-link">
               Đọc thêm &gt;&gt;
-            </Link>
+            </a>
           </section>
           <div className="facebook-counts"></div>
         </aside>
