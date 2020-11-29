@@ -66,7 +66,7 @@ const IndexPage = ({ data }) => {
             filteredData.map(({ node }) => (
               <article key={node.id} className="article-card">
                 <a
-                  href={ process.env.NODE_ENV !== 'development' ? "https://www.kysumattien.com" : '' + node.fields.slug}
+                  href={ (process.env.NODE_ENV !== 'development' ? "https://www.kysumattien.com" : '') + node.fields.slug}
                   className="article-card__image-wrap"
                 >
                   <Image
@@ -76,7 +76,7 @@ const IndexPage = ({ data }) => {
                   />
                 </a>
                 <div className="article-card__content">
-                  <a href={process.env.NODE_ENV !== 'development' ? "https://www.kysumattien.com" : '' + node.fields.slug}>
+                  <a href={ (process.env.NODE_ENV !== 'development' ? "https://www.kysumattien.com" : '') + node.fields.slug}>
                     <h2 className="article-card__header">
                       {node.frontmatter.title}
                     </h2>

@@ -98,9 +98,9 @@ export default ({ data, pageContext }) => {
             {previous && (
               <a
                 href={
-                  process.env.NODE_ENV !== 'development'
+                  (process.env.NODE_ENV !== 'development'
                     ? 'https://www.kysumattien.com'
-                    : '' + previous.fields.slug
+                    : '') + previous.fields.slug
                 }
                 className="pre-link"
                 title={previous.frontmatter.title}
@@ -111,9 +111,9 @@ export default ({ data, pageContext }) => {
             {next && (
               <a
                 href={
-                  process.env.NODE_ENV !== 'development'
+                  (process.env.NODE_ENV !== 'development'
                     ? 'https://www.kysumattien.com'
-                    : '' + next.fields.slug
+                    : '') + next.fields.slug
                 }
                 className="next-link"
                 title={next.frontmatter.title}
