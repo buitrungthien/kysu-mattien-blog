@@ -97,7 +97,11 @@ export default ({ data, pageContext }) => {
           <div className="pre-next-navigator">
             {previous && (
               <a
-                href={"https://www.kysumattien.com"+previous.fields.slug}
+                href={
+                  process.env.NODE_ENV !== 'development'
+                    ? 'https://www.kysumattien.com'
+                    : '' + previous.fields.slug
+                }
                 className="pre-link"
                 title={previous.frontmatter.title}
               >
@@ -106,7 +110,11 @@ export default ({ data, pageContext }) => {
             )}
             {next && (
               <a
-                href={"https://www.kysumattien.com"+next.fields.slug}
+                href={
+                  process.env.NODE_ENV !== 'development'
+                    ? 'https://www.kysumattien.com'
+                    : '' + next.fields.slug
+                }
                 className="next-link"
                 title={next.frontmatter.title}
               >

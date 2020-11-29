@@ -141,7 +141,7 @@ const SecondPage = () => {
             </p>
           </section>
         </main>
-        <a href="https://www.kysumattien.com" style={{ fontSize: '1.8rem' }}>
+        <a href={process.env.NODE_ENV !== 'development' ? "https://www.kysumattien.com" : '/'} style={{ fontSize: '1.8rem' }}>
           Trang chủ
         </a>
       </article>
