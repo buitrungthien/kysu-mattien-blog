@@ -12,13 +12,6 @@
 //   const post = data.markdownRemark;
 //   const { previous, next, slug } = pageContext;
 //   const { author } = post.frontmatter;
-//   const [href, setHref] = useState('');
-
-//   useEffect(() => {
-//     if (typeof window !== 'undefined') {
-//       setHref(`https://www.kysumattien.com${slug}`.toLowerCase());
-//     }
-//   });
 
 //   useEffect(() => {
 //     function windowPopup(url, width, height) {
@@ -153,15 +146,60 @@
 //   }
 // `;
 
+import React, { useState, useEffect } from 'react';
 import remark from 'remark';
 import html from 'remark-html';
 import { getPostBySlug, getAllPosts } from '../lib/blog';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { FacebookProvider, Like, Comments } from 'react-facebook';
 
 export default function BlogTemplatePost({ content, ...rest }) {
+  const route = useRouter();
+  const href = `https://www.kysumattien.com${route.asPath.toLowerCase()}`;
   return (
     <>
-      <h1>template blog post</h1>
-      <article dangerouslySetInnerHTML={{ __html: content }}></article>
+      <FacebookProvider appId="3364552500258287">
+        <article className="post">
+          <div className="post-header">
+            <h1 className="post-title">{rest.frontmatter.title}</h1>
+            <div className="post-info">
+              {/* <Author name={rest.frontmatter.author.name} avatar={myAvatar} /> */}
+              <time>{rest.frontmatter.date}</time>
+            </div>
+            <div className="image-wrap">
+              <Image
+                src={rest.frontmatter.featuredImgUrl}
+                alt={rest.frontmatter.featuredImgAlt}
+                title={rest.frontmatter.featuredImgAlt}
+                layout="responsive"
+                width={500}
+                height={500}
+              />
+            </div>
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: content }} />
+          <div className="facebook-actions">
+            <Like
+              showFaces
+              size={
+                typeof window !== 'undefined' && window.innerWidth > 768
+                  ? 'large'
+                  : 'small'
+              }
+              layout={
+                typeof window !== 'undefined' && window.innerWidth > 768
+                  ? 'standard'
+                  : 'button_count'
+              }
+              showFaces
+              share
+              href={href}
+            />
+            <Comments width={'100%'} href={href} />
+          </div>
+        </article>
+      </FacebookProvider>
     </>
   );
 }

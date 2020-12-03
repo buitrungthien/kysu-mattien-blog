@@ -160,16 +160,13 @@ export default function IndexPage({ posts }) {
           </div>
           <section className="profile">
             <div className="profile__avatar">
-              {/* <Image
-                fixed={data.file.desktopAvatar.fixed}
-                alt="Thiên Bùi"
-                className="desktop-avatar"
-              />
               <Image
-                fixed={data.file.mobileAvatar.fixed}
-                alt="Thiên Bùi"
-                className="mobile-avatar"
-              /> */}
+                src="/images/my-avatar-2.jpg"
+                alt="Thiên Bùi - author of kysumattien"
+                layout="intrinsic"
+                width={130}
+                height={200}
+              />
             </div>
             <p className="brief-introduction">
               Chào các bạn mình là Thiên. Hiện tại mình đang là front-end
@@ -185,16 +182,12 @@ export default function IndexPage({ posts }) {
               và chắc chắn sẽ giúp được các bạn, đặc biệt là Fresher, các bạn
               sinh viên mới ra trường hay đặc biệt là tay ngang như mình...
             </p>
-            <a
-              href={
-                process.env.NODE_ENV !== 'development'
-                  ? 'https://www.kysumattien.com'
-                  : '' + '/about-me-and-this-blog'
-              }
+            <Link
+              href='/about-me-and-this-blog'
               className="read-more-link"
             >
-              Đọc thêm &gt;&gt;
-            </a>
+              <a>Đọc thêm &gt;&gt;</a>
+            </Link>
           </section>
           <div className="facebook-counts"></div>
         </aside>

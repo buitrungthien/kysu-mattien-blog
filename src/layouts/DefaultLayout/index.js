@@ -5,9 +5,11 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React, { useEffect, useState, useRef } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FacebookProvider, Like } from 'react-facebook';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import Header from '../../components/Header';
 import BackToTopButton from '../../components/BackToTopButton';
@@ -16,16 +18,9 @@ import cs from 'classnames';
 
 const sprite = '/images/sprite.svg';
 const Layout = ({ children }) => {
-  const [href, setHref] = useState('https://www.kysumattien.com');
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setHref(
-        `https://www.kysumattien.com/${
-          window.location.pathname.split('/')[1]
-        }/`.toLowerCase()
-      );
-    }
-  });
+  const route = useRouter();
+  
+  const href = `https://www.kysumattien.com${route.asPath.toLowerCase()}`;
 
   return (
     <div className={styles['layout']}>
@@ -39,11 +34,7 @@ const Layout = ({ children }) => {
           </li>
           <li className={cs(styles['social-link'], styles['facebook'])}>
             <a
-              href={`https://www.facebook.com/sharer/sharer.php?u=${
-                typeof window !== 'undefined'
-                  ? window.location.href
-                  : 'kysumattien.com'
-              }`}
+              href={href}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -70,7 +61,9 @@ const Layout = ({ children }) => {
       <footer className={styles['footer']}>
         <div className={styles['footer__inner']}>
           <div className={styles['my-contact']}>
-            <a href="https://www.kysumattien.com/portfolio">Dự án tôi đã làm</a>
+            <Link href="https://www.kysumattien.com/portfolio">
+              <a>Dự án tôi đã làm</a>
+            </Link>
             <span>Liên hệ: thienbt95@gmail.com</span>
           </div>
           <div className={styles['related-sites-wrap']}>
