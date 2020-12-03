@@ -220,6 +220,7 @@
 // `;
 import { getAllPosts } from '../lib/blog';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function IndexPage({ posts }) {
   const filteredData = posts;
@@ -236,27 +237,33 @@ export default function IndexPage({ posts }) {
           {filteredData.length ? (
             filteredData.map(node => (
               <article key={node.slug} className="article-card">
-                <Link
-                  href={
-                    (process.env.NODE_ENV !== 'development'
-                      ? 'https://www.kysumattien.com/'
-                      : '') + node.slug
-                  }
-                  className="article-card__image-wrap"
-                >
-                  <a>link</a>
-                  {/* <Image
-                    fluid={node.featuredImg.childImageSharp.fluid}
-                    alt={node.frontmatter.featuredImgAlt}
-                    title={node.frontmatter.featuredImgAlt}
-                  /> */}
-                </Link>
+                <div className="article-card__image-wrap">
+                  <Link
+                    href={
+                      (process.env.NODE_ENV !== 'development'
+                        ? 'https://www.kysumattien.com/'
+                        : '/') + node.slug
+                    }
+                  >
+                    <a>
+                      <Image
+                        src={node.frontmatter.featuredImgUrl}
+                        alt={node.frontmatter.featuredImgAlt}
+                        title={node.frontmatter.featuredImgAlt}
+                        layout="responsive"
+                        width={300}
+                        height={300}
+                      />
+                    </a>
+                  </Link>
+                </div>
+
                 <div className="article-card__content">
                   <Link
                     href={
                       (process.env.NODE_ENV !== 'development'
                         ? 'https://www.kysumattien.com/'
-                        : '') + node.slug
+                        : '/') + node.slug
                     }
                   >
                     <a>

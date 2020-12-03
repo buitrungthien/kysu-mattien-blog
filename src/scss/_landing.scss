@@ -256,6 +256,7 @@
   min-width: 680px;
   @media screen and (max-width: 760px) {
     flex-direction: column;
+    max-height: 50rem;
     object-fit: cover;
     min-width: unset;
     .author-info {
@@ -265,14 +266,14 @@
   overflow: hidden;
 
   &__image-wrap {
-    height: 240px;
+    // height: 240px;
     flex-grow: 1;
     flex-basis: 40%;
-    min-width: 300px;
+    // min-width: 300px;
     overflow: hidden;
     @media screen and (max-width: 768px) {
-      flex-basis: 27rem;
-      height: 27rem;
+      // flex-basis: 90%;
+      // height: 27rem;
     }
   }
 

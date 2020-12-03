@@ -1,7 +1,7 @@
-@import './variables';
+@import '../../scss/variables';
 
 /* autoprefixer grid: true */
-#gatsby-focus-wrapper {
+.layout {
   display: grid;
   background-color: #F0F2F5;
   grid-template:

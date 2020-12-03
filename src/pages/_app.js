@@ -3,9 +3,16 @@ require('prismjs/themes/prism-tomorrow.css');
 require('prismjs/plugins/line-numbers/prism-line-numbers.css');
 require('prismjs/plugins/command-line/prism-command-line.css');
 import '../scss/main.scss';
+import DefaultLayout from '../layouts/DefaultLayout';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  const Layout = Component.Layout ? Component.Layout : DefaultLayout;
+
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for
