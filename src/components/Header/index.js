@@ -1,20 +1,21 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Link from 'next/link';
+import styles from './styles.module.scss';
 
 const logoPath = '/images/logo.png';
 
 const Header = ({ siteTitle }) => {
   return (
-    <header className="header" id="header">
-      <div className="header-inner-wrap">
+    <header className={styles['header']} id="header">
+      <div className={styles['header-inner-wrap']}>
         <Link href="/">
-          <a className="logo-wrap">
+          <a className={styles['logo-wrap']}>
             <img src={logoPath} alt="Kỹ sư mặt tiền - Từ Zero đến Hero" />
             <span>{siteTitle}</span>
           </a>
         </Link>
-        <span className="perspective">Từ Zero đến Hero</span>
+        <span className={styles['perspective']}>Từ Zero đến Hero</span>
       </div>
     </header>
   );
