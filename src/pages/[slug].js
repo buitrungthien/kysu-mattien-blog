@@ -158,7 +158,6 @@ import html from 'remark-html';
 import { getPostBySlug, getAllPosts } from '../lib/blog';
 
 export default function BlogTemplatePost({ content, ...rest }) {
-  console.log(rest);
   return (
     <>
       <h1>template blog post</h1>
