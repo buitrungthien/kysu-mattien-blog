@@ -146,7 +146,7 @@
 //   }
 // `;
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import remark from 'remark';
 import html from 'remark-html';
 import { getPostBySlug, getAllPosts } from '../lib/blog';
@@ -154,6 +154,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { FacebookProvider, Like, Comments } from 'react-facebook';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 let easing = [0.175, 0.85, 0.42, 0.96];
 
@@ -203,6 +204,11 @@ export default function BlogTemplatePost({ content, ...rest }) {
   const href = `https://www.kysumattien.com${route.asPath.toLowerCase()}`;
   return (
     <>
+      <SEO
+        title={rest.frontmatter.title}
+        description={rest.frontmatter.description}
+        image={rest.frontmatter.featuredImgUrl}
+      />
       <FacebookProvider appId="3364552500258287">
         <article className="post">
           <motion.div initial="exit" animate="enter" exit="exit">
