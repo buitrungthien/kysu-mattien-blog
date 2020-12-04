@@ -61,7 +61,7 @@ const Layout = ({ children }) => {
       <footer className={styles['footer']}>
         <div className={styles['footer__inner']}>
           <div className={styles['my-contact']}>
-            <Link href="https://www.kysumattien.com/portfolio">
+            <Link href="/portfolio">
               <a>Dự án tôi đã làm</a>
             </Link>
             <span>Liên hệ: thienbt95@gmail.com</span>

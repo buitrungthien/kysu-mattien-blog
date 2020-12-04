@@ -2,6 +2,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  height: 100%;
   @media screen and (max-width: 980px) {
     flex-direction: column-reverse;
   }
@@ -230,6 +231,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+  position: relative;
+  height: 100%;
+  width: 100%;
   
   & > *:not(:last-child) {
     margin-bottom: 3rem;

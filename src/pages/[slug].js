@@ -153,6 +153,50 @@ import { getPostBySlug, getAllPosts } from '../lib/blog';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { FacebookProvider, Like, Comments } from 'react-facebook';
+import { motion } from 'framer-motion';
+
+let easing = [0.175, 0.85, 0.42, 0.96];
+
+const imageVariants = {
+  exit: { y: 150, opacity: 0, transition: { duration: 0.5, ease: easing } },
+  enter: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      ease: easing,
+    },
+  },
+};
+
+const textVariants = {
+  exit: { y: 100, opacity: 0, transition: { duration: 0.5, ease: easing } },
+  enter: {
+    y: 0,
+    opacity: 1,
+    transition: { delay: 0.1, duration: 0.5, ease: easing },
+  },
+};
+
+const backVariants = {
+  exit: {
+    x: 100,
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+      ease: easing,
+    },
+  },
+  enter: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      delay: 0.5,
+      duration: 0.5,
+      ease: easing,
+    },
+  },
+};
 
 export default function BlogTemplatePost({ content, ...rest }) {
   const route = useRouter();
@@ -161,43 +205,49 @@ export default function BlogTemplatePost({ content, ...rest }) {
     <>
       <FacebookProvider appId="3364552500258287">
         <article className="post">
-          <div className="post-header">
-            <h1 className="post-title">{rest.frontmatter.title}</h1>
-            <div className="post-info">
-              {/* <Author name={rest.frontmatter.author.name} avatar={myAvatar} /> */}
-              <time>{rest.frontmatter.date}</time>
+          <motion.div initial="exit" animate="enter" exit="exit">
+            <div className="post-header">
+              <h1 className="post-title">{rest.frontmatter.title}</h1>
+              <div className="post-info">
+                {/* <Author name={rest.frontmatter.author.name} avatar={myAvatar} /> */}
+                <time>{rest.frontmatter.date}</time>
+              </div>
+              <div className="image-wrap">
+                <motion.div variants={imageVariants}>
+                  <Image
+                    src={rest.frontmatter.featuredImgUrl}
+                    alt={rest.frontmatter.featuredImgAlt}
+                    title={rest.frontmatter.featuredImgAlt}
+                    layout="responsive"
+                    width={500}
+                    height={500}
+                  />
+                </motion.div>
+              </div>
             </div>
-            <div className="image-wrap">
-              <Image
-                src={rest.frontmatter.featuredImgUrl}
-                alt={rest.frontmatter.featuredImgAlt}
-                title={rest.frontmatter.featuredImgAlt}
-                layout="responsive"
-                width={500}
-                height={500}
+            <motion.div variants={textVariants}>
+              <div dangerouslySetInnerHTML={{ __html: content }} />
+            </motion.div>
+            <div className="facebook-actions">
+              <Like
+                showFaces
+                size={
+                  typeof window !== 'undefined' && window.innerWidth > 768
+                    ? 'large'
+                    : 'small'
+                }
+                layout={
+                  typeof window !== 'undefined' && window.innerWidth > 768
+                    ? 'standard'
+                    : 'button_count'
+                }
+                showFaces
+                share
+                href={href}
               />
+              <Comments width={'100%'} href={href} />
             </div>
-          </div>
-          <div dangerouslySetInnerHTML={{ __html: content }} />
-          <div className="facebook-actions">
-            <Like
-              showFaces
-              size={
-                typeof window !== 'undefined' && window.innerWidth > 768
-                  ? 'large'
-                  : 'small'
-              }
-              layout={
-                typeof window !== 'undefined' && window.innerWidth > 768
-                  ? 'standard'
-                  : 'button_count'
-              }
-              showFaces
-              share
-              href={href}
-            />
-            <Comments width={'100%'} href={href} />
-          </div>
+          </motion.div>
         </article>
       </FacebookProvider>
     </>

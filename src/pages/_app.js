@@ -3,14 +3,18 @@ require('prismjs/themes/prism-tomorrow.css');
 require('prismjs/plugins/line-numbers/prism-line-numbers.css');
 require('prismjs/plugins/command-line/prism-command-line.css');
 import '../scss/main.scss';
+import 'react-awesome-button/dist/styles.css';
+import { AnimatePresence } from 'framer-motion';
 import DefaultLayout from '../layouts/DefaultLayout';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   const Layout = Component.Layout ? Component.Layout : DefaultLayout;
 
   return (
     <Layout>
-      <Component {...pageProps} />
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} key={router.route} />
+      </AnimatePresence>
     </Layout>
   );
 }
