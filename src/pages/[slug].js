@@ -149,8 +149,14 @@
 import React from 'react';
 import remark from 'remark';
 import html from 'remark-html';
-import { getPostBySlug, getAllPosts } from '../lib/blog';
+import {
+  getPostBySlug,
+  getAllPosts,
+  getNextPost,
+  getPrevPost,
+} from '../lib/blog';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FacebookProvider, Like, Comments } from 'react-facebook';
 import { motion } from 'framer-motion';
@@ -199,9 +205,9 @@ const backVariants = {
   },
 };
 
-export default function BlogTemplatePost({ content, ...rest }) {
+export default function BlogTemplatePost({ content, next, prev, ...rest }) {
   const route = useRouter();
-  const href = `https://www.kysumattien.com${route.asPath.toLowerCase()}`;
+  const href = `https://www.kysumattien.com${route.asPath}`;
   return (
     <>
       <SEO
@@ -253,6 +259,22 @@ export default function BlogTemplatePost({ content, ...rest }) {
               />
               <Comments width={'100%'} href={href} />
             </div>
+            <div className="pre-next-navigator">
+              {prev && (
+                <Link href={prev.slug}>
+                  <a className="pre-link" title={prev.frontmatter.title}>
+                    {prev.frontmatter.title}
+                  </a>
+                </Link>
+              )}
+              {next && (
+                <Link href={next.slug}>
+                  <a className="next-link" title={next.frontmatter.title}>
+                    {next.frontmatter.title}
+                  </a>
+                </Link>
+              )}
+            </div>
           </motion.div>
         </article>
       </FacebookProvider>
@@ -262,6 +284,8 @@ export default function BlogTemplatePost({ content, ...rest }) {
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug);
+  const nextPost = getNextPost(params.slug);
+  const prevPost = getPrevPost(params.slug);
   const markdown = await remark()
     .use(html)
     .process(post.content || '');
@@ -270,6 +294,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       ...post,
+      next: nextPost ? nextPost : null,
+      prev: prevPost ? prevPost : null,
       content,
     },
   };

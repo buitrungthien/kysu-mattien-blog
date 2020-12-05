@@ -1,5 +1,5 @@
 import matter from 'gray-matter';
-import { parseISO, format } from 'date-fns';
+import { parseISO, format, isBefore } from 'date-fns';
 import fs from 'fs';
 import { join } from 'path';
 
@@ -11,14 +11,45 @@ export function getPostBySlug(slug) {
   const fullPath = join(postsDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
-  const date = format(parseISO(data.date), 'MMMM dd, yyyy');
+  const rawDate = data.date;
+  const date = format(parseISO(rawDate), 'dd/MM/yyyy');
 
-  return { slug: realSlug, frontmatter: { ...data, date }, content };
+  return { slug: realSlug, frontmatter: { ...data, date, rawDate }, content };
 }
 
 export function getAllPosts() {
   const slugs = fs.readdirSync(postsDirectory);
-  const posts = slugs.map(slug => getPostBySlug(slug));
+  const posts = slugs
+    .map(slug => getPostBySlug(slug))
+    .sort((a, b) => {
+      return isBefore(
+        parseISO(a.frontmatter.rawDate),
+        parseISO(b.frontmatter.rawDate)
+      )
+        ? 1
+        : -1;
+    });
 
   return posts;
+}
+
+export function getNextPost(currentPostSlug) {
+  const allPosts = getAllPosts();
+  // allPosts is already sorted
+  const indexOfCurrentPost = allPosts.findIndex(post => {
+    return post.slug === currentPostSlug;
+  });
+  return indexOfCurrentPost < allPosts.length
+    ? allPosts[indexOfCurrentPost + 1]
+    : null;
+}
+
+export function getPrevPost(currentPostSlug) {
+  const allPosts = getAllPosts();
+  //allPost is already sorted
+  const indexOfCurrentPost = allPosts.findIndex(post => {
+    return post.slug === currentPostSlug;
+  });
+
+  return indexOfCurrentPost > 0 ? allPosts[indexOfCurrentPost - 1] : null;
 }
