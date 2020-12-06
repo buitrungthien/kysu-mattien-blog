@@ -1,8 +1,8 @@
 // import App from 'next/app'
-require('prismjs/themes/prism-tomorrow.css');
-require('prismjs/plugins/line-numbers/prism-line-numbers.css');
-require('prismjs/plugins/command-line/prism-command-line.css');
 import '../scss/main.scss';
+import 'prismjs/themes/prism-tomorrow.css';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+import 'prismjs/plugins/command-line/prism-command-line.css';
 import 'react-awesome-button/dist/styles.css';
 import { AnimatePresence } from 'framer-motion';
 import DefaultLayout from '../layouts/DefaultLayout';

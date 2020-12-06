@@ -5,7 +5,7 @@ author: { name: 'Thiên Bùi' }
 tag: 'tech'
 featuredImgUrl: 'https://i.imgur.com/CanpOIF.jpg?1'
 featuredImgAlt: 'CSS z-index'
-description: 'Learn CSS: z-index có vẻ khá dễ, khá trực quan. Chính vì thế developers chúng ta thường không quá chú tâm hay tìm hiểu kỹ về css z-index. Điều này vô tình khiến chúng ta gặp khó khăn khi các z-index element hoạt động không giống với cách chúng ta mong muốn và gây khó khăn trong việc debug. Bài viết hôm nay chúng ta sẽ cùng nhau đi tìm hiểu về chủ đề này'
+description: 'z-index có vẻ khá dễ, khá trực quan. Chính vì thế developers chúng ta thường không quá chú tâm hay tìm hiểu kỹ về css z-index. Điều này vô tình khiến chúng ta gặp khó khăn khi các z-index element hoạt động không giống với cách chúng ta mong muốn và gây khó khăn trong việc debug.'
 ---
 
 Hello các bạn đã lâu không gặp. hôm nay **kỹ sư mặt tiền** sẽ đề cập một chút về css, cụ thể là z-index trong css.
@@ -26,7 +26,12 @@ Position: static là giá trị mặc định mà browser set cho một element 
 
 <span class="problem-label">Ví dụ:</span>
 
-https://codepen.io/b-i-kim/pen/dypPewM
+<p class="codepen" data-height="350" data-theme-id="light" data-default-tab="css,result" data-user="b-i-kim" data-slug-hash="dypPewM" style="height: 350px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="z-index without position">
+  <span>See the Pen <a href="https://codepen.io/b-i-kim/pen/dypPewM">
+  z-index without position</a> by Bùi Kiệm (<a href="https://codepen.io/b-i-kim">@b-i-kim</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 Nhìn vào ví dụ codepen bên trên, chúng ta có 3 element: Xanh, đỏ, tím.
 
@@ -69,7 +74,12 @@ Cách fix đơn giản, chỉ việc set thêm position khác static cho ô màu
 
 Xem demo tiếp theo, bạn có thê tháy thuộc tính z-index đã có tác dụng trên "position-ed element" xanh lá cây.
 
-https://codepen.io/b-i-kim/pen/XWjJYWr
+<p class="codepen" data-height="320" data-theme-id="light" data-default-tab="css,result" data-user="b-i-kim" data-slug-hash="XWjJYWr" style="height: 320px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="z-index with position">
+  <span>See the Pen <a href="https://codepen.io/b-i-kim/pen/XWjJYWr">
+  z-index with position</a> by Bùi Kiệm (<a href="https://codepen.io/b-i-kim">@b-i-kim</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 ## 2. Đảm bảo các element con liên quan nằm trong cùng một "stacking context" cha
 
@@ -89,7 +99,12 @@ Bằng việc set các giá trị z-index cho các element, chúng ta chính xá
 
 Ok, giờ thì cùng xem tiếp ví dụ tiếp theo dưới đây nào:
 
-https://codepen.io/b-i-kim/pen/OJRPEmw
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="b-i-kim" data-slug-hash="OJRPEmw" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="buggy div">
+  <span>See the Pen <a href="https://codepen.io/b-i-kim/pen/OJRPEmw">
+  buggy div</a> by Bùi Kiệm (<a href="https://codepen.io/b-i-kim">@b-i-kim</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 Đây là một layout đơn giản, có header màu đỏ, main-content màu xám và bên trong main-content có một box màu xanh lá cây.
 
@@ -105,7 +120,7 @@ header {
 }
 
 main {
-  background-color : lightgray;
+  background-color: lightgray;
   padding: 5px;
   widht: 100%;
   height: 600px;
@@ -143,7 +158,12 @@ main {
 
 Kết quả, header không còn bị đè bởi ô màu xanh. Mặc do ô màu xanh có z-index: 101 và header có z-index: 10
 
-https://codepen.io/b-i-kim/pen/dypPKqZ
+<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="css,result" data-user="b-i-kim" data-slug-hash="dypPKqZ" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="correct stacking context">
+  <span>See the Pen <a href="https://codepen.io/b-i-kim/pen/dypPKqZ">
+  correct stacking context</a> by Bùi Kiệm (<a href="https://codepen.io/b-i-kim">@b-i-kim</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 Vấn đề đã được giải quyết, nhưng tại sao lại như vậy?
 

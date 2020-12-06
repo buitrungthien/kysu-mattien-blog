@@ -26,40 +26,8 @@ class MyDocument extends Document {
           ></script>
         </Head>
         <body>
-          {/* <div id="fb-root"></div>
-          <script
-            async
-            defer
-            crossorigin="anonymous"
-            src="https://connect.facebook.net/vi_VN/all.js"
-            nonce="LNtDbL4t"
-          ></script> */}
           <Main />
           <NextScript />
-          {/* <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.fbAsyncInit = function() {
-                  FB.init({
-                  appId      : '3364552500258287',
-                  cookie     : true,
-                  xfbml      : true,
-                  version    : 'v8.0'
-                });
-    
-                FB.AppEvents.logPageView();   
-    
-                };
-
-            (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));`,
-            }}
-          /> */}
         </body>
       </Html>
     );

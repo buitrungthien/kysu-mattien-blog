@@ -92,7 +92,7 @@ render(<FacebookPost />, document.getElementById('root'));
 
 Bên dưới là demo (nhớ bấm, hoặc kéo dài **console** ra để xem log bạn nhé). sau đó bấm vào nút "Hack Like" nào!
 
-https://stackblitz.com/edit/react-musrtr?file=Hello.js
+<iframe src="https://stackblitz.com/edit/react-musrtr?embed=1&file=index.js" width="100%" height=400></iframe>
 
 <div class='image-description-wrapper'>
   <div class='image-wrapper'>
@@ -201,7 +201,7 @@ ReactDOM.render(<App />, document.querySelector('my-app'));
 
 Live - demo:
 
-https://stackblitz.com/edit/react-c1uykr?file=app%2Fmain.jsx
+<iframe src="https://stackblitz.com/edit/react-c1uykr?embed=1&file=app/main.jsx" width="100%" height=500></iframe>
 
 Khi bấm vào button counter, các bạn sẽ thấy chart của chúng ta bị re-render, dẫn đến nó bị flick, nhấp nháy mỗi khi bấm nút counter. Đây là lỗi xảy ra khá phổ biến sinh ra từ việc re-render khi làm việc với các UI lib có animation.
 
@@ -231,7 +231,7 @@ class PostContent extends Component {
 
 Giờ thử bấm lại vào nút Like khi nãy:
 
-https://stackblitz.com/edit/react-3qmjke
+<iframe src="https://stackblitz.com/edit/react-3qmjke?embed=1&file=index.js" width="100%" height=500></iframe>
 
 Bạn sẽ thấy chỉ có component **LikeCounter** được re-render, còn **PostContent** thì không. Hoan hô!
 
@@ -247,7 +247,7 @@ Bằng cách làm này, chúng ta đã ngăn chặn được việc re-render kh
 
 Làm tương tự với ví dụ chart **độ tuổi dân số thế giới** phía trên, chúng ta đã ngăn chặn được lỗi re-render và flick animation chart. Giờ đây, bấm nút tăng biến counter sẽ không làm chart bị nhấp nháy nữa.
 
-https://stackblitz.com/edit/react-uferbr?file=app%2Fmain.jsx
+<iframe src="https://stackblitz.com/edit/react-uferbr?embed=1&file=app/main.jsx" width="100%" height=500></iframe>
 
 ## 3. Pattern lặp đi lặp lại, React lắng nghe cộng đồng dev, và released React.PureComponent.
 

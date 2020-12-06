@@ -103,7 +103,12 @@ Chạy bản live-demo bên dưới (bấm tab Result, bấm Run pen), bạn s�
 
 **Mỗi lần bấm nút tăng biến đếm, các component <span class='inline-code'>Message</span> bị re-render (đồng nghĩa với bị đổi màu, vì mỗi lần re-render, hàm <span class='inline-code'>getColor</span> sẽ được chạy)**
 
-https://codepen.io/b-i-kim/pen/LYNmQVe
+<p class="codepen" data-height="357" data-theme-id="light" data-default-tab="js,result" data-user="b-i-kim" data-slug-hash="LYNmQVe" style="height: 357px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="React context makes it re-render">
+  <span>See the Pen <a href="https://codepen.io/b-i-kim/pen/LYNmQVe">
+  React context makes it re-render</a> by Bùi Kiệm (<a href="https://codepen.io/b-i-kim">@b-i-kim</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
 ## 3. Nguyên nhân
 

@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FacebookProvider, Like } from 'react-facebook';
 import Link from 'next/link';
@@ -15,12 +15,50 @@ import Header from '../../components/Header';
 import BackToTopButton from '../../components/BackToTopButton';
 import styles from './styles.module.scss';
 import cs from 'classnames';
+import Prism from 'prismjs';
+import PrismJSX from 'prismjs/components/prism-jsx';
 
 const sprite = '/images/sprite.svg';
 const Layout = ({ children }) => {
   const route = useRouter();
-  
   const href = `https://www.kysumattien.com${route.asPath.toLowerCase()}`;
+
+  useEffect(() => {
+    function windowPopup(url, width, height) {
+      // Calculate the position of the popup so
+      // it’s centered on the screen.
+      const left = window.screen.width / 2 - width / 2,
+        top = window.screen.height / 2 - height / 2;
+
+      window.open(
+        url,
+        '',
+        'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=' +
+          width +
+          ',height=' +
+          height +
+          ',top=' +
+          top +
+          ',left=' +
+          left
+      );
+    }
+
+    const facebookShareLink = document.querySelector('#facebook > a');
+    facebookShareLink.setAttribute(
+      'href',
+      `https://www.facebook.com/sharer/sharer.php?u=${href}`
+    );
+    const shareLinkClickHandler = function(e) {
+      e.preventDefault();
+      windowPopup(this.href, 500, 500);
+    };
+
+    facebookShareLink.addEventListener('click', shareLinkClickHandler);
+    return () => {
+      facebookShareLink.removeEventListener('click', shareLinkClickHandler);
+    };
+  }, [href]);
 
   return (
     <div className={styles['layout']}>
@@ -32,12 +70,11 @@ const Layout = ({ children }) => {
               <Like showFaces layout="box_count" href={href} />
             </FacebookProvider>
           </li>
-          <li className={cs(styles['social-link'], styles['facebook'])}>
-            <a
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <li
+            className={cs(styles['social-link'], styles['facebook'])}
+            id="facebook"
+          >
+            <a target="_blank" rel="noopener noreferrer">
               <svg>
                 <use xlinkHref={`${sprite}#icon-facebook`}></use>
               </svg>

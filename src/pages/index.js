@@ -1,9 +1,3 @@
-// import React, { useState, useEffect } from 'react';
-// import { graphql } from 'gatsby';
-
-// import Layout from '../components/layout';
-// import SEO from '../components/seo';
-// import Author from '../components/Author';
 // import EmailRegisterForm from '../components/EmailRegister';
 import { useState, useEffect } from 'react';
 import { getAllPosts } from '../lib/blog';
@@ -12,6 +6,7 @@ import Image from 'next/image';
 import { AwesomeButton } from 'react-awesome-button';
 import NoTissue from '../../public/illustration/no-tissue.svg';
 import { motion } from 'framer-motion';
+import Author from '../components/Author';
 
 const postVariants = {
   initial: { scale: 0.96, y: 30, opacity: 0 },
@@ -128,7 +123,7 @@ export default function IndexPage({ posts }) {
                       {node.frontmatter.description}
                     </div>
                     <div className="article-card__footer">
-                      {/* <Author /> */}
+                      <Author />
                       <div className="time-tag-wrapper">
                         <time>{node.frontmatter.date}</time>
                         <span className="tag">
