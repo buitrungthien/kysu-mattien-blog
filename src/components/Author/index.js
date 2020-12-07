@@ -1,27 +1,15 @@
 import React from 'react';
-import './styles.scss';
-import { graphql, useStaticQuery } from 'gatsby';
-import Image from 'gatsby-image';
+import styles from './styles.module.scss';
+import Image from 'next/image';
 
-export default () => {
-  const avatar = useStaticQuery(graphql`
-    query {
-      file(name: { regex: "/my-avatar/" }) {
-        childImageSharp {
-          fixed(height: 40, width: 40) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `);
+export default function Author () {
 
   return (
-    <div className="author-info">
-      <div className="author-image-wrap">
-        <Image fixed={avatar.file.childImageSharp.fixed} alt="Thiên Bùi" />
+    <div className={styles["author-info"]}>
+      <div className={styles["author-image-wrap"]}>
+        <Image src={'/images/my-avatar.jpg'} layout="fixed" width={40} height={40} alt="Thiên Bùi - author of kysumattien" />
       </div>
-      <span className="author-name">{'Thiên Bùi'}</span>
+      <span className={styles["author-name"]}>{'Thiên Bùi'}</span>
     </div>
   );
 };

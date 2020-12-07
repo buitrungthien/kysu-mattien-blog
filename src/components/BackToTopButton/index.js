@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './styles.scss';
+import styles from './styles.module.scss';
 
 const ScrollArrow = () => {
   const [showScroll, setShowScroll] = useState(false);
@@ -25,7 +25,7 @@ const ScrollArrow = () => {
 
   return (
     <button
-      className="back-to-top-button"
+      className={styles["back-to-top-button"]}
       onClick={scrollTop}
       style={{ display: showScroll ? 'flex' : 'none' }}
       title="Lên đầu trang"
