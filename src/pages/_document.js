@@ -26,6 +26,7 @@ class MyDocument extends Document {
           ></script>
         </Head>
         <body>
+          <div id="fb-root"></div>
           <Main />
           <NextScript />
         </body>

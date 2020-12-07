@@ -32,6 +32,7 @@ const SecondPage = () => {
       <SEO
         title="About me and this blog"
         description="Tại sao mình viết blog này? Vì mình bắt đầu học lập trình web từ con số 0"
+        url="https://www.kysumattien.com/about-me-and-this-blog"
       />
       <article className="post">
         <motion.div initial="exit" animate="enter" exit="exit">

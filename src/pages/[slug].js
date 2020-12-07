@@ -63,13 +63,15 @@ export default function BlogTemplatePost({ content, next, prev, ...rest }) {
   useEffect(() => {
     Prism.highlightAll();
   });
-  const href = `https://www.kysumattien.com${route.asPath.toLowerCase()}`;
+  //Due to a legacy bug which we must have '/' at the end to enable facebook comments loaded
+  const href = `https://www.kysumattien.com${route.asPath}/`.toLowerCase();
   return (
     <>
       <SEO
         title={rest.frontmatter.title}
         description={rest.frontmatter.description}
         image={rest.frontmatter.featuredImgUrl}
+        url={href}
       />
       <FacebookProvider appId="3364552500258287">
         <article className="post">
