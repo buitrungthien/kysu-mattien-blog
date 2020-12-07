@@ -218,7 +218,7 @@ export default function IndexPage({ posts }) {
               sinh viên mới ra trường hay đặc biệt là tay ngang như mình...
             </p>
             <Link href="/about-me-and-this-blog">
-              <a>
+              <a style={{ float: 'left' }}>
                 <AwesomeButton type="link" size="medium" ripple>
                   Đọc thêm
                 </AwesomeButton>
