@@ -85,13 +85,7 @@ export default function IndexPage({ posts }) {
               filteredData.map(node => (
                 <article key={node.slug} className="article-card">
                   <div className="article-card__image-wrap">
-                    <Link
-                      href={
-                        (process.env.NODE_ENV !== 'development'
-                          ? 'https://www.kysumattien.com/'
-                          : '/') + node.slug
-                      }
-                    >
+                    <Link href={node.slug}>
                       <a>
                         <Image
                           src={node.frontmatter.featuredImgUrl}
@@ -106,13 +100,7 @@ export default function IndexPage({ posts }) {
                   </div>
 
                   <div className="article-card__content">
-                    <Link
-                      href={
-                        (process.env.NODE_ENV !== 'development'
-                          ? 'https://www.kysumattien.com/'
-                          : '/') + node.slug
-                      }
-                    >
+                    <Link href={node.slug}>
                       <a>
                         <h2 className="article-card__header">
                           {node.frontmatter.title}
