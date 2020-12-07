@@ -5,6 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="shortcut icon" href="/images/logo.png" />
           <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-GR913KFF8M"
