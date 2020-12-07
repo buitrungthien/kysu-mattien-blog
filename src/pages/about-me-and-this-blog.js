@@ -1,4 +1,4 @@
-import SEO from '../components/seo';
+import SEO from '../components/SEO';
 import Link from 'next/link';
 import Image from 'next/image';
 import { AwesomeButton } from 'react-awesome-button';
