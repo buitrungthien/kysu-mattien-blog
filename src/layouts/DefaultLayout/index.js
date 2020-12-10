@@ -21,7 +21,7 @@ import PrismJSX from 'prismjs/components/prism-jsx';
 const sprite = '/images/sprite.svg';
 const Layout = ({ children }) => {
   const route = useRouter();
-  const href = `https://www.kysumattien.com${route.asPath}`.toLowerCase();
+  const href = `https://www.kysumattien.com${route.asPath}/`.toLowerCase();
 
   useEffect(() => {
     function windowPopup(url, width, height) {
