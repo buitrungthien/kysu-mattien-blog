@@ -9,9 +9,8 @@ import DefaultLayout from '../layouts/DefaultLayout';
 
 function MyApp({ Component, pageProps, router }) {
   const Layout = Component.Layout ? Component.Layout : DefaultLayout;
-
   return (
-    <Layout>
+    <Layout slug={pageProps.slug}>
       <AnimatePresence exitBeforeEnter>
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>

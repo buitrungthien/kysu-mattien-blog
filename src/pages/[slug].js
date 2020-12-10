@@ -59,12 +59,11 @@ const backVariants = {
 };
 
 export default function BlogTemplatePost({ content, next, prev, ...rest }) {
-  const route = useRouter();
   useEffect(() => {
     Prism.highlightAll();
   });
   //Due to a legacy bug which we must have '/' at the end to enable facebook comments loaded
-  const href = `https://www.kysumattien.com${route.asPath}/`.toLowerCase();
+  const href = `https://www.kysumattien.com/${rest.slug}/`.toLowerCase();
   return (
     <>
       <SEO
@@ -111,7 +110,6 @@ export default function BlogTemplatePost({ content, next, prev, ...rest }) {
                     ? 'standard'
                     : 'button_count'
                 }
-                showFaces
                 share
                 href={href}
               />

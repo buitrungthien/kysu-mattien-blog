@@ -19,9 +19,8 @@ import Prism from 'prismjs';
 import PrismJSX from 'prismjs/components/prism-jsx';
 
 const sprite = '/images/sprite.svg';
-const Layout = ({ children }) => {
-  const route = useRouter();
-  const href = `https://www.kysumattien.com${route.asPath}/`.toLowerCase();
+const Layout = ({ children, slug }) => {
+  const href = slug ? `https://www.kysumattien.com/${slug}/`.toLowerCase() : '';
 
   useEffect(() => {
     function windowPopup(url, width, height) {
@@ -47,7 +46,9 @@ const Layout = ({ children }) => {
     const facebookShareLink = document.querySelector('#facebook > a');
     facebookShareLink.setAttribute(
       'href',
-      `https://www.facebook.com/sharer/sharer.php?u=${href}`
+      href
+        ? `https://www.facebook.com/sharer/sharer.php?u=${href}`
+        : `https://www.facebook.com/sharer/sharer.php?u=kysumattien.com`
     );
     const shareLinkClickHandler = function(e) {
       e.preventDefault();
@@ -65,11 +66,13 @@ const Layout = ({ children }) => {
       <Header siteTitle='Kỹ sư "mặt tiền"' />
       <aside className={styles['social']}>
         <ul className={styles['social-links-wrap']}>
-          <li style={{ marginBottom: 20 }}>
-            <FacebookProvider appId="3364552500258287">
-              <Like showFaces layout="box_count" href={href} />
-            </FacebookProvider>
-          </li>
+          {href && (
+            <li style={{ marginBottom: 20 }}>
+              <FacebookProvider appId="3364552500258287">
+                <Like showFaces layout="box_count" href={href} />
+              </FacebookProvider>
+            </li>
+          )}
           <li
             className={cs(styles['social-link'], styles['facebook'])}
             id="facebook"
