@@ -7,6 +7,7 @@ import { AwesomeButton } from 'react-awesome-button';
 import NoTissue from '../../public/illustration/no-tissue.svg';
 import { motion } from 'framer-motion';
 import Author from '../components/Author';
+import SEO from '../components/SEO';
 
 const postVariants = {
   initial: { scale: 0.96, y: 30, opacity: 0 },
@@ -72,6 +73,9 @@ export default function IndexPage({ posts }) {
         </span> */}
       {/* <EmailRegisterForm /> */}
       {/* </div> */}
+      <SEO
+        title="Kỹ sư mặt tiền"
+      />
       <div className="main__content">
         <motion.div
           initial="initial"
