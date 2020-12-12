@@ -63,7 +63,7 @@ export default function BlogTemplatePost({ content, next, prev, ...rest }) {
     Prism.highlightAll();
   });
   //Due to a legacy bug which we must have '/' at the end to enable facebook comments loaded
-  const href = `https://www.kysumattien.com/${rest.slug}/`.toLowerCase();
+  const href = `https://kysumattien.com/${rest.slug}/`.toLowerCase();
   return (
     <>
       <SEO

@@ -20,7 +20,7 @@ import PrismJSX from 'prismjs/components/prism-jsx';
 
 const sprite = '/images/sprite.svg';
 const Layout = ({ children, slug }) => {
-  const href = slug ? `https://www.kysumattien.com/${slug}/`.toLowerCase() : '';
+  const href = slug ? `https://kysumattien.com/${slug}/`.toLowerCase() : '';
 
   useEffect(() => {
     function windowPopup(url, width, height) {
