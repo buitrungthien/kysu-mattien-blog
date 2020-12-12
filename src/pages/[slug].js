@@ -113,7 +113,7 @@ export default function BlogTemplatePost({ content, next, prev, ...rest }) {
                 share
                 href={href}
               />
-              <Comments width={'100%'} href={href} />
+              <Comments width={'100%'} href={href} target="_top" />
             </div>
             <div className="pre-next-navigator">
               {prev && (
