@@ -61,12 +61,14 @@ const Layout = ({ children, slug }) => {
     };
   }, [href]);
 
+  const errorLikeCountList = ['mot-so-loi-thuong-gap-khi-lam-voi-react-hook', 'things-i-wish-i-knew-as-a-fresher', 'miskates-make-memo-and-pure-component-useless', 'things-i-wish-i-knew-as-a-fresher-2', 'what-and-why-http2-part-1', 'what-and-why-http2-part-2', 'the-ultimate-guide-about-useMemo-and-useCallback', 'javascript-module-history', 'javascrip-promise-reject-vs-throw']
+
   return (
     <div className={styles['layout']}>
       <Header siteTitle='Kỹ sư "mặt tiền"' />
       <aside className={styles['social']}>
         <ul className={styles['social-links-wrap']}>
-          {href && (
+          {href && !errorLikeCountList.some(errLink => href.includes(errLink)) && (
             <li style={{ marginBottom: 20 }}>
               <FacebookProvider appId="3364552500258287">
                 <Like showFaces layout="box_count" href={href} />
