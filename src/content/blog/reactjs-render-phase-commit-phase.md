@@ -5,7 +5,7 @@ author: { name: 'Thiên Bùi' }
 tag: 'tech'
 featuredImgUrl: 'https://i.imgur.com/StutQBw.png?1'
 featuredImgAlt: 'internally implemented phases in ReactJS'
-description: 'Giới thiệu sơ lược về khái niệm "phase" trong ReactJS. Render phase, commit phase là gì? Ví dụ với getSnapshotBeforeUpdate'
+description: 'Giới thiệu sơ lược về khái niệm "phase" trong ReactJS. Render phase, commit phase là gì? Ví dụ với getSnapshotBeforeUpdate.'
 ---
 
 Hello các bạn đã rất lâu không gặp ^^. Hôm nay **kỹ sư mặt tiền** sẽ cùng các bạn tìm hiểu sơ lược về khái niệm "phase" trong ReactJS. Render phase là gì? Commit phase là gì? Điều gì xảy ra trong các phase này, cũng như chia sẻ một số kiến thức, "giác ngộ" mà mình thông suốt được xuyên suốt quá trình tìm hiểu, stack-overflow, google, ngày quên ngủ, đêm quên ăn của mình :))
