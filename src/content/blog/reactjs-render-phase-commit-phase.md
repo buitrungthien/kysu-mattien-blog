@@ -10,7 +10,7 @@ description: 'Giới thiệu sơ lược về khái niệm "phase" trong ReactJS
 
 Hello các bạn đã rất lâu không gặp ^^. Hôm nay **kỹ sư mặt tiền** sẽ cùng các bạn tìm hiểu sơ lược về khái niệm "phase" trong ReactJS. Render phase là gì? Commit phase là gì? Điều gì xảy ra trong các phase này, cũng như chia sẻ một số kiến thức, "giác ngộ" mà mình thông suốt được xuyên suốt quá trình tìm hiểu, stack-overflow, google, ngày quên ngủ, đêm quên ăn của mình :))
 
-Số là dạo gần đây công việc chính thức của mình tại công ty là làm về web chat. Trong qúa trình code tính năng, thường phải kết hợp các thao tác xử lý DOM thuần, kết hợp với code React để đạt được behavior như mong muốn.
+Số là dạo gần đây công việc chính thức của mình tại công ty là làm về web chat. Trong quá trình code tính năng, thường phải kết hợp các thao tác xử lý DOM thuần, kết hợp với code React để đạt được behavior như mong muốn.
 
 Xuyên suốt quá trình tìm hiểu, fix bug, mình đã rút ra được một số kiến thức, momg muốn chia sẻ đến quý bạn đọc và đặc biệt đến với các bạn dev mới, chưa có kinh nghiệm nhiều với React.
 
@@ -179,7 +179,7 @@ Có vẻ work đúng không nào!?
 
 Nhưng cách này không được khuyến khích. Dùng `getSnapshotBeforeUpdate` phía trên vẫn là cách đúng nhất và được khuyên dùng nha các bạn.
 
-Lý do là vì ở cách này, chúng ta đã thực make side effects (giống như query DOM) ở Render phase (componentWillReceiveProps diễn ra ở Render phase).
+Lý do là vì ở cách này, chúng ta đã make side effects (giống như query DOM) ở Render phase (componentWillReceiveProps diễn ra ở Render phase).
 
 React document cũng có cảnh báo:
 
@@ -187,13 +187,13 @@ React document cũng có cảnh báo:
 
 Bạn hiểu ý nghĩa câu trên không? Thú thực mình đã phải đọc đi đọc lại cả chục lần và may mắn mới hiểu được đại ý của câu.
 
-Đại ý câu trên nói rằng, việc đọc giá trị DOM nên được đặt trong `getSnapshotBeforeUpdate` (important) vì nếu đặt trong các method ở Render phase (như cái componentWillReceiveProps như trên) thì không phải là cách an toàn, vì có thể sẽ có "delays" giữa 2 phase này.
+Đại ý câu trên nói rằng, việc đọc giá trị DOM nên được đặt trong `getSnapshotBeforeUpdate` (important) vì nếu đặt trong các method ở Render phase (như cái `componentWillReceiveProps` như trên) thì không phải là cách an toàn, vì có thể sẽ có "delays" giữa 2 phase Render và Commit này.
 
-Hmm, delay là sao nhỉ? Mà có delay thì sao, tui thấy nó work mà? - Bạn tự hỏi.
+"Hmm, delay là sao nhỉ? Mà có delay thì sao, tui thấy nó work mà?" - Bạn tự hỏi.
 
-Nhớ lại đặc tính các methods ở Render phase có thể bị **pause**, **resume**, **abort**, hoặc thậm chí chạy nhiều lần trước khi qua được phase commit. **Tức là khoảng thời gian từ lúc bạn đọc và ghi nhớ giá trị DOM (`scrollHeight` của `list ngắn`) cho tới lúc thực thi code manipulate DOM ở `componentDidUpdate` sẽ bị dài ra, bị delay** hơn **so với việc đọc giá trị DOM ở pre-commit phase rồi ngay sau đó, ở commit phase chúng ta sử dụng nó để tính toán và chagne realDOM**.
+Nhớ lại đặc tính các methods ở Render phase có thể bị **pause**, **resume**, **abort**, hoặc thậm chí chạy nhiều lần trước khi qua được phase commit. **Tức là khoảng thời gian từ lúc bạn đọc và ghi nhớ giá trị DOM (`scrollHeight` của `list ngắn`) cho tới lúc thực thi code manipulate DOM ở `componentDidUpdate`, thời gian sẽ bị dài ra, bị delay** hơn **so với việc đọc giá trị DOM ở pre-commit phase rồi ngay sau đó, ở commit phase chúng ta sử dụng nó để tính toán và chagne realDOM**.
 
-Hơn nữa, rủi trong quá trình **delay** đó, DOM node mà ta vừa đọc có sự thay đổi/manipulate (ví dụ xay ra rất nhanh) thì vô tình giá trị mà ta đọc được "sớm quá" (ở Render phase) sẽ không còn đúng nữa. Việc đọc giá trị DOM đó ở pre-commit phase là an toàn và đúng đắn nhất.
+Hơn nữa, rủi trong quá trình **delay** đó, DOM node mà ta vừa đọc có sự thay đổi/manipulate (ví dụ xảy ra rất nhanh) thì vô tình giá trị mà ta đọc được "sớm quá" (ở Render phase) sẽ không còn đúng nữa. Việc đọc giá trị DOM đó ở pre-commit phase là an toàn và đúng đắn nhất.
 
 ## 4. Kết luận
 
