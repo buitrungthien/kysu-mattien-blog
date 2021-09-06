@@ -84,7 +84,9 @@ useEffect(() => {
 
 Để giải quyết cái warning trên, chúng ta lợi dụng đặc tính **closure** của javascript và **cleanup function** của `useEffect` React hook. Cụ thể, ban đầu ở `// 1`, chúng ta khởi tạo một "flag" là biến `cancel = false`. Biến cancel này thể hiện rằng chúng ta có còn muốn dùng data trả về từ api để update state hay không? Nếu `cancel = true`, tức là effect này đã được "huỷ bỏ" rồi, tôi không cần set state nữa.
 
-Khi component bất thình lình bị unmounted, cleanup function trong useEffect `// 2` sẽ được chạy và set `cancel = true`. Sau đó, nhờ vào đặc tính của closure, async promise sau khi chạy xong vẫn có thể tham chiếu đến giá trị `cancel`, lúc này nhận thấy "component đã bị cancel" nên `return`, và không thực hiện set state nữa.
+Như chúng ta đã biết, returned function trong một `useEffect` tạm được gọi là cleanup function, hàm này sẽ được chạy trước mỗi lần next effect được chạy, và nếu được dùng với list dependencies rỗng `[]` như trên thì cũng tương ứng với việc hàm này được thực thi ở `componentWillUnmount`.
+
+Khi component bất thình lình bị unmounted, cleanup function trong useEffect `// 2` sẽ được chạy và set `cancel = true`. Sau đó, nhờ vào đặc tính của closure, async promise sau khi chạy xong vẫn có thể tham chiếu đến giá trị `cancel`, lúc này nhận thấy "cờ cancel = true, component đã bị unmount" nên `return`, và không thực hiện set state nữa.
 
 Bùm! Warning biến mất.
 
