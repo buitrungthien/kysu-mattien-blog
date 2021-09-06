@@ -189,5 +189,5 @@ Chúc các bạn học tập, làm việc tốt. Mến chào các bạn!
 ## 4. Nguồn và bài viết hay liên quan:
 - [How JavaScript works: memory management + how to handle 4 common memory leaks](https://blog.sessionstack.com/how-javascript-works-memory-management-how-to-handle-4-common-memory-leaks-3f28b94cfbec). Tác giả: **Jonathan Experton**
 - [React State Update Memory Leak](https://blog.devgenius.io/react-state-update-memory-leak-8e84a45e1695). Tác giả: **Ben Aron Davis**
-- [Remove the warning for setState on unmounted components #22114](https://github.com/facebook/react/pull/22114). Tác giả: **Jonathan Experton**
-- [https://dev.to/jexperton/how-to-fix-the-react-memory-leak-warning-d4i](https://dev.to/jexperton/how-to-fix-the-react-memory-leak-warning-d4i). Tác giả: **Dan Abramov**
+- [Remove the warning for setState on unmounted components #22114](https://github.com/facebook/react/pull/22114). Tác giả: **Dan Abramov**
+- [https://dev.to/jexperton/how-to-fix-the-react-memory-leak-warning-d4i](https://dev.to/jexperton/how-to-fix-the-react-memory-leak-warning-d4i). Tác giả: **Jonathan Experton**
