@@ -197,7 +197,7 @@ export default function IndexPage({ posts }) {
             </div>
             <p className="brief-introduction">
               Chào các bạn mình là Thiên. Hiện tại mình đang là front-end
-              developer làm việc tại sendo.vn.
+              developer làm việc tại LeapXpert.
             </p>
             <p className="brief-introduction mobile-no-display">
               Thuở mới vào nghề, mình đã trải qua rất nhiều khó khăn, sai lầm,
